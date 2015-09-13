@@ -26,7 +26,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Auth
 gem 'devise'
 
+# Tzinfo-data needed to start server on windows
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+
+# Coffee script gem because js wouldn't work on windows 
+gem 'coffee-script-source', '1.8.0'
 
 # Semantic UI Gem
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
