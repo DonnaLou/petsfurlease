@@ -1,0 +1,104 @@
+<div class="ui container">
+  <div class="ui vertical stripe segment">
+    <div class="ui two column grid">
+      <div class="four wide column">
+        <div class="ui fluid image">
+          <%= image_tag "Dogs/penny.jpeg" ,class:"ui image" %>
+
+          <div class="ui red ribbon label">
+            <i class="paw icon"></i>Help Wanted
+          </div>
+        </div>
+	      <h3><%= @pet.name %></h3>
+	      
+	      <p><i class="marker icon"></i>San Diego, CA</p>
+	      <p><i class="thumbs outline up icon"></i><a href="#UserReviews">Read Reviews</a><p>
+	      <p><i class="mail icon"></i><a href="#" onclick="composeMsg();">Send a Message</a><p>
+      </div>
+
+      <div class="twelve wide column">
+        <div class="ui horizontal segments">
+          <div class="ui segment">
+            <h4>Help Wanted:</h4>
+            <h4 style="color:red;">Sep 28, 2015 - Oct 15, 2015</h4>
+          </div>
+          <div class="ui segment">
+            <a href="userProfile.html" class="ui image">
+              <img class="ui circular tiny middle aligned image" 
+              src="..\app\assets\images\Portraits\kevinDuensing.jpg">
+              <span> Contact <strong>Kevin Duensing</strong> to help.</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="ui segment">
+            <h4>Description:</h4>
+            <%= @pet.details %>
+        </div>
+
+        <div class="ui segment">
+          <h4>Summary:</h4>
+          <div class="text">
+            Gender: Female<br/>
+            Age: <%= @pet.age%> Years old <br/>
+            Weight: 25-50 lbs<br/>
+            Color: Tan/White<br/>
+            Breed: <%= @pet.breed%>
+          </div>
+        </div>
+   
+        <div class="ui segment">
+          <h4>User Review: <a class="hidden" name="UserReviews"></a></h4>
+          <div class="ui comments">
+            <div class="comment">
+              <a class="avatar" style="height:2.5em;">
+                <img src="..\app\assets\images\Portraits\pewpew.png">
+              </a>
+              <div class="content">
+                <a class="author">Donna Lou</a>
+                <div class="ui star rating" data-rating="4"></div>
+                <div class="metadata">
+                  <div class="date">2 days ago</div>
+                </div>
+                <div class="text">
+                  Kevin helped me watch my bunny Bunbun for 2 weeks. He took really great care of her. He would send me pictures every few days and she looked like she had a great time with him.
+                </div>
+              </div>
+            </div>
+            <div class="comment">
+              <a class="avatar" style="height:2.5em;">
+                <img src="..\app\assets\images\Portraits\pewpew.png">
+              </a>
+              <div class="content">
+                <a class="author">Donna Lou</a>
+                <div class="ui star rating" data-rating="4"></div>
+                <div class="metadata">
+                  <div class="date">2 days ago</div>
+                </div>
+                <div class="text">
+                  Kevin helped me watch my bunny Bunbun for 2 weeks. He took really great care of her. He would send me pictures every few days and she looked like she had a great time with him.
+                </div>
+              </div>
+            </div>
+
+            <div class="comment">
+              <a class="avatar" style="height:2.5em;">
+                <img src="..\app\assets\images\Portraits\pewpew.png">
+              </a>
+              <div class="content">
+                <a class="author">Donna Lou</a>
+                <div class="ui star rating" data-rating="4"></div>
+                <div class="metadata">
+                  <div class="date">2 days ago</div>
+                </div>
+                <div class="text">
+                  Kevin helped me watch my bunny Bunbun for 2 weeks. He took really great care of her. He would send me pictures every few days and she looked like she had a great time with him.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
