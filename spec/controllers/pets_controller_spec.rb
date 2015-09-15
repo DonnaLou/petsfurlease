@@ -27,6 +27,10 @@ RSpec.describe PetsController, type: :controller do
       get :show, id: roger.id
 
       expect(assigns(:pet)).to eq(roger)
+
+      # Fine, it's assigned, but did our params make it through?
+      # Let's choose one at random:
+      expect(assigns(:pet).age).to eq(roger.age)
     end
   end
 end
