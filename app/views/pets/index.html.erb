@@ -5,18 +5,7 @@
       <a class="item" data-tab="second">Find Sitters</a>
     </div>
 
-    <table>
-     
-      <% @pets.each do |pet| %>
-        <tr>
-          <td><%= pet.name %></td>
-          <td><%= pet.breed %></td>
-          <td><%= pet.details %></td>
-        </tr>
-      <% end %>
-    </table>
-
-    <!-- <div class="ui bottom attached tab segment active" data-tab="first">
+    <div class="ui bottom attached tab segment active" data-tab="first">
        <div class="ui action input">
         <input type="text" placeholder="Zip code...">
         <select class="ui compact selection dropdown" style="height:auto !important;">
@@ -37,84 +26,34 @@
     </div>
 
     <div class="ui divided items">
-      <div class="item">
-        <div class="ui small image">
-          <img src="..\app\assets\images\Dogs\annie.jpg">
-        </div>
-        <div class="top aligned content">
-          <div class="header">
-            Annie
+
+      <% @pets.each do |pet| %>
+        <div class="item">
+          <div class="ui small image">
+            <img src="..\app\assets\images\Dogs\annie.jpg">
           </div>
-          <div class="meta">
-            <span><i class="home icon"></i>San Diego, CA</span>
-          </div>
-          <div class="description">
-            <span>Gender: Female</span><br/>
-            <span>Weight: Under 25 lbs</span><br/>
-            <span>Age: 1-3 Years</span>
-          </div>
-          <div class="extra">
-            <a href="petProfile.html" class="ui right floated button">
-              View Profile
-            </a>
-            <div class="ui right floated button">
-              Message owner
+          <div class="top aligned content">
+            <div class="header"><%= pet.name %></div>
+            <div class="meta">
+              <span><i class="home icon"></i>San Diego, CA</span>
+            </div>
+            <div class="description">
+              <span>Gender: TODO</span><br/>
+              <span>Breed: <%= pet.breed %></span><br/>
+              <span>Details: <%= pet.details %></span>
+            </div>
+            <div class="extra">
+              <a href="petProfile.html" class="ui right floated button">
+                View Profile
+              </a>
+              <div class="ui right floated button">
+                Message owner
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="item">
-        <div class="ui small image">
-          <img src="..\app\assets\images\Dogs\sidinstagramcute.jpeg">
-        </div>
-        <div class="top aligned content">
-          <div class="header">
-            Sid
-          </div>
-          <div class="meta">
-            <span><i class="home icon"></i>San Diego, CA</span>
-          </div>
-          <div class="description">
-            <span>Gender: Male</span><br/>
-            <span>Weight: Under 25 lbs</span><br/>
-            <span>Age: 1-3 Years</span>
-          </div>
-          <div class="extra">
-            <a href="petProfile.html" class="ui right floated button">
-              View Profile
-            </a>
-            <div class="ui right floated button">
-              Message owner
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="ui small image">
-          <img src="..\app\assets\images\Dogs\penny.jpeg">
-        </div>
-        <div class="top aligned content">
-          <div class="header">
-            Penny
-          </div>
-          <div class="meta">
-            <span><i class="home icon"></i>San Diego, CA</span>
-          </div>
-          <div class="description">
-            <span>Gender: Female</span><br/>
-            <span>Weight: 25-50 lbs</span><br/>
-            <span>Age: 4-6 Years</span>
-          </div>
-          <div class="extra">
-            <a href="petProfile.html" class="ui right floated button">
-              View Profile
-            </a>
-            <div class="ui right floated button">
-              Message owner
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
+      <% end %>
+      
+    </div>
   </div>
 </div>
