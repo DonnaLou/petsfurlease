@@ -33,4 +33,20 @@ RSpec.describe PetsController, type: :controller do
       expect(assigns(:pet).age).to eq(roger.age)
     end
   end
+
+  describe "DELETE pet" do
+    it "deletes the @pet instance" do
+
+      # Arrange
+      roger = make_roger
+
+      # Act/Assert
+
+      expect {
+        delete :destroy, id: roger
+      }.to change(Pet,  :count).by(-1)
+    end
+
+  end
+
 end

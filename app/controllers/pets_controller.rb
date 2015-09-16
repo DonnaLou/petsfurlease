@@ -28,8 +28,11 @@ class PetsController < ApplicationController
 	def update
 	end
 
-	def delete
+	def destroy
+		@pet = Pet.find(params[:id])
 		@pet.destroy
+
+		render :index
 	end
 
 	private
