@@ -6,6 +6,7 @@ ready =->
 	$('.ui.checkbox').checkbox()
 
 $(document).ready(ready)
+$(document).on('page:load', ready)
 
 
 
