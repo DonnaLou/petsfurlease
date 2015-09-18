@@ -1,0 +1,204 @@
+<%= form_for :pet, html: {class: "ui form"} , url: pets_path do |f|%>
+    <div class="ui two column stackable grid">
+      <div class="column">
+
+        <div class="field">
+          <label>Pet Name</label>
+          <div class="two fields">
+            <div class="field">
+              <%= f.text_field :name %>
+            </div>
+          </div>
+        </div>
+
+        <div class="grouped fields">
+          <label>Animal Type</label>
+          <div class="ui equal width grid">
+            <div class="column">
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:species, "Dog") %>
+                  <%= label_tag(:species, "Dog") %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:species, "Cat") %>
+                  <%= label_tag(:species, "Cat") %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:species, "Rabbit") %>
+                  <%= label_tag(:species, "Rabbit") %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:species, "Small Rodent") %>
+                  <%= label_tag(:species, "Small Rodent (hamster, guinea pig)") %>
+                </div>
+              </div>
+            </div>
+
+            <div class="column">
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:species, "Bird") %>
+                  <%= label_tag(:species, "Bird") %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:species, "Reptile") %>
+                  <%= label_tag(:species, "Reptile") %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:species, "Other") %>
+                  <%= label_tag(:species, "Other") %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grouped fields">
+          <label>Gender</label>
+          <div class="ui equal width grid">
+            <div class="column">
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:gender, "Female") %>
+                  <%= label_tag(:gender, "Female") %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:gender, "Male") %>
+                  <%= label_tag(:gender, "Male") %>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:gender, "Other") %>
+                  <%= label_tag(:gender, "Other") %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grouped fields">
+          <label>Weight</label>
+           <div class="ui equal width grid">
+            <div class="column">
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:weight, "Under 25 lbs") %>
+                  <%= label_tag(:weight, "Under 25 lbs") %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:weight, "25-50 lbs") %>
+                  <%= label_tag(:weight, "25-50 lbs") %>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:weight, "50-75 lbs") %>
+                  <%= label_tag(:weight, "50-75 lbs") %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:weight, "75+ lbs") %>
+                  <%= label_tag(:weight, "75+ lbs") %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grouped fields">
+          <label>Age</label>
+          <div class="ui equal width grid">
+            <div class="column">
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:age, "Young") %>
+                  <%= label_tag(:age, "Young") %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:age, "Adult") %>
+                  <%= label_tag(:age, "Adult") %>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:age, "Senior") %>
+                  <%= label_tag(:age, "Senior") %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <%= radio_button_tag(:age, "Unknown") %>
+                  <%= label_tag(:age, "Unknown") %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+         <div class="field">
+          <label>Breed (optional)</label>
+          <div class="two fields">
+            <div class="field">
+              <%= f.text_field :breed, 
+                placeholder:"Ex: Holland Lop Rabbit" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Description</label>
+          <%= f.text_area :details, 
+                placeholder:"Please write a short description about your pet. If you are seeking pet sitters, please inform if your has special needs." %>
+        </div>
+
+        <div class="field">
+          <label>Profile Picture</label>
+          <div class="ui action input">
+            <input type="text" placeholder="Upload Image File (jpg, png) - Max size 2MB ">
+            <button class="ui icon button">
+              <i class="file image outline icon"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Are you looking for a pet sitter?</label>
+          <div class="ui toggle checkbox">
+            <input type="checkbox" tabindex="0" class="hidden">
+            <label>Yes, I am. (TODO: Add DatePicker under the toggle when select yes.)</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="ui grey button right floated" type="submit">Back</button>
+
+    <button class="ui teal button right floated" type="submit">Save</button>
+  <% end %>

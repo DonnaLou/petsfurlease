@@ -43,9 +43,7 @@
               <span>Details: <%= pet.details %></span>
             </div>
             <div class="extra">
-              <a href="petProfile.html" class="ui right floated button">
-                View Profile
-              </a>
+              <%= link_to "View Profile", pet_path(pet), class:"ui right floated button" %>
               <div class="ui right floated button">
                 Message owner
               </div>
