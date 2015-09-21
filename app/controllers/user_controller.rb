@@ -1,10 +1,10 @@
 class UserController < ApplicationController
 
 	def index
-		@pets = Pet.all
+		@users = User.all
 	end
 
 	def show
-		@pet = Pet.find(params[:id])
+		@user = user.find(params[:id])
 	end
 end
