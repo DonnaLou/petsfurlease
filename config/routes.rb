@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'profile/index'
+
+  get 'profile/show'
+
+  get 'profile/create'
+
+  get 'profile/new'
+
+  get 'profile/edit'
+
   get 'faq/index'
 
   get 'home/index'
