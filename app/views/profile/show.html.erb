@@ -1,2 +1,110 @@
-<h1>Profile#show</h1>
-<p>Find me in app/views/profile/show.html.erb</p>
+ <div class="ui container">
+  <div class="ui vertical stripe segment">
+    <div class="ui two column grid">
+      <div class="four wide column">
+          <img class="ui bordered rounded image" src="..\app\assets\images\Portraits\kevinDuensing.jpg">
+          <h3><%= @profile.firstName %> <%= @profile.lastName %></h3>
+          <p><i class="marker icon"></i><%= @profile.city %>, <%= @profile.state %></p>
+          <p><i class="paw icon"></i>Volunteer Pet Sitter<p>
+          <p><i class="thumbs outline up icon"></i><a href="#UserReviews">Read Reviews</a><p>
+          <p><i class="mail icon"></i><a href="#" onclick="composeMsg();">Send a Message</a><p>
+      </div>
+      <div class="twelve wide column">
+        <div class="ui segment">
+          <h4>Experience with animals:</h3>
+          <p><%= @profile.description %></p>
+        </div>
+
+        <div class="ui segment">
+          <h4>Pet Profiles:</h4>
+          <div class="ui items">
+            <div class="item">
+              <a class="ui small image">
+                <img src="..\app\assets\images\Dogs\sidinstagramcute.jpeg">
+              </a>
+              <div class="content">
+                <a class="header">Sid</a>
+                <div class="description">
+                  <p>Many people also have their own barometers for what makes a cute dog.</p>
+                </div>
+              </div>
+            </div>
+             <div class="item">
+              <a class="ui small image">
+                <img src="..\app\assets\images\Dogs\penny.jpeg">
+              </a>
+              <div class="content">
+                <a class="header">Penny</a>
+                <div class="description">
+                  <p>A dog is not considered a good dog because he is a good barker. A man is not considered a good man because he is a good talker.</p>
+                </div>
+              </div>
+            </div>
+             <div class="item">
+              <a class="ui small image">
+                <img src="..\app\assets\images\Dogs\leonporthole.jpeg">
+              </a>
+              <div class="content">
+                <a class="header">Leon</a>
+                <div class="description">
+                  <p>If you pick up a starving dog and make him prosperous, he will not bite you; that is the principal difference between a dog and a man.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui segment">
+          <h4>User Review: <a class="hidden" name="UserReviews"></a></h4>
+          <div class="ui comments">
+            <div class="comment">
+              <a class="avatar" style="height:2.5em;">
+                <img src="..\app\assets\images\Portraits\pewpew.png">
+              </a>
+              <div class="content">
+                <a class="author">Donna Lou</a>
+                <div class="ui star rating" data-rating="4"></div>
+                <div class="metadata">
+                  <div class="date">2 days ago</div>
+                </div>
+                <div class="text">
+                  Kevin helped me watch my bunny Bunbun for 2 weeks. He took really great care of her. He would send me pictures every few days and she looked like she had a great time with him.
+                </div>
+              </div>
+            </div>
+             <div class="comment">
+              <a class="avatar" style="height:2.5em;">
+                <img src="..\app\assets\images\Portraits\pewpew.png">
+              </a>
+              <div class="content">
+                <a class="author">Donna Lou</a>
+                <div class="ui star rating" data-rating="4"></div>
+                <div class="metadata">
+                  <div class="date">2 days ago</div>
+                </div>
+                <div class="text">
+                  Kevin helped me watch my bunny Bunbun for 2 weeks. He took really great care of her. He would send me pictures every few days and she looked like she had a great time with him.
+                </div>
+              </div>
+            </div>
+             <div class="comment">
+              <a class="avatar" style="height:2.5em;">
+                <img src="..\app\assets\images\Portraits\pewpew.png">
+              </a>
+              <div class="content">
+                <a class="author">Donna Lou</a>
+                <div class="ui star rating" data-rating="4"></div>
+                <div class="metadata">
+                  <div class="date">2 days ago</div>
+                </div>
+                <div class="text">
+                  Kevin helped me watch my bunny Bunbun for 2 weeks. He took really great care of her. He would send me pictures every few days and she looked like she had a great time with him.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
