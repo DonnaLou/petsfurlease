@@ -22,6 +22,10 @@ h1, h2, h3, h4{
   	box-shadow: none !important;
   }
 
+  .ui.message{
+    padding: 0em !important;
+  }
+
   .ui.vertical.stripe {
     padding: 4em 0em;
   }
