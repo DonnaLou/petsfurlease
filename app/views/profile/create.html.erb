@@ -1,2 +1,22 @@
-<h1>Profile#create</h1>
-<p>Find me in app/views/profile/create.html.erb</p>
+ <div class="ui container">
+  <div class="ui vertical stripe segment">
+    <div class="ui two column grid">
+      <div class="four wide column">
+          <%= image_tag "wireframeImage.png", class:"ui bordered rounded image" %>
+          <h3><%= @profile.firstName %> <%= @profile.lastName %></h3>
+          <p><i class="marker icon"></i><%= @profile.city %>, <%= @profile.state %></p>
+          <p><i class="paw icon"></i>Volunteer Pet Sitter<p>
+      </div>
+      <div class="twelve wide column">
+        <div class="ui segment">
+          <h4>Experience with animals:</h3>
+          <p><%= @profile.description %></p>
+        </div>
+
+        <div class="ui segment">
+          <h4>Add Pet Profiles:</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
