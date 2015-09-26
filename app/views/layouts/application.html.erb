@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Pets Fur Lease</title>
+  <head>
+    <title>Pets Fur Lease</title>
 
-  <%= stylesheet_link_tag    'application',
-  	"http://fonts.googleapis.com/css?family=Original+Surfer",
-    "semantic-ui",
-  	media: 'all', 
-  	'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application',
+    	"http://fonts.googleapis.com/css?family=Original+Surfer",
+      "semantic-ui",
+    	media: 'all', 
+    	'data-turbolinks-track' => true %>
 
-  <%= javascript_include_tag 'application', 
-  	"http://code.jquery.com/jquery-1.11.1.min.js", 
-  	"https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.1/masonry.pkgd.js", 
-    "semantic-ui",
-  	'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 
+    	"http://code.jquery.com/jquery-1.11.1.min.js", 
+    	"https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.1/masonry.pkgd.js", 
+      "semantic-ui",
+    	'data-turbolinks-track' => true %>
 
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
   	<div class="ui top fixed menu">
-	  <div class="ui container">
-      <%= link_to "Pets fur Lease", home_index_path,  class: "item" %>
-	    <a class="item">Look for help</a>
-	    <a class="item">Be a sitter</a>
-      <%= link_to "FAQ", faq_index_path,  class: "item" %>
-	    <a class="item">Contact</a>
+  	  <div class="ui container">
+        <%= link_to "Pets fur Lease", home_index_path,  class: "item" %>
+  	    <a class="item">Look for help</a>
+  	    <a class="item">Be a sitter</a>
+        <%= link_to "FAQ", faq_index_path,  class: "item" %>
+  	    <a class="item">Contact</a>
 
-	    <div class="right menu ">
-        <%= link_to "Sign In", new_user_session_path,  class: "item" %>
-        <%= link_to "Sign Up", new_user_registration_path,  class: "item" %>
-	    </div>
-	  </div>
-	</div>
+  	    <div class="right menu ">
 
-	<%= yield %>
+          <% if !user_signed_in? %>
+            <%= link_to "Sign In", new_user_session_path,  class: "item" %>
+            <%= link_to "Sign Up", new_user_registration_path,  class: "item" %>
+          <% else %>
+            <div class="item">Welcome <%= current_user.email %></div>
+            <%= link_to "Sign Out", destroy_user_session_path,  class: "item" %>
+          <% end %>
 
-	<div class="ui inverted vertical footer segment">
+  	    </div>
+  	  </div>
+  	</div>
+
+  	<%= yield %>
+
+  	<div class="ui inverted vertical footer segment">
       <div class="ui container">
         <div class="ui stackable inverted divided equal height stackable grid">
           <div class="three wide column">
@@ -79,5 +86,5 @@
       </div>
     </div>
 
-</body>
+  </body>
 </html>

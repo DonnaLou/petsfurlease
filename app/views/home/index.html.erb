@@ -18,7 +18,7 @@
 
             </div>
             <div class="eight wide center aligned column">
-              <%= image_tag "bunbungrey.jpg" ,class:"ui image" %>
+              <%= image_tag "bunbungrey.jpg", class:"ui image" %>
               <p><small>Inspiration mascot Bunbun (now known as Brianna)</small></p>
             </div>
           </div>
@@ -29,13 +29,24 @@
         <div class="ui middle aligned stackable grid container">
              <div class="ui fluid padded container">
                 <div class="ui three steps">
-                  <a href="userProfile.html" class="step" >
-                    <i class="user icon"></i>
-                    <div class="content">
-                      <div class="title">Create a profile </div>
-                      <div class="description">Tell us about yourself and your pets.</div>
-                    </div>
-                  </a>
+                  <% if user_signed_in? %>
+                    <%= link_to  profile_create_path, class:"step" do %>
+                      <i class="user icon"></i>
+                      <div class="content">
+                        <div class="title">Create a profile </div>
+                        <div class="description">Tell us about yourself and your pets.</div>
+                      </div>
+                    <% end %>
+                  <% else %>
+                    <%= link_to "Log in", new_session_path(resource_name), class:"step" do %>
+                      <i class="user icon"></i>
+                      <div class="content">
+                        <div class="title">Create a profile </div>
+                        <div class="description">Tell us about yourself and your pets.</div>
+                      </div>
+                    <% end %>
+                  <% end %>
+
                   <a href="search.html" class="step">
                     <i class="mail icon"></i>
                     <div class="content">
