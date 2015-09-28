@@ -22,6 +22,7 @@ class ProfileController < ApplicationController
   end
 
   def new
+    @profile = Profile.new
   end
 
   def edit
@@ -29,6 +30,6 @@ class ProfileController < ApplicationController
 
   private
     def profile_params
-      params.require(:profile).permit(:firstName, :lastName, :description, :city, :age, :state)
+      params.require(:profile).permit(:firstName, :lastName, :description, :city, :state)
     end
 end

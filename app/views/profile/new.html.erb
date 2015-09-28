@@ -1,2 +1,16 @@
-<h1>Profile#new</h1>
-<p>Find me in app/views/profile/new.html.erb</p>
+ <div class="ui container">
+  <div class="ui vertical stripe segment">
+    <h2 class="ui teal header">
+	    <div class="content">
+	      Create a User Profile
+	    </div>
+	  </h2>
+
+	  <%= form_for @profile, url: profile_new_path(@profile), html: { method: :put, class:"ui form" } do |f|%>
+
+ 			<%= render "profileForm", f: f %>
+
+		<% end %>
+
+  </div>
+</div>
