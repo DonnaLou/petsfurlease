@@ -29,8 +29,9 @@
         <div class="ui middle aligned stackable grid container">
              <div class="ui fluid padded container">
                 <div class="ui three steps">
-                  <% if user_signed_in? %>
-                    <%= link_to  profile_create_path, class:"step" do %>
+
+                  <% if !user_signed_in? %>
+                    <%= link_to new_user_session_path, class:"step" do %>
                       <i class="user icon"></i>
                       <div class="content">
                         <div class="title">Create a profile </div>
@@ -38,7 +39,7 @@
                       </div>
                     <% end %>
                   <% else %>
-                    <%= link_to "Log in", new_session_path(resource_name), class:"step" do %>
+                    <%= link_to new_profile_path, class:"step" do %>
                       <i class="user icon"></i>
                       <div class="content">
                         <div class="title">Create a profile </div>
