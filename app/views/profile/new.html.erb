@@ -6,7 +6,7 @@
 	    </div>
 	  </h2>
 
-	  <%= form_for @profile, url: new_profile_path, html: { method: :put, class:"ui form" } do |f|%>
+	  <%= form_for @profile, url: profile_index_path, html: { method: :post, class:"ui form" } do |f|%>
 
  			<%= render "profileForm", f: f %>
 

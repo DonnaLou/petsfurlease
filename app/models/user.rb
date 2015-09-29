@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :pets
+  has_one :profile
   
   def sitter?()
     self.is_sitter

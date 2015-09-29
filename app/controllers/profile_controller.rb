@@ -3,12 +3,7 @@ class ProfileController < ApplicationController
   end
 
   def show
-    @profile = Profile.new
-    @profile.firstName = "Kevin"
-    @profile.lastName = "Duensing"
-    @profile.description = "description"
-    @profile.city = "testCity"
-    @profile.state = "testState"
+    @profile = Profile.find(params[:id])
   end
 
   def create
@@ -26,10 +21,21 @@ class ProfileController < ApplicationController
   end
 
   def edit
+    @profile = Profile.find(params[:id])
+  end
+
+  def update
+    @profile = Profile.find(params[:id])
+ 
+    if @profile.update(profile_params)
+      redirect_to @profile
+    else
+      render 'edit'
+    end
   end
 
   private
     def profile_params
-      params.require(:profile).permit(:firstName, :lastName, :description, :city, :state)
+      params.require(:profile).permit(:firstName, :lastName, :description, :city, :state, :zip)
     end
 end
