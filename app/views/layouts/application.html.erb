@@ -25,8 +25,8 @@
   	<div class="ui top fixed menu">
   	  <div class="ui container">
         <%= link_to "Pets fur Lease", home_index_path,  class: "item" %>
-  	    <a class="item">Look for help</a>
-  	    <a class="item">Be a sitter</a>
+        <%= link_to "Look for help", pets_path,  class: "item" %>
+        <%= link_to "Be a sitter", pets_path,  class: "item" %>
         <%= link_to "FAQ", faq_index_path,  class: "item" %>
   	    <a class="item">Contact</a>
 
@@ -36,8 +36,21 @@
             <%= link_to "Sign In", new_user_session_path,  class: "item" %>
             <%= link_to "Sign Up", new_user_registration_path,  class: "item" %>
           <% else %>
-            <div class="item">Welcome <%= current_user.email %></div>
+
+            <div class="ui simple dropdown item">
+               Welcome <%= current_user.email %> <i class="dropdown icon"></i>
+              <div class="menu">
+                <% if Profile.exists?(user_id: current_user.id) != nil %>
+                  <%= link_to "Edit your Profile", edit_profile_path(Profile.find_by(user_id: current_user.id).id), class: "item" %>
+                <% else %>
+                  <%= link_to "Create new Profile", new_profile_path, class: "item" %>
+                <% end %>
+                <a class="item">Manage Pet Profiles</a>
+                <a class="item">Account settings</a>
+              </div>
+            </div>
             <%= link_to "Sign Out", destroy_user_session_path,  class: "item" %>
+
           <% end %>
 
   	    </div>
