@@ -1,5 +1,11 @@
 class ProfileController < ApplicationController
+	before_action :authenticate_user!
+
   def index
+  end
+
+  def pets
+	  @pets = current_user.pets
   end
 
   def show
