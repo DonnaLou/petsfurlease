@@ -40,8 +40,8 @@
             <div class="ui simple dropdown item">
                Welcome <%= current_user.email %> <i class="dropdown icon"></i>
               <div class="menu">
-                <% if Profile.exists?(user_id: current_user.id) != nil %>
-                  <%= link_to "Edit your Profile", edit_profile_path(Profile.find_by(user_id: current_user.id).id), class: "item" %>
+                <% if not current_user.profile.nil? %>
+                  <%= link_to "Edit your Profile", edit_profile_path(current_user.profile.id), class: "item" %>
                 <% else %>
                   <%= link_to "Create new Profile", new_profile_path, class: "item" %>
                 <% end %>
@@ -49,7 +49,7 @@
                 <a class="item">Account settings</a>
               </div>
             </div>
-            <%= link_to "Sign Out", destroy_user_session_path,  class: "item" %>
+            <%= link_to "Sign Out", destroy_user_session_path, class: "item" %>
 
           <% end %>
 
