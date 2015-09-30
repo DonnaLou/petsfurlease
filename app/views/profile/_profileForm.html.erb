@@ -10,6 +10,7 @@
           <div class="field">
             <%= f.text_field :lastName, placeholder:"Last" %>
           </div>
+          <%= f.hidden_field :user_id, value: current_user.id %>
         </div>
       </div>
 

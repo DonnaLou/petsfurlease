@@ -1,9 +1,13 @@
 class ProfileController < ApplicationController
-  def index
-  end
+
+	before_action :authenticate_user!
 
   def show
     @profile = Profile.find(params[:id])
+  end
+
+  def new
+    @profile = Profile.new
   end
 
   def create
@@ -16,10 +20,6 @@ class ProfileController < ApplicationController
     end
   end
 
-  def new
-    @profile = Profile.new
-  end
-
   def edit
     @profile = Profile.find(params[:id])
   end
@@ -27,7 +27,7 @@ class ProfileController < ApplicationController
   def update
     @profile = Profile.find(params[:id])
  
-    if @profile.update(profile_params)
+    if @profile.update!(profile_params)
       redirect_to @profile
     else
       render 'edit'
@@ -36,6 +36,6 @@ class ProfileController < ApplicationController
 
   private
     def profile_params
-      params.require(:profile).permit(:firstName, :lastName, :description, :city, :state, :zip)
+      params.require(:profile).permit(:user_id, :firstName, :lastName, :description, :city, :state, :zip)
     end
 end
