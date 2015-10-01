@@ -5,15 +5,16 @@ class ProfileController < ApplicationController
   end
 
   def pets
-	  @pets = current_user.pets
+    @pets = current_user.pets
   end
 
   def show
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile
   end
 
   def create
     @profile = Profile.new(profile_params)
+    @profile.user_id = current_user.id
     
     if @profile.save!
       redirect_to @profile
@@ -27,11 +28,11 @@ class ProfileController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile
   end
 
   def update
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile
  
     if @profile.update(profile_params)
       redirect_to @profile
@@ -42,6 +43,6 @@ class ProfileController < ApplicationController
 
   private
     def profile_params
-      params.require(:profile).permit(:firstName, :lastName, :description, :city, :state, :zip)
+      params.require(:profile).permit(:user_id, :firstName, :lastName, :description, :city, :state, :zip)
     end
 end
