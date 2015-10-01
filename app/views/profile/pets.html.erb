@@ -1,3 +1,33 @@
- <div class="ui container">
-   <p>Convenient placeholder for user's pets</p>
+<div class="ui container">
+  <div class="ui vertical stripe segment">
+
+    <div class="ui divided items">
+
+      <% @pets.each do |pet| %>
+        <div class="item">
+          <div class="ui small image">
+            <img src="..\app\assets\images\Dogs\annie.jpg">
+          </div>
+          <div class="top aligned content">
+            <div class="header"><%= pet.name %></div>
+            <div class="meta">
+              <span><i class="home icon"></i>San Diego, CA</span>
+            </div>
+            <div class="description">
+              <span>Gender: <%= pet.gender %></span><br/>
+              <span>Breed: <%= pet.breed %></span><br/>
+              <span>Details: <%= pet.details %></span>
+            </div>
+            <div class="extra">
+              <%= link_to "View Profile", pet_path(pet), class:"ui right floated button" %>
+              <div class="ui right floated button">
+                Message owner
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      
+    </div>
+  </div>
 </div>
