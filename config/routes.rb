@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :pets
   resources :profile
-  get 'profile/:id/pets' => 'profile#pets'
+  get 'profile/:id/pets' => 'profile#pets', as: :registered_pets
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

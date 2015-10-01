@@ -45,7 +45,7 @@
                 <% else %>
                   <%= link_to "Create new Profile", new_profile_path, class: "item" %>
                 <% end %>
-                <a class="item">Manage Pet Profiles</a>
+                <%= link_to "Your Registered Pets", registered_pets_path(current_user.profile.id), class: "item" %>
                 <a class="item">Account settings</a>
               </div>
             </div>
