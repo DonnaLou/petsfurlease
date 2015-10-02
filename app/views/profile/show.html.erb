@@ -16,46 +16,28 @@
           <h4>Experience with animals:</h3>
           <p><%= @profile.description %></p>
         </div>
+        <% if not @profile.user.pets.nil? %>
+          <div class="ui segment">
+            <h4>Pet Profiles:</h4>
+            <div class="ui items">
 
-        <div class="ui segment">
-          <h4>Pet Profiles:</h4>
-          <div class="ui items">
-            <div class="item">
-              <a class="ui small image">
-                <img src="..\app\assets\images\Dogs\sidinstagramcute.jpeg">
-              </a>
-              <div class="content">
-                <a class="header">Sid</a>
-                <div class="description">
-                  <p>Many people also have their own barometers for what makes a cute dog.</p>
+              <% @profile.user.pets.each do |pet| %>
+                <div class="item">
+                  <a class="ui small image">
+                    <img src="..\app\assets\images\Dogs\sidinstagramcute.jpeg">
+                  </a>
+                  <div class="content">
+                    <a class="header"><%= pet.name %></a>
+                    <div class="description">
+                      <p><%= pet.details %></p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-             <div class="item">
-              <a class="ui small image">
-                <img src="..\app\assets\images\Dogs\penny.jpeg">
-              </a>
-              <div class="content">
-                <a class="header">Penny</a>
-                <div class="description">
-                  <p>A dog is not considered a good dog because he is a good barker. A man is not considered a good man because he is a good talker.</p>
-                </div>
-              </div>
-            </div>
-             <div class="item">
-              <a class="ui small image">
-                <img src="..\app\assets\images\Dogs\leonporthole.jpeg">
-              </a>
-              <div class="content">
-                <a class="header">Leon</a>
-                <div class="description">
-                  <p>If you pick up a starving dog and make him prosperous, he will not bite you; that is the principal difference between a dog and a man.</p>
-                </div>
-              </div>
+              <% end %>
             </div>
           </div>
-        </div>
-
+        <% end %>
+        
         <div class="ui segment">
           <h4>User Review: <a class="hidden" name="UserReviews"></a></h4>
           <div class="ui comments">
