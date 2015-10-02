@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'faq/index'
+  get 'faq' => 'faq#index'
 
-  get 'home/index'
+  get 'home' => 'home#index'
 
   devise_for :users
   resources :pets
