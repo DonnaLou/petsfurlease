@@ -4,7 +4,7 @@
     <%= link_to "Add a Pet", new_pet_path, class:"ui right floated button" %>
 
     <div class="ui divided items">
-      <% if @pets.count > 0 %>
+      <% if not @pets.nil? %>
         <% @pets.each do |pet| %>
           <div class="item">
             <div class="ui small image">
@@ -21,6 +21,7 @@
                 <span>Details: <%= pet.details %></span>
               </div>
               <div class="extra">
+                <%= link_to "Unregister Pet", pet_path(pet), method: :delete, class:"ui right floated red button" %>
                 <%= link_to "View Profile", pet_path(pet), class:"ui right floated button" %>
                 <div class="ui right floated button"> Message owner </div>
               </div>

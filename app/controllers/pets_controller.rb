@@ -39,10 +39,10 @@ class PetsController < ApplicationController
 	end
 
 	def destroy
-		@pet = Pet.find(params[:id])
+		@pet = current_user.profile.pets.find(params[:id])
 		@pet.destroy
 
-		render :index
+		render template: "profile/pets"
 	end
 
 	private
