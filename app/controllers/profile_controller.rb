@@ -1,9 +1,15 @@
 class ProfileController < ApplicationController
+  before_action :authenticate_user!
 
-	before_action :authenticate_user!
+  def index
+  end
+
+  def pets
+    @pets = current_user.profile.pets
+  end
 
   def show
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile
   end
 
   def new
@@ -12,6 +18,7 @@ class ProfileController < ApplicationController
 
   def create
     @profile = Profile.new(profile_params)
+    @profile.user_id = current_user.id
     
     if @profile.save!
       redirect_to @profile
@@ -21,11 +28,11 @@ class ProfileController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile
   end
 
   def update
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile
  
     if @profile.update!(profile_params)
       redirect_to @profile
