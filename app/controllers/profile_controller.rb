@@ -5,7 +5,7 @@ class ProfileController < ApplicationController
   end
 
   def pets
-    @pets = current_user.pets
+    @pets = current_user.profile.pets
   end
 
   def show

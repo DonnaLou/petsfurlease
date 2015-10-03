@@ -1,8 +1,9 @@
 <div class="ui container">
   <div class="ui vertical stripe segment">
 
-    <div class="ui divided items">
+    <%= link_to "Add a Pet", new_pet_path, class:"ui right floated button" %>
 
+    <div class="ui divided items">
       <% if @pets.count > 0 %>
         <% @pets.each do |pet| %>
           <div class="item">
@@ -21,16 +22,12 @@
               </div>
               <div class="extra">
                 <%= link_to "View Profile", pet_path(pet), class:"ui right floated button" %>
-                <div class="ui right floated button">
-                  Message owner
-                </div>
+                <div class="ui right floated button"> Message owner </div>
               </div>
             </div>
           </div>
         <% end %>
       <% end %>
-
-      <%= link_to "Add a Pet", new_pet_path, class:"ui button" %>
       
     </div>
   </div>
