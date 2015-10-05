@@ -16,12 +16,12 @@
           <h4>Experience with animals:</h3>
           <p><%= @profile.description %></p>
         </div>
-        <% if not @profile.user.pets.nil? %>
+        <% if @profile.pets.count > 0 %>
           <div class="ui segment">
             <h4>Pet Profiles:</h4>
             <div class="ui items">
 
-              <% @profile.user.pets.each do |pet| %>
+              <% @profile.pets.each do |pet| %>
                 <div class="item">
                   <a class="ui small image">
                     <img src="..\app\assets\images\Dogs\sidinstagramcute.jpeg">
