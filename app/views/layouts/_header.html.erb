@@ -7,27 +7,26 @@
     <a class="item">Contact</a>
 
     <div class="right menu ">
-
       <% if !user_signed_in? %>
         <%= link_to "Sign In", new_user_session_path,  class: "item" %>
         <%= link_to "Sign Up", new_user_registration_path,  class: "item" %>
       <% else %>
-
         <div class="ui simple dropdown item">
            Welcome <%= current_user.email %> <i class="dropdown icon"></i>
           <div class="menu">
             <% if not current_user.profile.nil? %>
+              <%= link_to "View your Profile", profile_path(current_user.profile.id), class: "item" %>
               <%= link_to "Edit your Profile", edit_profile_path(current_user.profile.id), class: "item" %>
             <% else %>
               <%= link_to "Create new Profile", new_profile_path, class: "item" %>
             <% end %>
-            <%= link_to "Manage Pet Profiles", pets_path, class: "item" %> 
+            <%= link_to "Your Registered Pets", registered_pets_path(current_user.profile.id), class: "item" %>
             <a class="item">Account settings</a>
           </div>
         </div>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "item" %>
-
       <% end %>
     </div>
+
   </div>
 </div>
