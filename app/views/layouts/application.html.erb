@@ -20,9 +20,15 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  	<%= render "layouts/header" %>
+    <%= render "layouts/header" %>
+    <div class="ui aligned center aligned grid">
+      <div class="ui vertical stripe middle ">
+        <div class="ui red segment alert">
+          <%= alert %>
+        </div>
+        <p class="notice"><%= notice %></p>
+      </div>
+    </div>
   	<%= yield %>
     <%= render "layouts/footer" %>
   </body>
