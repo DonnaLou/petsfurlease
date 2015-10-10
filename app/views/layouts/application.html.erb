@@ -20,49 +20,16 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-  	<%= render "layouts/header" %>
-  	<div class="ui top fixed menu">
-  	  <div class="ui container">
-        <%= link_to "Pets fur Lease", home_path,  class: "item" %>
-        <%= link_to "Look for help", pets_path,  class: "item" %>
-        <%= link_to "Be a sitter", pets_path,  class: "item" %>
-        <%# link_to "FAQ", faq_index_path,  class: "item" %>
-  	    <a class="item">Contact</a>
-
-  	    <div class="right menu ">
-
-          <% if !user_signed_in? %>
-            <%= link_to "Sign In", new_user_session_path,  class: "item" %>
-            <%= link_to "Sign Up", new_user_registration_path,  class: "item" %>
-          <% else %>
-
-            <div class="ui simple dropdown item">
-               Welcome <%= current_user.email %> <i class="dropdown icon"></i>
-              <div class="menu">
-                <% if not current_user.profile.nil? %>
-                  <%= link_to "Edit your Profile", edit_profile_path(current_user.profile.id), class: "item" %>
-                <% else %>
-                  <%= link_to "Create new Profile", new_profile_path, class: "item" %>
-                <% end %>
-                <%= link_to "Your Registered Pets", registered_pets_path(current_user.profile.id), class: "item" %>
-                <a class="item">Account settings</a>
-              </div>
-            </div>
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "item" %>
-
-          <% end %>
-
-  	    </div>
-  	  </div>
-  	</div>
-
+    <%= render "layouts/header" %>
+    <div class="ui aligned center aligned grid">
+      <div class="ui vertical stripe middle ">
+        <div class="ui red segment alert">
+          <%= alert %>
+        </div>
+        <p class="notice"><%= notice %></p>
+      </div>
+    </div>
   	<%= yield %>
-
     <%= render "layouts/footer" %>
-
   </body>
 </html>
