@@ -42,7 +42,7 @@ class PetsController < ApplicationController
 		@pet = current_user.profile.pets.find(params[:id])
 		@pet.destroy
 
-		render template: "profile/pets"
+		redirect_to :back
 	end
 
 	private
