@@ -1,93 +1,52 @@
 require 'rails_helper'
 
+TOTAL_PET_COUNT = 7
+
 RSpec.describe Pet, type: :model do
-  it "creates a new pet" do
-    exp_name = 'Penny'
-    exp_deets = 'Test description'
-    exp_breed = 'Pit bull mix'
-    exp_age = 3;
-
-    pet = Pet.new
-    pet.name = "Penny"
-    pet.details = "Test description"
-    pet.breed = "Pit bull mix"
-    pet.age = 3
-
-    expect(pet.name).to eq(exp_name)
-    expect(pet.details).to eq(exp_deets)
-    expect(pet.breed).to eq(exp_breed)
-    expect(pet.age.to_i).to eq(exp_age)
-  end
-
-  it "searches for pets with no params" do
-    create(:profile, :profile_92104)
-    3.times {|i| create(:pet, :owner_1)}
-
-    pets = Pet.search
-
-    expect(pets.count).to eq(3)
-  end
-
-  it "seraches for pets across profiles with no params" do
+  before :each do
+    # One time setup
     create(:profile, :profile_92104)
     create(:profile, :profile_92128)
 
-    3.times { |i| create(:pet, :owner_1)}
-    2.times { |i| create(:pet, :owner_2)}
-
-    pets = Pet.search
-
-    expect(pets.count).to eq(5)
-  end
-
-  it "searches for pets in zipcode" do
-    create(:profile, :profile_92104)
-    create(:profile, :profile_92128)
-
+    # Create 3 dogs owned by profile_92104 (spec/factories.pets.rb)
     3.times {|i| create(:pet, :owner_1)}
+
+    # Create 2 dogs owned by profile_92128 (spec/factories/pets.rb)
     2.times {|i| create(:pet, :owner_2)}
 
-    pets = Pet.search(zip: '92104')
-
-    expect(pets.length).to eq(3)
-  end
-  
-  it "searches for pets with species only" do
-    create(:profile, :profile_92104)
-    create(:profile, :profile_92128)
-
-    3.times {|i| create(:pet, :owner_1)}
-    2.times {|i| create(:pet, :owner_2)}
+    # Create 2 cats owned by profile_92128 (spec/factories/pets.rb)
     2.times {|i| create(:pet, :owner_3)}
-
-    pets = Pet.search(species: 'dog')
-
-    expect(pets.count).to eq(5)
   end
 
-  it "searches for pets with zipcode and species" do
-    create(:profile, :profile_92104)
-    create(:profile, :profile_92128)
+  context "when searching for pets" do
+    it "searches for pets with no params" do
+      pets = Pet.search
 
-    3.times {|i| create(:pet, :owner_1)}
-    2.times {|i| create(:pet, :owner_2)}
-    2.times {|i| create(:pet, :owner_3)}
+      expect(pets.count).to eq(TOTAL_PET_COUNT)
+    end
 
-    pets = Pet.search(zip: '92104', species: 'dog')
+    it "searches for pets in zipcode" do
+      pets = Pet.search(zip: '92104')
 
-    expect(pets.count).to eq(3)
-  end
+      expect(pets.length).to eq(3)
+    end
+    
+    it "searches for pets with species only" do
+      pets = Pet.search(species: 'dog')
 
-  it "returns 0 results when no records match" do
-    create(:profile, :profile_92104)
-    create(:profile, :profile_92128)
+      expect(pets.count).to eq(5)
+    end
 
-    3.times {|i| create(:pet, :owner_1)}
-    2.times {|i| create(:pet, :owner_2)}
-    2.times {|i| create(:pet, :owner_3)}
+    it "searches for pets with zipcode and species" do
+      pets = Pet.search(zip: '92104', species: 'dog')
 
-    pets = Pet.search(zip: '92104', species: 'cat')
+      expect(pets.count).to eq(3)
+    end
 
-    expect(pets.count).to eq(0)
+    it "returns 0 results when no records match" do
+      pets = Pet.search(zip: '92104', species: 'cat')
+
+      expect(pets.count).to eq(0)
+    end
   end
 end
