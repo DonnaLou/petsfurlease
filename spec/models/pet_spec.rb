@@ -47,11 +47,47 @@ RSpec.describe Pet, type: :model do
     3.times {|i| create(:pet, :owner_1)}
     2.times {|i| create(:pet, :owner_2)}
 
-    pets = Pet.search('92104')
+    pets = Pet.search(zip: '92104')
 
     expect(pets.length).to eq(3)
   end
   
-  it "searches for pets with species only"
-  it "searches for pets with zipcode and species"
+  it "searches for pets with species only" do
+    create(:profile, :profile_92104)
+    create(:profile, :profile_92128)
+
+    3.times {|i| create(:pet, :owner_1)}
+    2.times {|i| create(:pet, :owner_2)}
+    2.times {|i| create(:pet, :owner_3)}
+
+    pets = Pet.search(species: 'dog')
+
+    expect(pets.count).to eq(5)
+  end
+
+  it "searches for pets with zipcode and species" do
+    create(:profile, :profile_92104)
+    create(:profile, :profile_92128)
+
+    3.times {|i| create(:pet, :owner_1)}
+    2.times {|i| create(:pet, :owner_2)}
+    2.times {|i| create(:pet, :owner_3)}
+
+    pets = Pet.search(zip: '92104', species: 'dog')
+
+    expect(pets.count).to eq(3)
+  end
+
+  it "returns 0 results when no records match" do
+    create(:profile, :profile_92104)
+    create(:profile, :profile_92128)
+
+    3.times {|i| create(:pet, :owner_1)}
+    2.times {|i| create(:pet, :owner_2)}
+    2.times {|i| create(:pet, :owner_3)}
+
+    pets = Pet.search(zip: '92104', species: 'cat')
+
+    expect(pets.count).to eq(0)
+  end
 end

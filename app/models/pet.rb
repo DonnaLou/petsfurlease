@@ -8,12 +8,14 @@ class Pet < ActiveRecord::Base
 
   belongs_to :profile
 
-  def self.search(zip = '') 
+  def self.search(zip: '', species: '') 
     query = Profile.all
     query = query.where(zip: zip) unless zip.blank?
     
     query.inject([]) do |acc, profile|
-      acc.concat profile.pets
+      pets = profile.pets
+      pets = profile.pets.where(species: species) unless species.blank?
+      acc.concat(pets)
       acc
     end
   end
