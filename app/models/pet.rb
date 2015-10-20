@@ -9,8 +9,7 @@ class Pet < ActiveRecord::Base
   belongs_to :profile
 
   def self.search(zip: '', species: '') 
-    query = Profile.all
-    query = query.where(zip: zip) unless zip.blank?
+		query = Profile.search(zip: zip)
     
     query.inject([]) do |acc, profile|
       pets = profile.pets
