@@ -1,89 +1,97 @@
 <% provide(:title, @pet.name) %>
 
 <div class="ui container">
-  <div class="ui vertical stripe segment">
-    <div class="ui two column grid">
-      <div class="four wide column">
-        <div class="ui fluid image">
-          <% if (@pet.image)%>	
-          	<%= image_tag @pet.image, class:"ui bordered rounded image" %>
-          <% else %>
-          	<%= image_tag "wireframeImage.png", class:"ui bordered rounded image" %>
-          <% end %>
+	<div class="ui vertical stripe segment">
+		<div class="ui two column grid">
+			<div class="four wide column">
+				<div class="ui fluid image">
+					<% if (@pet.image)%>
+					<%= image_tag @pet.image, class:"ui bordered rounded image" %>
+					<% else %>
+					<%= image_tag "wireframeImage.png", class:"ui bordered rounded image" %>
+					<% end %>
 
-		  <% if (@pet.helpWanted)%>
-	          <div class="ui red ribbon label">
-	            <i class="paw icon"></i>Help Wanted
-	          </div>
-          <% end %>
-        </div>
-        
-        
-	      <h3><%= @pet.name %></h3>
-	      
-	      <p><i class="marker icon"></i><%= @pet.profile.city%>, <%= @pet.profile.state %></p>
-	      <p><i class="thumbs outline up icon"></i><a href="#UserReviews">Read Reviews</a><p>
-	      <p><i class="mail icon"></i><a href="#" onclick="composeMsg();">Send a Message</a><p>
-      </div>
+					<% if (@pet.helpWanted)%>
+					<div class="ui red ribbon label">
+						<i class="paw icon"></i>Help Wanted
+					</div>
+					<% end %>
+				</div>
 
-      <div class="twelve wide column">
-      	
-      	<% if (@pet.helpWanted)%>
-	        <div class="ui horizontal segments">
-	          <div class="ui segment">
-	            <h4>Help Wanted:</h4>
-	            <h4 style="color:red;"><%= @pet.helpStartDate%> - <%= @pet.helpEndDate %></h4>
-	          </div>
-	          <div class="ui segment">
-	            <a href="userProfile.html" class="ui image">
-	              <% if (@pet.profile.image) %>
-	              	<%= image_tag @pet.profile.image, class:"ui circular tiny middle aligned image" %>	
-	              <% else %>	
-	              	<%= image_tag "wireframeImage.png", class:"ui circular tiny middle aligned image" %>
-	              <% end %>
-	              <span> Contact <strong><%= @pet.profile.firstName %> <%= @pet.profile.lastName %></strong> to help.</span>
-	            </a>
-	          </div>
-	        </div>
-        <% end %>
+				<h3><%= @pet.name %></h3>
 
-        <div class="ui segment">
-            <h4>Description:</h4>
-            <%= @pet.details %>
-        </div>
+				<p>
+					<i class="marker icon"></i><%= @pet.profile.city%>, <%= @pet.profile.state %>
+				</p>
+				<p>
+					<i class="thumbs outline up icon"></i><a href="#UserReviews">Read Reviews</a>
+				<p>
+				<% if (@pet.helpWanted) %>	
+					<p>
+						<i class="mail icon"></i><a href="#" onclick="composeMsg();">Send a Message</a>
+					<p>
+				<% end %>	
+			</div>
 
-        <div class="ui segment">
-          <h4>Summary:</h4>
-          <div class="text">
-            Gender: <%= @pet.gender %> <br/>
-            Age: <%= @pet.age %> <br/>
-            Weight: <%= @pet.weight %><br/>
-            Breed: <%= @pet.breed %><br/>
-            Species: <%= @pet.species %>
-          </div>
-        </div>
-   
-        <div class="ui segment">
-          <h4>User Review: <a class="hidden" name="UserReviews"></a></h4>
-          <div class="ui comments">
-            <div class="comment">
-              <a class="avatar" style="height:2.5em;">
-                <img src="..\app\assets\images\Portraits\pewpew.png">
-              </a>
-              <div class="content">
-                <a class="author">Donna Lou</a>
-                <div class="ui star rating" data-rating="4"></div>
-                <div class="metadata">
-                  <div class="date">2 days ago</div>
-                </div>
-                <div class="text">
-                  Todo: fill in with real content.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+			<div class="twelve wide column">
+
+				<% if (@pet.helpWanted)%>
+				<div class="ui horizontal segments">
+					<div class="ui segment">
+						<h4>Help Wanted:</h4>
+						<h4 style="color:red;"><%= @pet.helpStartDate%> - <%= @pet.helpEndDate %></h4>
+					</div>
+					<div class="ui segment">
+						<a href="userProfile.html" class="ui image"> <% if (@pet.profile.image) %>
+						<%= image_tag @pet.profile.image, class:"ui circular tiny middle aligned image" %>
+						<% else %>
+						<%= image_tag "wireframeImage.png", class:"ui circular tiny middle aligned image" %>
+						<% end %> <span> Contact <strong><%= @pet.profile.firstName %> <%= @pet.profile.lastName %></strong> to help.</span> </a>
+					</div>
+				</div>
+				<% end %>
+
+				<div class="ui segment">
+					<h4>Description:</h4>
+					<%= @pet.details %>
+				</div>
+
+				<div class="ui segment">
+					<h4>Summary:</h4>
+					<div class="text">
+						Gender: <%= @pet.gender %>
+						<br/>
+						Age: <%= @pet.age %>
+						<br/>
+						Weight: <%= @pet.weight %>
+						<br/>
+						Breed: <%= @pet.breed %>
+						<br/>
+						Species: <%= @pet.species %>
+					</div>
+				</div>
+
+				<div class="ui segment">
+					<h4>User Review: <a class="hidden" name="UserReviews"></a></h4>
+					<div class="ui comments">
+						<div class="comment">
+							<a class="avatar" style="height:2.5em;"> <img src="..\app\assets\images\Portraits\pewpew.png"> </a>
+							<div class="content">
+								<a class="author">Donna Lou</a>
+								<div class="ui star rating" data-rating="4"></div>
+								<div class="metadata">
+									<div class="date">
+										2 days ago
+									</div>
+								</div>
+								<div class="text">
+									Todo: fill in with real content.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

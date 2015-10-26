@@ -13,4 +13,5 @@
 4 Add conditional display on Help Wanted/Contact section on pet profile page
 5 Fill in relevant content in FAQ
 6 Create content for Helpful Tips link in the footer
-
+7 Implement 'Send a Message' links, the one on pet page will only show if help is wanted
+8 Create legit content for the home page

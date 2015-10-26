@@ -1,107 +1,90 @@
 <% provide(:title, @profile.firstName + " " + @profile.lastName ) %>
- 
- <div class="ui container">
-  <div class="ui vertical stripe segment">
-    <div class="ui two column grid">
-      <div class="four wide column">
-          <img class="ui bordered rounded image" src="..\app\assets\images\Portraits\kevinDuensing.jpg">
-          <h3><%= @profile.firstName %> <%= @profile.lastName %></h3>
-          <p>
-            <i class="marker icon"></i>
-            <%= @profile.city %>, <%= @profile.state %> <%= @profile.zip %>
-          </p>
 
-          <% if @profile.is_volunteer %>
-            <p>
-              <i class="paw icon"></i>Volunteer Pet Sitter
-            </p>
-          <% end %>
-          
-          <p>
-            <i class="thumbs outline up icon"></i><a href="#UserReviews">Read Reviews</a>
-          </p>
-          <p>
-            <i class="mail icon"></i><a href="#" onclick="composeMsg();">Send a Message</a>
-          </p>
-      </div>
-      <div class="twelve wide column">
-        <div class="ui segment">
-          <h4>Experience with animals:</h3>
-          <p><%= @profile.description %></p>
-        </div>
-        <% if @profile.pets.count > 0 %>
-          <div class="ui segment">
-            <h4>Pet Profiles:</h4>
-            <div class="ui items">
+<div class="ui container">
+	<div class="ui vertical stripe segment">
+		<div class="ui two column grid">
+			<div class="four wide column">
 
-              <% @profile.pets.each do |pet| %>
-                <div class="item">
-                  <a class="ui small image">
-                    <img src="..\app\assets\images\Dogs\sidinstagramcute.jpeg">
-                  </a>
-                  <div class="content">
-                    <a class="header"><%= pet.name %></a>
-                    <div class="description">
-                      <p><%= pet.details %></p>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-        
-        <div class="ui segment">
-          <h4>User Review: <a class="hidden" name="UserReviews"></a></h4>
-          <div class="ui comments">
-            <div class="comment">
-              <a class="avatar" style="height:2.5em;">
-                <img src="..\app\assets\images\Portraits\pewpew.png">
-              </a>
-              <div class="content">
-                <a class="author">Donna Lou</a>
-                <div class="ui star rating" data-rating="4"></div>
-                <div class="metadata">
-                  <div class="date">2 days ago</div>
-                </div>
-                <div class="text">
-                  Kevin helped me watch my bunny Bunbun for 2 weeks. He took really great care of her. He would send me pictures every few days and she looked like she had a great time with him.
-                </div>
-              </div>
-            </div>
-             <div class="comment">
-              <a class="avatar" style="height:2.5em;">
-                <img src="..\app\assets\images\Portraits\pewpew.png">
-              </a>
-              <div class="content">
-                <a class="author">Donna Lou</a>
-                <div class="ui star rating" data-rating="4"></div>
-                <div class="metadata">
-                  <div class="date">2 days ago</div>
-                </div>
-                <div class="text">
-                  Kevin helped me watch my bunny Bunbun for 2 weeks. He took really great care of her. He would send me pictures every few days and she looked like she had a great time with him.
-                </div>
-              </div>
-            </div>
-             <div class="comment">
-              <a class="avatar" style="height:2.5em;">
-                <img src="..\app\assets\images\Portraits\pewpew.png">
-              </a>
-              <div class="content">
-                <a class="author">Donna Lou</a>
-                <div class="ui star rating" data-rating="4"></div>
-                <div class="metadata">
-                  <div class="date">2 days ago</div>
-                </div>
-                <div class="text">
-                  Kevin helped me watch my bunny Bunbun for 2 weeks. He took really great care of her. He would send me pictures every few days and she looked like she had a great time with him.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+				<% if (@profile.image) %>
+				<%= image_tag @profile.image, class:"ui bordered rounded image" %>
+				<% else%>
+				<%= image_tag "wireframeImage.png", class:"ui bordered rounded image" %>
+				<% end %>
+				<h3><%= @profile.firstName %> <%= @profile.lastName %></h3>
+				<p>
+					<i class="marker icon"></i>
+					<%= @profile.city %>, <%= @profile.state %> <%= @profile.zip %>
+				</p>
+
+				<% if @profile.is_volunteer %>
+				<p>
+					<i class="paw icon"></i>Volunteer Pet Sitter
+				</p>
+				<% end %>
+
+				<p>
+					<i class="thumbs outline up icon"></i><a href="#UserReviews">Read Reviews</a>
+				</p>
+				<p>
+					<i class="mail icon"></i><a href="#" onclick="composeMsg();">Send a Message</a>
+				</p>
+			</div>
+			<div class="twelve wide column">
+				<div class="ui segment">
+					<h4>Experience with animals:</h3>
+					<p>
+						<%= @profile.description %>
+					</p>
+				</div>
+				<% if @profile.pets.count > 0 %>
+				<div class="ui segment">
+					<h4>Pet Profiles:</h4>
+					<div class="ui items">
+
+						<% @profile.pets.each do |pet| %>
+						<div class="item">
+							<div class="ui small bordered rounded image">
+								<% if (pet.image)%>
+								<%= image_tag pet.image %>
+								<% else %>
+								<%= image_tag "wireframeImage.png" %>
+								<% end %>
+							</div>
+							<div class="content">
+								<%= link_to pet.name, pet, class:"header"%>
+								<div class="description">
+									<p>
+										<%= pet.details %>
+									</p>
+								</div>
+							</div>
+						</div>
+						<% end %>
+					</div>
+				</div>
+				<% end %>
+
+				<div class="ui segment">
+					<h4>User Review: <a class="hidden" name="UserReviews"></a></h4>
+					<div class="ui comments">
+						<div class="comment">
+							<a class="avatar" style="height:2.5em;"> <img src="..\app\assets\images\Portraits\pewpew.png"> </a>
+							<div class="content">
+								<a class="author">Donna Lou</a>
+								<div class="ui star rating" data-rating="4"></div>
+								<div class="metadata">
+									<div class="date">
+										2 days ago
+									</div>
+								</div>
+								<div class="text">
+									TODO: fill in content
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
