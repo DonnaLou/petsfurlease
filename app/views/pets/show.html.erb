@@ -5,12 +5,20 @@
     <div class="ui two column grid">
       <div class="four wide column">
         <div class="ui fluid image">
-          <%= image_tag "Dogs/penny.jpeg" ,class:"ui image" %>
+          <% if (@pet.image)%>	
+          	<%= image_tag @pet.image, class:"ui bordered rounded image" %>
+          <% else %>
+          	<%= image_tag "wireframeImage.png", class:"ui bordered rounded image" %>
+          <% end %>
 
-          <div class="ui red ribbon label">
-            <i class="paw icon"></i>Help Wanted
-          </div>
+		  <% if (@pet.helpWanted)%>
+	          <div class="ui red ribbon label">
+	            <i class="paw icon"></i>Help Wanted
+	          </div>
+          <% end %>
         </div>
+        
+        
 	      <h3><%= @pet.name %></h3>
 	      
 	      <p><i class="marker icon"></i><%= @pet.profile.city%>, <%= @pet.profile.state %></p>
@@ -19,19 +27,25 @@
       </div>
 
       <div class="twelve wide column">
-        <div class="ui horizontal segments">
-          <div class="ui segment">
-            <h4>Help Wanted:</h4>
-            <h4 style="color:red;">Sep 28, 2015 - Oct 15, 2015</h4>
-          </div>
-          <div class="ui segment">
-            <a href="userProfile.html" class="ui image">
-              <img class="ui circular tiny middle aligned image" 
-              src="..\app\assets\images\Portraits\kevinDuensing.jpg">
-              <span> Contact <strong><%= @pet.profile.firstName %> <%= @pet.profile.lastName %></strong> to help.</span>
-            </a>
-          </div>
-        </div>
+      	
+      	<% if (@pet.helpWanted)%>
+	        <div class="ui horizontal segments">
+	          <div class="ui segment">
+	            <h4>Help Wanted:</h4>
+	            <h4 style="color:red;"><%= @pet.helpStartDate%> - <%= @pet.helpEndDate %></h4>
+	          </div>
+	          <div class="ui segment">
+	            <a href="userProfile.html" class="ui image">
+	              <% if (@pet.profile.image) %>
+	              	<%= image_tag @pet.profile.image, class:"ui circular tiny middle aligned image" %>	
+	              <% else %>	
+	              	<%= image_tag "wireframeImage.png", class:"ui circular tiny middle aligned image" %>
+	              <% end %>
+	              <span> Contact <strong><%= @pet.profile.firstName %> <%= @pet.profile.lastName %></strong> to help.</span>
+	            </a>
+	          </div>
+	        </div>
+        <% end %>
 
         <div class="ui segment">
             <h4>Description:</h4>
@@ -63,38 +77,7 @@
                   <div class="date">2 days ago</div>
                 </div>
                 <div class="text">
-                  Kevin helped me watch my bunny Bunbun for 2 weeks. He took really great care of her. He would send me pictures every few days and she looked like she had a great time with him.
-                </div>
-              </div>
-            </div>
-            <div class="comment">
-              <a class="avatar" style="height:2.5em;">
-                <img src="..\app\assets\images\Portraits\pewpew.png">
-              </a>
-              <div class="content">
-                <a class="author">Donna Lou</a>
-                <div class="ui star rating" data-rating="4"></div>
-                <div class="metadata">
-                  <div class="date">2 days ago</div>
-                </div>
-                <div class="text">
-                  Kevin helped me watch my bunny Bunbun for 2 weeks. He took really great care of her. He would send me pictures every few days and she looked like she had a great time with him.
-                </div>
-              </div>
-            </div>
-
-            <div class="comment">
-              <a class="avatar" style="height:2.5em;">
-                <img src="..\app\assets\images\Portraits\pewpew.png">
-              </a>
-              <div class="content">
-                <a class="author">Donna Lou</a>
-                <div class="ui star rating" data-rating="4"></div>
-                <div class="metadata">
-                  <div class="date">2 days ago</div>
-                </div>
-                <div class="text">
-                  Kevin helped me watch my bunny Bunbun for 2 weeks. He took really great care of her. He would send me pictures every few days and she looked like she had a great time with him.
+                  Todo: fill in with real content.
                 </div>
               </div>
             </div>
