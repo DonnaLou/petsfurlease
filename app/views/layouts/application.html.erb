@@ -21,14 +21,24 @@
   </head>
   <body>
     <%= render "layouts/header" %>
-    <div class="ui aligned center aligned grid">
-      <div class="ui vertical stripe middle ">
-        <div class="ui red segment alert">
-          <%= alert %>
-        </div>
-        <p class="notice"><%= notice %></p>
-      </div>
-    </div>
+    <% if(alert)%>
+	    <div class="ui aligned center aligned grid">
+	      <div class="ui vertical stripe middle ">
+	        <div class="ui red segment alert">
+	          <%= alert %>
+	        </div>
+	      </div>
+	    </div>
+	<% elsif(notice)%>
+		<div class="ui aligned center aligned grid">
+	      <div class="ui vertical stripe middle ">
+	        <div class="ui green segment alert">
+	          <%= notice %>
+	        </div>
+	      </div>
+	    </div>
+    <% end %>
+    
   	<%= yield %>
     <%= render "layouts/footer" %>
   </body>
