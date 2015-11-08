@@ -39,7 +39,7 @@
 				<div class="ui horizontal segments">
 					<div class="ui segment">
 						<h4>Help Wanted:</h4>
-						<h4 style="color:red;"><%= @pet.helpStartDate%> - <%= @pet.helpEndDate %></h4>
+						<p style="color:red;"><%= @pet.helpStartDate.to_formatted_s(:long) %> - <%= @pet.helpEndDate.to_formatted_s(:long)  %></p>
 					</div>
 					<div class="ui segment">
 						<a href="userProfile.html" class="ui image"> <% if (@pet.profile.image) %>

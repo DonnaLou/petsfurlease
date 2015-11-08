@@ -193,7 +193,18 @@
           <div class="ui toggle checkbox">
             <input type="checkbox" tabindex="0" class="hidden">
             <%= f.check_box :helpWanted%>
-            <label>Yes, I am. (TODO: Add DatePicker under the toggle when select yes.)</label>
+            <label>Yes, I am looking for a pet sitter.</label>
+          </div>
+        </div>
+
+        <div class="two fields">
+          <div class="field">
+            <label>Start Date: </label>
+            <%= f.date_field :helpStartDate %>
+          </div>
+           <div class="field">
+            <label>End Date: </label>
+            <%= f.date_field :helpEndDate %>
           </div>
         </div>
       </div>
