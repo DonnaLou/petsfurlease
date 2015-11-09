@@ -28,7 +28,7 @@
 						<span>Details: <%= pet.details %></span>
 					</div>
 					<div class="extra">
-						<%= link_to "Unregister Pet", pet_path(pet), method: :delete, class:"ui right floated red button" %>
+						<%= link_to "Delete Pet", pet_path(pet), method: :delete, class:"ui right floated red button" %>
 						<%= link_to "Edit Profile", edit_pet_path(pet), class:"ui right floated button" %>
 						<%= link_to "View Profile", pet_path(pet), class:"ui right floated teal button" %>
 					</div>
