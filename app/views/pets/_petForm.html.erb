@@ -1,3 +1,5 @@
+<%= @pet.errors.full_messages.first if @pet.errors.any? %>
+
 <%= form_for @pet, :html => {class:"ui form"} do |f|%>
     <div class="ui two column stackable grid">
       <div class="column">
