@@ -1,0 +1,76 @@
+Request engine:
+
+Plaintext description:
+
+A pet owner should be able to request that a particular sitter watch their pet. To this, the would go to a particular profile's info page and initiate a request.
+This will take the owner to a page where they can leave a message or any details and submit a request. From here the owner is redirected to a confirmation page.
+On the sitter's side, when the owner submits a request, the engine sends the sitter an email. This email includes a link to the sitter's Requests page.
+The sitter can either confirm or deny the request here or go into the actual request to view details. If the sitter denies the request, the request is removed from
+the sitter's request queue and an email is sent to the pet owner confirming the denial of the request. If the sitter accepts the request, the owner is sent an email
+acknowledging the acceptance of the request. This email includes the sitter's phone number and email address. At this point, the exchange is out of PFL's hands.
+
+(bonus)
+A pet owner can request that multiple sitters watch their pet -
+  they should be able to set certain criteria to match potential sitters against (rating, most watched pet types, etc)
+
+
+Cucumber specs:
+
+As a pet owner
+I want to make a sitting request
+So that I can initiate contact with a sitter
+
+Scenario: request sitter
+  Given I have found a potential sitter
+  When I submit a sitting request
+  And I provide details about my pet
+  Then I should be redirected to a sent request page
+
+Scenario: viewing all pending requests
+  Given I have sent a sitting request
+  When I view my pending requests
+  Then I should see 1 pending request in my outbox
+
+Scenario: viewing a pending request
+  Given I have sent a sitting request
+  When I view my pending requests
+  And I click on a pending request
+  Then I should see details about my pending request
+
+Scenario: canceling a pending request
+  Given I have sent a sitting request
+  When I view my pending requests
+  And I cancel the request
+  Then I should see a cancelation notification
+  And I should see 0 pending requests
+
+
+As a pet sitter
+I want to manage my sitting requests
+So that I can initiate contact with an owner
+
+Scenario: viewing all pending requests
+  Given I have received a sitting request
+  When I view my pending requests
+  Then I should see 1 pending request in my inbox
+
+Scenario: viewing a pending request
+  Given I have received a sitting request
+  When I view my pending requests
+  And I click on a pending request
+  Then I should see details about the pending request
+
+Scenario: denying a pending request
+  Given I have received a sitting request
+  When I view my pending requests
+  And I deny the request
+  Then I should see a denial notification
+  And I should see 0 pending requests
+
+Scenario: accepting a pending request
+  Given I have received a sitting request
+  WHen I vew my pending requests
+  And I accept the request
+  Then I should see an acceptance notification
+  And I should see 0 pending requests
+
