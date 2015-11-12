@@ -1,3 +1,5 @@
+<%= @pet.errors.full_messages.first if @pet.errors.any? %>
+
 <%= form_for @pet, :html => {class:"ui form"} do |f|%>
     <div class="ui two column stackable grid">
       <div class="column">
@@ -192,7 +194,19 @@
           <label>Are you looking for a pet sitter?</label>
           <div class="ui toggle checkbox">
             <input type="checkbox" tabindex="0" class="hidden">
-            <label>Yes, I am. (TODO: Add DatePicker under the toggle when select yes.)</label>
+            <%= f.check_box :helpWanted%>
+            <label>Yes, I am looking for a pet sitter.</label>
+          </div>
+        </div>
+
+        <div class="two fields">
+          <div class="field">
+            <label>Start Date: </label>
+            <%= f.date_field :helpStartDate %>
+          </div>
+           <div class="field">
+            <label>End Date: </label>
+            <%= f.date_field :helpEndDate %>
           </div>
         </div>
       </div>

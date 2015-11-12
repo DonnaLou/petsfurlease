@@ -16,9 +16,11 @@ class PetsController < ApplicationController
 		@pet = Pet.new(pet_params)
 
 		@pet.profile_id = current_user.profile.id
-		
-		if @pet.save!
-			redirect_to @pet
+
+		if @pet.valid?		
+			if @pet.save!
+				redirect_to @pet
+			end
 		else
 			render :new
 		end
@@ -47,7 +49,8 @@ class PetsController < ApplicationController
 
 	private
 		def pet_params
-			params.require(:pet).permit(:id, :name, :species, :breed, :age, :details, :weight, :gender, :profile_id)
+			params.require(:pet).permit(:id, :name, :species, :breed, :age, :details, 
+				:weight, :gender, :profile_id, :image, :helpWanted, :helpStartDate, :helpEndDate)
 		end
 
 end
