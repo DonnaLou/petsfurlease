@@ -24,7 +24,7 @@
     <% if(alert)%>
 	    <div class="ui aligned center aligned grid">
 	      <div class="ui vertical stripe middle ">
-	        <div class="ui red segment alert">
+	        <div id="error_explanation" class="ui secondary inverted red segment">
 	          <%= alert %>
 	        </div>
 	      </div>
@@ -32,7 +32,7 @@
 	<% elsif(notice)%>
 		<div class="ui aligned center aligned grid">
 	      <div class="ui vertical stripe middle ">
-	        <div class="ui green segment alert">
+	        <div class="ui teal inverted segment">
 	          <%= notice %>
 	        </div>
 	      </div>

@@ -1,4 +1,14 @@
-<%= @pet.errors.full_messages.first if @pet.errors.any? %>
+<% if @pet.errors.any? %>
+  <div id="error_explanation" class="ui secondary inverted red segment">
+    <p><%= pluralize(@pet.errors.count, "validation error") %> :</p>
+ 
+    <ul>
+    <% @pet.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <%= form_for @pet, :html => {class:"ui form"} do |f|%>
     <div class="ui two column stackable grid">
