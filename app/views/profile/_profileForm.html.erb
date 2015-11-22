@@ -1,6 +1,6 @@
 <% if @profile.errors.any? %>
   <div id="error_explanation" class="ui secondary inverted red segment">
-    <p><%= pluralize(@profile.errors.count, "validation error") %> :</p>
+    <p><i class="flag icon"></i><%= pluralize(@profile.errors.count, "validation error") %> :</p>
  
     <ul>
     <% @profile.errors.full_messages.each do |msg| %>
