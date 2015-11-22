@@ -5,6 +5,14 @@
 ready =->
 	$('.ui.checkbox').checkbox()
 	$('.menu .item').tab()
+	$("#helpWantedToggle").on 'click', (event) => 
+		helpWantedClick()
+
+helpWantedClick =->
+	if $("#helpWantedToggle").hasClass("checked")
+		$("#helpWantedDates").show()
+	else
+		$("#helpWantedDates").hide()
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

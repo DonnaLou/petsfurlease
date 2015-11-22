@@ -1,6 +1,6 @@
 <% if @pet.errors.any? %>
   <div id="error_explanation" class="ui secondary inverted red segment">
-    <p><%= pluralize(@pet.errors.count, "validation error") %> :</p>
+    <p><i class="flag icon"></i><%= pluralize(@pet.errors.count, "validation error") %> :</p>
  
     <ul>
     <% @pet.errors.full_messages.each do |msg| %>
@@ -202,14 +202,13 @@
 
         <div class="field">
           <label>Are you looking for a pet sitter?</label>
-          <div class="ui toggle checkbox">
-            <input type="checkbox" tabindex="0" class="hidden">
-            <%= f.check_box :helpWanted%>
+          <div class="ui toggle checkbox" id="helpWantedToggle">
+            <%= f.check_box :helpWanted %>
             <label>Yes, I am looking for a pet sitter.</label>
           </div>
         </div>
 
-        <div class="two fields">
+        <div class="two fields" id="helpWantedDates" style="<%='display: none' unless @pet.helpWanted%>" >
           <div class="field">
             <label>Start Date: </label>
             <%= f.date_field :helpStartDate %>
