@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Auth
 gem 'devise'
 
+# Image uploading
+gem 'paperclip', '~> 4.3'
+
 # Tzinfo-data needed to start server on windows
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
