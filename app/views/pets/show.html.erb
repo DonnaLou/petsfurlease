@@ -5,12 +5,7 @@
 		<div class="ui two column grid">
 			<div class="four wide column">
 				<div class="ui fluid image">
-					<% if (@pet.image)%>
-					<%= image_tag @pet.image, class:"ui bordered rounded image" %>
-					<% else %>
-					<%= image_tag "wireframeImage.png", class:"ui bordered rounded image" %>
-					<% end %>
-
+					<%= image_tag @pet.image.url, class:"ui bordered rounded image" %>
 					<% if (@pet.helpWanted)%>
 					<div class="ui red ribbon label">
 						<i class="paw icon"></i>Help Wanted

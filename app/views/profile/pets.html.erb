@@ -5,38 +5,32 @@
 
 		<div class="ui divided items">
 			<% if not @pets.nil? %>
-			<% @pets.each do |pet| %>
-			<div class="item">
-				<div class="ui small image">
-
-					<% if (pet.image)%>
-					<%= image_tag @pet.image, class:"ui bordered rounded image" %>
-					<% else %>
-					<%= image_tag "wireframeImage.png", class:"ui bordered rounded image" %>
-					<% end %>
-				</div>
-				<div class="top aligned content">
-					<%= link_to pet.name, pet_path(pet), class: "header"%>
-					<div class="meta">
-						<span><i class="home icon"></i><%= pet.profile.city %>, <%= pet.profile.state %></span>
+				<% @pets.each do |pet| %>
+					<div class="item">
+						<div class="ui small image">
+							<%= image_tag pet.image.url, class:"ui bordered rounded image" %>
+						</div>
+						<div class="top aligned content">
+							<%= link_to pet.name, pet_path(pet), class: "header"%>
+							<div class="meta">
+								<span><i class="home icon"></i><%= pet.profile.city %>, <%= pet.profile.state %></span>
+							</div>
+							<div class="description">
+								<span>Gender: <%= pet.gender %></span>
+								<br/>
+								<span>Breed: <%= pet.breed %></span>
+								<br/>
+								<span>Details: <%= pet.details %></span>
+							</div>
+							<div class="extra">
+								<%= link_to "Delete Pet", pet_path(pet), method: :delete, class:"ui right floated red button" %>
+								<%= link_to "Edit Profile", edit_pet_path(pet), class:"ui right floated button" %>
+								<%= link_to "View Profile", pet_path(pet), class:"ui right floated teal button" %>
+							</div>
+						</div>
 					</div>
-					<div class="description">
-						<span>Gender: <%= pet.gender %></span>
-						<br/>
-						<span>Breed: <%= pet.breed %></span>
-						<br/>
-						<span>Details: <%= pet.details %></span>
-					</div>
-					<div class="extra">
-						<%= link_to "Delete Pet", pet_path(pet), method: :delete, class:"ui right floated red button" %>
-						<%= link_to "Edit Profile", edit_pet_path(pet), class:"ui right floated button" %>
-						<%= link_to "View Profile", pet_path(pet), class:"ui right floated teal button" %>
-					</div>
-				</div>
-			</div>
+				<% end %>
 			<% end %>
-			<% end %>
-
 		</div>
 	</div>
 </div>

@@ -2,13 +2,15 @@ class Pet < ActiveRecord::Base
   validates :profile_id, 
     :name, 
     :species, 
-    :breed, 
     :age, 
     :details,
     presence: true
 
   belongs_to :profile
 
+  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "wireframeImage.png"
+  validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
+  
   def self.search(zip: '', species: '') 
 		query = Profile.search(zip: zip)
     
