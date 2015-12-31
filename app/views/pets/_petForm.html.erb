@@ -192,13 +192,18 @@
 
         <div class="field">
           <label>Profile Picture</label>
-          <div class="ui action input">
+
+          <% if @pet.image %>
+            <div class="ui medium image" id="petProfilePic">
+              <%= image_tag @pet.image.url(:medium), class:"ui bordered rounded image" %>
+              <a class="ui red right corner label" id="deleteProfilePic" onclick="deleteProfilePicClick()">
+                <i class="remove icon"></i>
+              </a>
+            </div>
+          <% end %>
+
+          <div class="ui input" id="petProfilePicUpload" style="<%='display: none' unless @pet.image.nil?%>">
             <%= f.file_field :image %>
-            <br/>
-            <input type="text" placeholder="Upload Image File (jpg, png) - Max size 2MB ">
-            <button class="ui icon button">
-              <i class="file image outline icon"></i>
-            </button>
           </div>
         </div>
 

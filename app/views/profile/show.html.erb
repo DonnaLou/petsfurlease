@@ -43,12 +43,8 @@
 
 						<% @profile.pets.each do |pet| %>
 						<div class="item">
-							<div class="ui small bordered rounded image">
-								<% if (pet.image)%>
-								<%= image_tag pet.image %>
-								<% else %>
-								<%= image_tag "wireframeImage.png" %>
-								<% end %>
+							<div class="ui small image">
+								<%= image_tag pet.image.url(:medium), class:"ui bordered rounded image" %>
 							</div>
 							<div class="content">
 								<%= link_to pet.name, pet, class:"header"%>

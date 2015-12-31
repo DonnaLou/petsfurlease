@@ -7,12 +7,18 @@ ready =->
 	$('.menu .item').tab()
 	$("#helpWantedToggle").on 'click', (event) => 
 		helpWantedClick()
+	$("#deleteProfilePic").on 'click', (event) => 
+		deleteProfilePicClick()
 
 helpWantedClick =->
 	if $("#helpWantedToggle").hasClass("checked")
 		$("#helpWantedDates").show()
 	else
 		$("#helpWantedDates").hide()
+
+deleteProfilePicClick =->
+	$("#petProfilePicUpload").show()
+	$("#petProfilePic").hide()
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

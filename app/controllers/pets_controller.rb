@@ -33,6 +33,11 @@ class PetsController < ApplicationController
 	def update
 	  @pet = Pet.find(params[:id])
 
+	  if pet_params[:image].nil?
+	  	@pet.image = nil
+	  	@pet.save
+	  end
+
 	  if @pet.update(pet_params)
 	    redirect_to @pet
 	  else

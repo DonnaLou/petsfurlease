@@ -32,7 +32,7 @@
       <% @pets.each do |pet| %>
         <div class="item">
           <div class="ui small image">
-            <img src="..\app\assets\images\Dogs\annie.jpg">
+            <%= image_tag pet.image.url(:medium), class:"ui bordered rounded image" %>
           </div>
           <div class="top aligned content">
             <div class="header"><%= pet.name %></div>
