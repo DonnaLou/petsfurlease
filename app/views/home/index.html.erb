@@ -1,43 +1,27 @@
     <!-- Page Contents -->
     <div class="pusher">
-      <div class="ui vertical masthead center aligned segment" style="background-color:#808080;">
-         <div class="ui middle aligned stackable grid container">
-          <div class="row">
-            <div class="eight wide column">
+      <div class="ui vertical masthead center aligned segment" id="homeBanner">
+
+        <div class="ui vertical stripe segment" style="padding-bottom:25px;" >
+          <div class="ui left aligned stackable grid container">
+
+            <div class="six wide column">
               <h1 class="ui header">Pets Fur Lease</h1>
-                <p>
-                  TODO: Write some kind of fancy dancy introduction
-                </p>
-                <p>
-                  Aminals are adorbzzzzzzzzz. We lurve dem so much 
-                </p>
-
-                <p>Please visit our "Be a sitter" section to help our your fellow neighbor and enjoy
-                the company of a furry friend. </p>
-                <strong>Give some belly rubs and help a neighbor in need.</strong>
-
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </p>
             </div>
-            <div class="eight wide center aligned column">
-              <%= image_tag "bunbungrey.jpg", class:"ui image" %>
-              <p><small>Inspiration mascot Bunbun (now known as Brianna)</small></p>
-            </div>
+            <div class="ui hidden divider"></div>
           </div>
-        </div>
-      </div>
-
-      <div class="ui vertical stripe segment">
-        <div class="ui middle aligned stackable grid container">
-             <div class="ui fluid padded container">
-                <div class="ui three steps">
-
-                  <% if !user_signed_in? %>
-                    <%= link_to new_user_session_path, class:"step" do %>
-                      <i class="user icon"></i>
-                      <div class="content">
-                        <div class="title">Create a profile </div>
-                        <div class="description">Tell us about yourself and your pets.</div>
-                      </div>
-                    <% end %>
+          <div class="ui middle aligned stackable grid container" style="padding-top:350px">
+            <div class="ui fluid padded container">
+              <div class="ui large three steps">
+                <% if !user_signed_in? %>
+                  <%= link_to new_user_session_path, class:"step" do %>
+                    <i class="user icon"></i>
+                    <div class="content">
+                      <div class="title">Create a profile </div>
+                      <div class="description">Tell us about yourself and your pets.</div>
+                    </div>
+                  <% end %>
                   <% else %>
                     <%= link_to new_profile_path, class:"step" do %>
                       <i class="user icon"></i>
@@ -47,7 +31,6 @@
                       </div>
                     <% end %>
                   <% end %>
-
                   <a href="search.html" class="step">
                     <i class="mail icon"></i>
                     <div class="content">
@@ -63,9 +46,11 @@
                     </div>
                   </div>
                 </a>
-            </div> 
+              </div> 
+            </div>
+          </div>
         </div>
-      </div>
+      </div>  
 
       <div class="ui vertical stripe quote segment">
         <div class="ui equal width stackable internally celled grid">
@@ -111,7 +96,7 @@
 
       <div class="ui vertical stripe segment">
         <div class="ui container">
-          <h3 class="ui header center aligned">Mutually Beneficial</h3>
+          <h3 class="ui header center aligned">Success Stories</h3>
 
           <div class="ui three cards">
             <div class="ui card">
