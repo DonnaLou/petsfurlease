@@ -2,53 +2,62 @@
     <div class="pusher">
       <div class="ui vertical masthead center aligned segment" id="homeBanner">
 
-        <div class="ui vertical stripe segment" style="padding-bottom:25px;" >
+        <div class="ui vertical stripe segment" style="padding-bottom:25px; border-bottom:none" >
           <div class="ui left aligned stackable grid container">
 
             <div class="six wide column">
               <h1 class="ui header">Pets Fur Lease</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </p>
+              <div class="ui segment" style="background-color: rgba(256, 256, 256, 0.5)">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                </p> 
+              </div>
             </div>
             <div class="ui hidden divider"></div>
           </div>
-          <div class="ui middle aligned stackable grid container" style="padding-top:350px">
-            <div class="ui fluid padded container">
-              <div class="ui large three steps">
-                <% if !user_signed_in? %>
-                  <%= link_to new_user_session_path, class:"step" do %>
-                    <i class="user icon"></i>
-                    <div class="content">
-                      <div class="title">Create a profile </div>
-                      <div class="description">Tell us about yourself and your pets.</div>
-                    </div>
-                  <% end %>
-                  <% else %>
-                    <%= link_to new_profile_path, class:"step" do %>
-                      <i class="user icon"></i>
-                      <div class="content">
-                        <div class="title">Create a profile </div>
-                        <div class="description">Tell us about yourself and your pets.</div>
-                      </div>
-                    <% end %>
-                  <% end %>
-                  <a href="search.html" class="step">
-                    <i class="mail icon"></i>
-                    <div class="content">
-                      <div class="title">Connect with others</div>
-                      <div class="description">Find fellow animal lovers in your area.</div>
-                    </div>
-                  </a>
-                  <a class="step">
-                    <i class="paw icon"></i>
-                    <div class="content">
-                      <div class="title">Spend time with furry friends</div>
-                      <div class="description">Give some belly rubs and treats.</div>
-                    </div>
+         
+        </div>
+        <div class="ui fluid container" style="position:absolute; bottom:0; padding:10px 50px;">
+          <div class="ui four large steps">
+           <a href="#" class="step">
+              <i class="checkmark icon"></i>
+              <div class="content">
+                <div class="title">Signing Up is Easy</div>
+                <div class="description">Create an account.</div>
+              </div>
+            </a>
+            <% if !user_signed_in? %>
+              <%= link_to new_user_session_path, class:"step" do %>
+                <i class="user icon"></i>
+                <div class="content">
+                  <div class="title">Create a profile </div>
+                  <div class="description">Tell us about yourself and your pets.</div>
+                </div>
+              <% end %>
+              <% else %>
+                <%= link_to new_profile_path, class:"step" do %>
+                  <i class="user icon"></i>
+                  <div class="content">
+                    <div class="title">Create a profile </div>
+                    <div class="description">Tell us about yourself and your pets.</div>
                   </div>
-                </a>
-              </div> 
-            </div>
-          </div>
+                <% end %>
+              <% end %>
+              <a href="search.html" class="step">
+                <i class="mail icon"></i>
+                <div class="content">
+                  <div class="title">Connect with others</div>
+                  <div class="description">Find fellow animal lovers in your area.</div>
+                </div>
+              </a>
+              <a class="step">
+                <i class="paw icon"></i>
+                <div class="content">
+                  <div class="title">Spend time with furry friends</div>
+                  <div class="description">Give some belly rubs and treats.</div>
+                </div>
+              </div>
+            </a>
+          </div> 
         </div>
       </div>  
 
@@ -75,7 +84,7 @@
               <p>
                 Write something here to describe<br/>
                 what a pet seeker would get out of this<br/>
-                Ex. helping neighbors, experience having diff pets<br/>
+                Ex. helping neighbors, experience having diff pets,
                 Spending time with some animals
               </p>
               <div class="ui action input">

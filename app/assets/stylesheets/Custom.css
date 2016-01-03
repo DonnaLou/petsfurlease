@@ -4,7 +4,7 @@ h1, h2, h3, h4{
 }
 
 .masthead.segment {
-  min-height: 750px;
+  height: 600px;
   padding: 3em 0em;
 }
 
