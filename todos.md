@@ -15,3 +15,6 @@
 - Create content for Helpful Tips link in the footer
 - Implement 'Send a Message' links, the one on pet page will only show if help is wanted
 - Create legit content for the home page
+- Add image preview via js on profile pictures
+- Add profile pic upload for users
+
