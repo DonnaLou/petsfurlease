@@ -6,6 +6,7 @@
 - Implement ratings
 - Add permission filtering on pet controller
 - Add validation on pet form and user profile form
+- Create open for adoption flag on pets
 
 
 ## Frontend
