@@ -14,48 +14,62 @@
             </div>
             <div class="ui hidden divider"></div>
           </div>
-         
-        </div>
-        <div class="ui fluid container" style="position:absolute; bottom:0; padding:10px 50px;">
-          <div class="ui three large steps">
-            <% if !user_signed_in? %>
-              <%= link_to new_user_session_path, class:"step" do %>
-                <i class="user icon"></i>
-                <div class="content">
-                  <div class="title">Create a profile </div>
-                  <div class="description">Tell us about yourself and your pets.</div>
-                </div>
-              <% end %>
-              <% else %>
-                <%= link_to new_profile_path, class:"step" do %>
-                  <i class="user icon"></i>
-                  <div class="content">
-                    <div class="title">Create a profile </div>
-                    <div class="description">Tell us about yourself and your pets.</div>
-                  </div>
-                <% end %>
-              <% end %>
-              <a href="search.html" class="step">
-                <i class="mail icon"></i>
-                <div class="content">
-                  <div class="title">Connect with others</div>
-                  <div class="description">Find fellow animal lovers in your area.</div>
-                </div>
-              </a>
-              <a class="step">
-                <i class="paw icon"></i>
-                <div class="content">
-                  <div class="title">Spend time with furry friends</div>
-                  <div class="description">Give some belly rubs and treats.</div>
-                </div>
-              </div>
-            </a>
-          </div> 
         </div>
       </div>  
 
+      <div class="ui vertical stripe segment">
+        <div class="ui middle aligned equal width stackable grid container">
+         <div class="center aligned row">
+            <div class="column">
+              <div class="ui raised segment">
+                <% if !user_signed_in? %>
+                  <%= link_to new_user_session_path, class:"step", style:"text-decorator:none; color:black" do %>
+                      <i class="huge user icon"></i>
+                      <div class="content">
+                        <h3>Create a profile </h3>
+                        <div>Tell us about yourself and your pets.</div>
+                      </div>
+                  <% end %>
+                <% else %>
+                  <%= link_to new_profile_path, class:"step" do %>
+                    <i class="huge user icon"></i>
+                    <div class="content">
+                      <h3>Create a profile </h3>
+                      <div class="description">Tell us about yourself and your pets.</div>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+            <div class="column">
+              <div class="ui raised segment">
+                <i class="huge mail icon"></i>
+                <div class="content">
+                  <h3>Connect with others</h3>
+                  <div class="description">Find fellow animal lovers in your area.</div>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="ui raised segment">
+                <i class="huge paw icon"></i>
+                <div class="content">
+                  <h3>Quality time with friends</h3>
+                  <div class="description">Give some belly rubs and treats.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="center aligned column">
+              <a class="ui huge blue button">Join us for Free</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="ui vertical stripe quote segment">
-        <div class="ui equal width stackable internally celled grid">
+        <div class="ui two column middle aligned very relaxed stackable grid">
           <div class="center aligned row">
             <div class="column">
               <h3>I'm a pet owner looking for help</h3>
@@ -71,7 +85,9 @@
                 </div>
               </div>
             </div>
-
+             <div class="ui vertical divider">
+                Or
+              </div>
             <div class="column">
               <h3>I'm seeking a furry friend</h3>
               <p>
@@ -170,7 +186,7 @@
           </div>
 
           <h4 class="ui horizontal header divider">
-            <a href="#">Read more user reviews</a>
+            <a href="#">Learn more</a>
           </h4>
 
           <div class="ui stackable grid container">
