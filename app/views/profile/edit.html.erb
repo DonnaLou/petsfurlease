@@ -2,14 +2,14 @@
 
  <div class="ui container">
   <div class="ui vertical stripe segment">
-    <h2 class="ui teal header">
+    <h2 class="ui header">
 	    <div class="content">
 	      Edit User Profile
 	    </div>
 	  </h2>
 
 	  <%= form_for @profile, url: profile_path, html: { method: :PUT, class:"ui form" } do |f|%>
- 			<%= render "profileForm", f: f %>
+				<%= render "profileForm", f: f %>
 		<% end %>
 
   </div>

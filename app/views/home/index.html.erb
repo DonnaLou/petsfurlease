@@ -1,209 +1,209 @@
-    <!-- Page Contents -->
-    <div class="pusher">
-      <div class="ui vertical masthead center aligned segment" id="homeBanner">
+<!-- Page Contents -->
+<div>
+  <div class="ui vertical masthead center aligned segment" id="homeBanner">
 
-        <div class="ui vertical stripe segment" style="padding-bottom:25px; border-bottom:none" >
-          <div class="ui right aligned stackable grid container">
+    <div class="ui vertical stripe segment" style="padding-bottom:25px; border-bottom:none" >
+      <div class="ui right aligned stackable grid container">
 
-            <div class="six wide column">
-              <h1 class="ui header" style="font-size:4em;">Pets Fur Lease</h1>
-              <div class="ui segment" style="background-color: rgba(256, 256, 256, 0.3)">
-                <p style="color:#A07956">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                </p> 
-              </div>
-            </div>
-            <div class="ui hidden divider"></div>
+        <div class="six wide column">
+          <h1 class="ui header" style="font-size:4em;">Pets Fur Lease</h1>
+          <div class="ui segment" style="background-color: rgba(256, 256, 256, 0.3)">
+            <p style="color:#A07956">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            </p> 
           </div>
         </div>
-      </div>  
+        <div class="ui hidden divider"></div>
+      </div>
+    </div>
+  </div>  
 
-      <div class="ui vertical stripe segment">
-        <div class="ui middle aligned equal width stackable grid container">
-         <div class="center aligned row">
-            <div class="column">
-              <div class="ui raised segment">
-                <% if !user_signed_in? %>
-                  <%= link_to new_user_session_path, class:"step", style:"text-decorator:none; color:black" do %>
-                      <i class="huge user icon"></i>
-                      <div class="content">
-                        <h3>Create a profile </h3>
-                        <div>Tell us about yourself and your pets.</div>
-                      </div>
-                  <% end %>
-                <% else %>
-                  <%= link_to new_profile_path, class:"step" do %>
-                    <i class="huge user icon"></i>
-                    <div class="content">
-                      <h3>Create a profile </h3>
-                      <div class="description">Tell us about yourself and your pets.</div>
-                    </div>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
-            <div class="column">
-              <div class="ui raised segment">
-                <i class="huge mail icon"></i>
+  <div class="ui vertical stripe segment">
+    <div class="ui middle aligned equal width stackable grid container">
+     <div class="center aligned row">
+        <div class="column">
+          <div class="ui raised segment">
+            <% if !user_signed_in? %>
+              <%= link_to new_user_session_path, class:"step", style:"text-decorator:none; color:black" do %>
+                  <i class="huge user icon"></i>
+                  <div class="content">
+                    <h3>Create a profile </h3>
+                    <div>Tell us about yourself and your pets.</div>
+                  </div>
+              <% end %>
+            <% else %>
+              <%= link_to new_profile_path, class:"step" do %>
+                <i class="huge user icon"></i>
                 <div class="content">
-                  <h3>Connect with others</h3>
-                  <div class="description">Find fellow animal lovers in your area.</div>
+                  <h3>Create a profile </h3>
+                  <div class="description">Tell us about yourself and your pets.</div>
                 </div>
-              </div>
-            </div>
-            <div class="column">
-              <div class="ui raised segment">
-                <i class="huge paw icon"></i>
-                <div class="content">
-                  <h3>Quality time with friends</h3>
-                  <div class="description">Give some belly rubs and treats.</div>
-                </div>
-              </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui raised segment">
+            <i class="huge mail icon"></i>
+            <div class="content">
+              <h3>Connect with others</h3>
+              <div class="description">Find fellow animal lovers in your area.</div>
             </div>
           </div>
+        </div>
+        <div class="column">
+          <div class="ui raised segment">
+            <i class="huge paw icon"></i>
+            <div class="content">
+              <h3>Quality time with friends</h3>
+              <div class="description">Give some belly rubs and treats.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="center aligned column">
+          <a class="ui huge blue button">Join us for Free</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui vertical stripe quote segment">
+    <div class="ui two column middle aligned very relaxed stackable grid">
+      <div class="center aligned row">
+        <div class="column">
+          <h3>I'm a pet owner looking for help</h3>
+          <p>  
+            Put something here to describe<br/>
+            the benefits a pet owner would get <br/>
+            from using this service <br/>
+          </p>
           <div class="row">
-            <div class="center aligned column">
-              <a class="ui huge blue button">Join us for Free</a>
+            <div class="ui action input">
+              <input type="text" placeholder="Zip code...">
+              <div type="submit" class="ui icon button"><i class="search icon"></i></div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="ui vertical stripe quote segment">
-        <div class="ui two column middle aligned very relaxed stackable grid">
-          <div class="center aligned row">
-            <div class="column">
-              <h3>I'm a pet owner looking for help</h3>
-              <p>  
-                Put something here to describe<br/>
-                the benefits a pet owner would get <br/>
-                from using this service <br/>
-              </p>
-              <div class="row">
-                <div class="ui action input">
-                  <input type="text" placeholder="Zip code...">
-                  <div type="submit" class="ui icon button"><i class="search icon"></i></div>
-                </div>
-              </div>
-            </div>
-             <div class="ui vertical divider">
-                Or
-              </div>
-            <div class="column">
-              <h3>I'm seeking a furry friend</h3>
-              <p>
-                Write something here to describe<br/>
-                what a pet seeker would get out of this<br/>
-                Ex. helping neighbors, experience having diff pets,
-                Spending time with some animals
-              </p>
-              <div class="ui action input">
-                <input type="text" placeholder="Zip code...">
-                <select class="ui compact selection dropdown" style="height:auto !important;">
-                  <option value="guineapig">Guinea Pig</option>
-                  <option value="rabbit">Rabbits</option>
-                  <option value="dogs">Dogs</option>
-                  <option value="cats">Cats</option>
-                  <option value="other">Other</option>
-                </select>
-                <div type="submit" class="ui icon button"><i class="search icon"></i></div>
-              </div>
-            </div>
+         <div class="ui vertical divider">
+            Or
           </div>
-        </div>
-      </div>
-
-      <div class="ui vertical stripe segment">
-        <div class="ui container">
-          <h3 class="ui header center aligned">Success Stories</h3>
-
-          <div class="ui three cards">
-            <div class="ui card">
-              <div class="content">
-                <div class="header">
-                  <%= image_tag "Dogs/sidinstagramcute.jpg", class:"ui circular tiny image" %>
-                    Cute Dog Sid 
-                </div>
-                <div class="meta">
-                  Rating:
-                  <div class="ui star rating" data-rating="4" data-max-rating="4"></div>
-                </div>
-                <div class="description">
-                  <p>
-                    I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.
-                  </p>
-                </div>
-              </div>
-              <div class="extra content">
-                <div class="right floated author">
-                  <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
-                </div>
-              </div>
-            </div>
-            <div class="ui card">
-              <div class="content">
-                <div class="header">
-                    <%= image_tag "Dogs/annie.jpg", class:"ui circular tiny image" %>
-                    Playful Annie 
-                </div>
-                <div class="meta">
-                  Rating:
-                  <div class="ui star rating" data-rating="4" data-max-rating="4"></div>
-                </div>
-                <div class="description">
-                  <p>
-                    Annie is extremely playful. She is not shy at all. It was a blast spending the weekend with her. She's always has a smile for you and she got along with my cats really well. 
-                  </p>
-                </div>
-              </div>
-              <div class="extra content">
-                <div class="right floated author">
-                  <%= image_tag "Portraits/pewpew.png", class:"ui avatar image" %>  Donna L.
-                </div>
-              </div>
-            </div>
-             <div class="ui card">
-              <div class="content">
-                <div class="header">
-                    <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui circular tiny image" %>
-                    Thank you Kevin
-                </div>
-                <div class="meta">
-                  Rating:
-                  <div class="ui star rating" data-rating="4" data-max-rating="4"></div>
-                </div>
-                <div class="description">
-                  <p>
-                    Kevin helped me watch my bunny Bunbun for 2 weeks. He took really great care of her. He would send me pictures every few days and she looked like she had a great time with him.
-                  </p>
-                </div>
-              </div>
-              <div class="extra content">
-                <div class="right floated author">
-                  <%= image_tag "IMG_20150821_185930.jpg", class:"ui avatar image" %> Bonnie B.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <h4 class="ui horizontal header divider">
-            <a href="#">Learn more</a>
-          </h4>
-
-          <div class="ui stackable grid container">
-            <div class="row center aligned">
-              <div class="eight wide column">
-                <h3 class="ui header">Contact Us</h3>
-                <p>
-                  PO Box TBD San Diego, California TBD </br>
-                  email us: petsfurlease@gmail.com </br>
-                </p>
-              </div>
-              <div class="eight wide column">
-                <h3 class="ui header">Donate &amp; help keep us going</h3>
-                <a href="#"><i class="huge paypal card icon"></i></a>
-              </div>
-            </div>
+        <div class="column">
+          <h3>I'm seeking a furry friend</h3>
+          <p>
+            Write something here to describe<br/>
+            what a pet seeker would get out of this<br/>
+            Ex. helping neighbors, experience having diff pets,
+            Spending time with some animals
+          </p>
+          <div class="ui action input">
+            <input type="text" placeholder="Zip code...">
+            <select class="ui compact selection dropdown" style="height:auto !important;">
+              <option value="guineapig">Guinea Pig</option>
+              <option value="rabbit">Rabbits</option>
+              <option value="dogs">Dogs</option>
+              <option value="cats">Cats</option>
+              <option value="other">Other</option>
+            </select>
+            <div type="submit" class="ui icon button"><i class="search icon"></i></div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="ui vertical stripe segment">
+    <div class="ui container">
+      <h3 class="ui header center aligned">Success Stories</h3>
+
+      <div class="ui three cards">
+        <div class="ui card">
+          <div class="content">
+            <div class="header">
+              <%= image_tag "Dogs/sidinstagramcute.jpg", class:"ui circular tiny image" %>
+                Cute Dog Sid 
+            </div>
+            <div class="meta">
+              Rating:
+              <div class="ui star rating" data-rating="4" data-max-rating="4"></div>
+            </div>
+            <div class="description">
+              <p>
+                I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.
+              </p>
+            </div>
+          </div>
+          <div class="extra content">
+            <div class="right floated author">
+              <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
+            </div>
+          </div>
+        </div>
+        <div class="ui card">
+          <div class="content">
+            <div class="header">
+                <%= image_tag "Dogs/annie.jpg", class:"ui circular tiny image" %>
+                Playful Annie 
+            </div>
+            <div class="meta">
+              Rating:
+              <div class="ui star rating" data-rating="4" data-max-rating="4"></div>
+            </div>
+            <div class="description">
+              <p>
+                Annie is extremely playful. She is not shy at all. It was a blast spending the weekend with her. She's always has a smile for you and she got along with my cats really well. 
+              </p>
+            </div>
+          </div>
+          <div class="extra content">
+            <div class="right floated author">
+              <%= image_tag "Portraits/pewpew.png", class:"ui avatar image" %>  Donna L.
+            </div>
+          </div>
+        </div>
+         <div class="ui card">
+          <div class="content">
+            <div class="header">
+                <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui circular tiny image" %>
+                Thank you Kevin
+            </div>
+            <div class="meta">
+              Rating:
+              <div class="ui star rating" data-rating="4" data-max-rating="4"></div>
+            </div>
+            <div class="description">
+              <p>
+                Kevin helped me watch my bunny Bunbun for 2 weeks. He took really great care of her. He would send me pictures every few days and she looked like she had a great time with him.
+              </p>
+            </div>
+          </div>
+          <div class="extra content">
+            <div class="right floated author">
+              <%= image_tag "IMG_20150821_185930.jpg", class:"ui avatar image" %> Bonnie B.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="ui horizontal header divider">
+        <a href="#">Learn more</a>
+      </h4>
+
+      <div class="ui stackable grid container">
+        <div class="row center aligned">
+          <div class="eight wide column">
+            <h3 class="ui header">Contact Us</h3>
+            <p>
+              PO Box TBD San Diego, California TBD </br>
+              email us: petsfurlease@gmail.com </br>
+            </p>
+          </div>
+          <div class="eight wide column">
+            <h3 class="ui header">Donate &amp; help keep us going</h3>
+            <a href="#"><i class="huge paypal card icon"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
