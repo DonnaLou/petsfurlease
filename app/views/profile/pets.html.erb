@@ -1,10 +1,20 @@
-<div class="ui container">
-	<div class="ui vertical stripe segment">
+<div class="ui vertical stripe segment">
+	<div class="ui container">
+		<% if @pets.count() < 1 %>
+			<div class="ui info message">
+			  <div class="header">
+			    You don't have any registered pets right now.
+			  </div>
+			  <ul class="list">
+			    <li>Click "Add a Pet" to register them.</li>
+			  </ul>
+		  </div>
+		<% end %>
 
 		<%= link_to "Add a Pet", new_pet_path, class:"ui right floated green button" %>
 
-		<div class="ui divided items">
-			<% if not @pets.nil? %>
+		<% if @pets.count() > 0 %>
+			<div class="ui divided items">
 				<% @pets.each do |pet| %>
 					<div class="item">
 						<div class="ui small image">
@@ -30,7 +40,7 @@
 						</div>
 					</div>
 				<% end %>
-			<% end %>
-		</div>
+			</div>
+		<% end %>
 	</div>
 </div>
