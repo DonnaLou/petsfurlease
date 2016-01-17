@@ -1,6 +1,6 @@
-<div class="ui top fixed menu">
+<div class="ui inverted fixed menu">
   <div class="ui container">
-    <%= link_to "Pets fur Lease", root_path,  class: "item" %>
+    <%= link_to "Pets fur Lease", root_path,  class: "header item" %>
     <%= link_to "Look for help", pets_path,  class: "item" %>
     <%= link_to "Be a sitter", pets_path,  class: "item" %>
     <%= link_to "How it Works", faq_path,  class: "item" %>
@@ -20,8 +20,8 @@
             <% else %>
               <%= link_to "Create new Profile", new_profile_path, class: "item" %>
             <% end %>
-            
-            <a class="item">Account settings</a>
+
+            <%= link_to "Account settings", edit_user_registration_path, class: "item" %>
           </div>
         </div>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "item" %>
