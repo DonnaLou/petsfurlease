@@ -2,7 +2,6 @@
 h1, h2, h3, h4{
   font-family: Original Surfer !important;
   color: #4E667B !important;
-  
 }
 
 .masthead.segment {
@@ -18,14 +17,6 @@ h1, h2, h3, h4{
 .masthead h2 {
   font-size: 1.7em;
   font-weight: normal;
-}
-
-.ui.card{
-	box-shadow: none !important;
-}
-
-.ui.message{
-  padding: 0em !important;
 }
 
 .ui.vertical.stripe {
@@ -64,12 +55,7 @@ h1, h2, h3, h4{
   display: none;
 }
 
-
-
 @media only screen and (max-width: 700px) {
-  .ui.fixed.menu {
-    display: none !important;
-  }
   .secondary.pointing.menu .item,
   .secondary.pointing.menu .menu {
     display: none;
