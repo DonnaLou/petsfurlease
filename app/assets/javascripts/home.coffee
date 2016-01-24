@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready =->
-	$('.ui.rating').rating()
+	$('.ui.rating').rating('disable')
 
 $(document).ready(ready)

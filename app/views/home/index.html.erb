@@ -21,7 +21,7 @@
         <div class="column">
           <div class="ui raised segment">
             <% if !user_signed_in? %>
-              <%= link_to new_user_session_path, class:"step", style:"text-decorator:none; color:black" do %>
+              <%= link_to new_user_session_path, style:"text-decorator:none; color:black" do %>
                   <i class="huge user icon"></i>
                   <div class="content">
                     <h3>Create a profile </h3>
@@ -29,7 +29,7 @@
                   </div>
               <% end %>
             <% else %>
-              <%= link_to new_profile_path, class:"step" do %>
+              <%= link_to new_profile_path do %>
                 <i class="huge user icon"></i>
                 <div class="content">
                   <h3>Create a profile </h3>
@@ -60,7 +60,9 @@
       </div>
       <div class="row">
         <div class="center aligned column">
-          <a class="ui huge blue button">Join us for Free</a>
+          <%= link_to new_user_session_path do%>
+            <div class="ui huge blue button">Join us for Free</div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -119,7 +121,9 @@
             <h3 class="ui center aligned header">
               <%= image_tag "Dogs/sidinstagramcute.jpg", class:"ui circular small image" %>
             </h3>
-            <div class="ui star rating" data-rating="5" data-max-rating="5"></div>
+            <div>Review:
+              <span class="ui star rating" data-rating="5" data-max-rating="5"></span>
+            </div>
             <p>
               I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.
             </p>
@@ -131,7 +135,9 @@
             <h3 class="ui center aligned header">
               <%= image_tag "Dogs/annie.jpg", class:"ui circular small image" %>
             </h3>
-            <div class="ui star rating" data-rating="5" data-max-rating="5"></div>
+            <div>Review:
+              <span class="ui star rating" data-rating="5" data-max-rating="5"></span>
+            </div>
             <p>
               Annie is extremely playful. She is not shy at all. It was a blast spending the weekend with her. She's always has a smile for you and she got along with my cats really well. 
             </p>
@@ -141,9 +147,11 @@
           </div>
           <div class="column">
             <h3 class="ui center aligned header">
-              <%= image_tag "Dogs/kc.jpeg", class:"ui circular small image" %>
+              <%= image_tag "Dogs/sidinstagramcute.jpg", class:"ui circular small image" %>
             </h3>
-            <div class="ui star rating" data-rating="5" data-max-rating="5"></div>
+            <div>Review:
+              <span class="ui star rating" data-rating="5" data-max-rating="5"></span>
+            </div>
             <p>
               Kevin helped me watch my bunny Bunbun for 2 weeks. He took really great care of her. He would send me pictures every few days and she looked like she had a great time with him.
             </p>
@@ -155,7 +163,9 @@
             <h3 class="ui center aligned header">
               <%= image_tag "Dogs/sidinstagramcute.jpg", class:"ui circular small image" %>
             </h3>
-            <div class="ui star rating" data-rating="5" data-max-rating="5"></div>
+            <div>Review:
+              <span class="ui star rating" data-rating="5" data-max-rating="5"></span>
+            </div>
             <p>
               I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.
             </p>
