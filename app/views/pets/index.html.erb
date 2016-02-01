@@ -8,52 +8,34 @@
     </div>
 
     <div class="ui bottom attached tab segment active" data-tab="first">
-       <div class="ui action input">
-        <input type="text" placeholder="Zip code...">
-        <select class="ui compact selection dropdown" style="height:auto !important;">
-          <option value="guineapig">Guinea Pig</option>
-          <option value="rabbit">Rabbits</option>
-          <option value="dogs">Dogs</option>
-          <option value="cats">Cats</option>
-          <option value="other">Other</option>
-        </select>
-        <div type="submit" class="ui icon button"><i class="search icon"></i></div>
-      </div>
-    </div>
-    <div class="ui bottom attached tab segment" data-tab="second">
-      <div class="ui action input">
-        <input type="text" placeholder="Zip code...">
-        <div type="submit" class="ui icon button"><i class="search icon"></i></div>
-      </div>
-    </div>
-
-    <div class="ui divided items">
-
-      <% @pets.each do |pet| %>
-        <div class="item">
-          <div class="ui small image">
-            <%= image_tag pet.image.url(:medium), class:"ui bordered rounded image" %>
-          </div>
-          <div class="top aligned content">
-            <div class="header"><%= pet.name %></div>
-            <div class="meta">
-              <span><i class="home icon"></i><%= pet.profile.city %>, <%= pet.profile.state %></span>
-            </div>
-            <div class="description">
-              <span>Gender: <%= pet.gender %></span><br/>
-              <span>Breed: <%= pet.breed %></span><br/>
-              <span>Details: <%= pet.details %></span>
-            </div>
-            <div class="extra">
-              <%= link_to "View Profile", pet_path(pet), class:"ui right floated teal button" %>
-              <div class="ui right floated yellow button">
-                Message owner
-              </div>
-            </div>
-          </div>
+      <%= form_tag("/pets/search", remote: true, method: "get", id:"petSearchForm") do %>
+        <div class="ui action input">
+          <%= text_field_tag(:zip, nil, placeholder: "Zip code...") %>
+          <%= select_tag(
+            :species, 
+            '<option value="Guineapig">Guinea Pig</option>
+            <option value="Rabbit">Rabbit</option>
+            <option value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+            <option value="Other">Other</option>'.html_safe, 
+            class: "ui compact selection dropdown", 
+            style: "padding: 0.5em !important;") %>
+          <button type="submit" class="ui icon button" id="petSearchFormBtn"><i class="search icon"></i></button>
         </div>
       <% end %>
-      
     </div>
+
+    <div class="ui bottom attached tab segment" data-tab="second">
+      <%= form_tag("/pets/search", remote: true, method: "get") do %>
+        <div class="ui action input">
+          <%= text_field_tag(:zip, nil, placeholder: "Zip code...") %>
+          <button type="submit" class="ui icon button"><i class="search icon"></i></button>
+        </div>
+      <% end %>
+    </div>
+    <div class="ui divided items" id="petSearchResults">
+      <%= render "petSearchList" %>
+    </div>
+
   </div>
 </div>

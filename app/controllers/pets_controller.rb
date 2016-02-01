@@ -52,6 +52,12 @@ class PetsController < ApplicationController
 		redirect_to :back
 	end
 
+	def search
+		@pets = Pet.search(zip: params[:zip], species: params[:species])
+		render partial:"petSearchList"
+	end
+
+
 	private
 		def pet_params
 			params.require(:pet).permit(:id, :name, :species, :breed, :age, :details, 

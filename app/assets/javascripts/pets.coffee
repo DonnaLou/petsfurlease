@@ -10,6 +10,7 @@ ready =->
 	$("#deleteProfilePic").on 'click', (event) => 
 		deleteProfilePicClick()
 
+
 helpWantedClick =->
 	if $("#helpWantedToggle").hasClass("checked")
 		$("#helpWantedDates").show()
@@ -20,8 +21,15 @@ deleteProfilePicClick =->
 	$("#petProfilePicUpload").show()
 	$("#petProfilePic").hide()
 
+$(document).ready ->
+  $("#petSearchForm")
+	.on("ajax:success", (e, data, status, xhr) ->
+    	$("#petSearchResults").html(xhr.responseText))
+	.on("ajax:error", (e, xhr, status, error) ->
+    	alert("<p>ERROR</p>"))
+
+
 $(document).ready(ready)
-$(document).on('page:load', ready)
 
 
 
