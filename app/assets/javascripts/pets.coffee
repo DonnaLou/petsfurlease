@@ -26,10 +26,11 @@ $(document).ready ->
 	.on("ajax:success", (e, data, status, xhr) ->
     	$("#petSearchResults").html(xhr.responseText))
 	.on("ajax:error", (e, xhr, status, error) ->
-    	alert("<p>ERROR</p>"))
+    	alert("Error: " + xhr.responseText))
 
 
 $(document).ready(ready)
+$(document).on('page:load', ready)
 
 
 

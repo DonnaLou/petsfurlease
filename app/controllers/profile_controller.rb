@@ -1,5 +1,5 @@
 class ProfileController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :only => [:new, :create, :update, :edit, :delete]
 
   def index
   end
@@ -40,6 +40,11 @@ class ProfileController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def search
+    @profiles = Profile.where(zip:params[:zip])
+    render partial: "profileSearchList"
   end
 
 

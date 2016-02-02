@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'profile/:id/pets' => 'profile#pets', as: :registered_pets
 
   get 'pets/search' => 'pets#search'
+  get 'profile/search' => 'profile#search'
 
   devise_for :users
   resources :pets

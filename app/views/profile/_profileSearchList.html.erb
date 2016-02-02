@@ -1,0 +1,25 @@
+<%if @profiles.count<1 %>
+  <div class="ui negative message">
+    <div class="header">
+      Sorry! No pet sitters matching current criteria. Please try again with another search criteria.
+    </div>
+  </div>
+<% else %>
+  <% @profiles.each do |profile| %>
+    <div class="item">
+      <div class="top aligned content">
+        <div class="header"><%= profile.firstName %> <%= profile.lastName %></div>
+        <div class="meta">
+          <span><i class="home icon"></i><%= profile.city %>, <%= profile.state %></span>
+        </div>
+        <div class="description">
+          <span>Description: <%= profile.description %></span><br/>
+        </div>
+        <div class="extra">
+          <%= link_to "View Profile", profile_path(profile), class:"ui right floated teal button" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
