@@ -1,12 +1,12 @@
 class Pet < ActiveRecord::Base
+  belongs_to :profile
+
   validates :profile_id, 
     :name, 
     :species, 
     :age, 
     :details,
     presence: true
-
-  belongs_to :profile
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "wireframeImage.png"
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']

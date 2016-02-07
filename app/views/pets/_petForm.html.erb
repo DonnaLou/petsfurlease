@@ -1,11 +1,13 @@
 <% if @pet.errors.any? %>
-  <div id="error_explanation" class="ui secondary inverted red segment">
-    <p><i class="flag icon"></i><%= pluralize(@pet.errors.count, "validation error") %> :</p>
+  <div id="error_explanation" class="ui error message">
+    <div class="header">
+      <i class="flag icon"></i><%= pluralize(@pet.errors.count, "validation error") %> :
+    </div>
  
-    <ul>
-    <% @pet.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
+    <ul class="list">
+      <% @pet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
     </ul>
   </div>
 <% end %>
@@ -193,7 +195,7 @@
         <div class="field">
           <label>Profile Picture</label>
 
-          <% if @pet.image %>
+          <% if @pet.image.exists? %>
             <div class="ui medium image" id="petProfilePic">
               <%= image_tag @pet.image.url(:medium), class:"ui bordered rounded image" %>
               <a class="ui red right corner label" id="deleteProfilePic" onclick="deleteProfilePicClick()">
@@ -202,7 +204,7 @@
             </div>
           <% end %>
 
-          <div class="ui input" id="petProfilePicUpload" style="<%='display: none' unless @pet.image.nil?%>">
+          <div class="ui input" id="petProfilePicUpload" style="<%='display: none' unless !@pet.image.exists?%>">
             <%= f.file_field :image %>
           </div>
         </div>
