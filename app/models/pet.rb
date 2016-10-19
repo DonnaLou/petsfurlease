@@ -1,5 +1,6 @@
 class Pet < ActiveRecord::Base
   belongs_to :profile
+  has_many :reviews
 
   validates :profile_id, 
     :name, 

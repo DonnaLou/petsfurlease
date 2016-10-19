@@ -13,6 +13,11 @@ class ProfileController < ApplicationController
   end
 
   def new
+    if current_user.profile
+      @profile = current_user.profile
+      render 'edit'
+    end
+
     @profile = Profile.new
   end
 

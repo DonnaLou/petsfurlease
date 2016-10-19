@@ -1,6 +1,7 @@
 class Profile < ActiveRecord::Base
 	belongs_to :user
 	has_many :pets
+	has_many :reviews
 	
 	validates :firstName, :lastName, presence: true
 	validates :zip, length: {is: 5}

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile
+  has_many :reviews
   
   def sitter?()
     self.is_sitter
