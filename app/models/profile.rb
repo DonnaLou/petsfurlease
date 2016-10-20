@@ -15,4 +15,9 @@ class Profile < ActiveRecord::Base
 
 		query.to_a
 	end
+
+	def full_name
+		return firstName + " " + lastName
+	end
+
 end

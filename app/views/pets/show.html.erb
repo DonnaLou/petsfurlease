@@ -41,7 +41,7 @@
 						<%= image_tag @pet.profile.image, class:"ui circular tiny middle aligned image" %>
 						<% else %>
 						<%= image_tag "wireframeImage.png", class:"ui circular tiny middle aligned image" %>
-						<% end %> <span> Contact <strong><%= @pet.profile.firstName %> <%= @pet.profile.lastName %></strong> to help.</span> </a>
+						<% end %> <span> Contact <strong><%= @pet.profile.full_name %></strong> to help.</span> </a>
 					</div>
 				</div>
 				<% end %>
@@ -67,24 +67,26 @@
 				</div>
 
 				<div class="ui segment">
-					<h4>User Review: <a class="hidden" name="UserReviews"></a></h4>
-					<div class="ui comments">
-						<div class="comment">
-							<a class="avatar" style="height:2.5em;"> <img src="..\app\assets\images\Portraits\pewpew.png"> </a>
-							<div class="content">
-								<a class="author">Donna Lou</a>
-								<div class="ui star rating" data-rating="4"></div>
-								<div class="metadata">
-									<div class="date">
-										2 days ago
+					<h4>Reviews: <a class="hidden" name="UserReviews"></a></h4>
+					<% @pet.reviews.each do |r| %>
+						<div class="ui comments">
+							<div class="comment">
+								<a class="avatar" style="height:2.5em;"> <img src="..\app\assets\images\Portraits\pewpew.png"> </a>
+								<div class="content">
+									<%= link_to r.user.profile.full_name, profile_path(r.user.profile), html_options={class:"author"} %>
+									<div class="ui star rating" data-rating=<%= r.rating.to_s%>></div>
+									<div class="metadata">
+										<div class="date">
+											<%= r.created_at.strftime("%m-%d-%Y") %>
+										</div>
 									</div>
-								</div>
-								<div class="text">
-									Todo: fill in with real content.
+									<div class="text">
+										<%= r.details%>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					<% end %>
 				</div>
 			</div>
 		</div>

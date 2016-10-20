@@ -1,8 +1,8 @@
 <div class="ui inverted fixed menu">
   <div class="ui container">
-    <%= link_to "Pets fur Lease", root_path,  class: "header item" %>
-    <%= link_to "Look for help", pets_path,  class: "item" %>
-    <%= link_to "Be a sitter", pets_path,  class: "item" %>
+    <%= link_to "Pets Fur Lease", root_path,  class: "header item" %>
+    <%= link_to "Look For Felp", pets_path,  class: "item" %>
+    <%= link_to "Be a Sitter", pets_path,  class: "item" %>
     <%= link_to "How it Works", faq_path,  class: "item" %>
 
     <div class="right menu ">
@@ -14,14 +14,14 @@
            Welcome <%= current_user.email %> <i class="dropdown icon"></i>
           <div class="menu">
             <% if not current_user.profile.nil? %>
-              <%= link_to "View your Profile", profile_path(current_user.profile.id), class: "item" %>
-              <%= link_to "Edit your Profile", edit_profile_path(current_user.profile.id), class: "item" %>
-              <%= link_to "Your Registered Pets", registered_pets_path(current_user.profile.id), class: "item" %>
+              <%= link_to "View Profile", profile_path(current_user.profile.id), class: "item" %>
+              <%= link_to "Edit Profile", edit_profile_path(current_user.profile.id), class: "item" %>
+              <%= link_to "My Pets", registered_pets_path(current_user.profile.id), class: "item" %>
             <% else %>
               <%= link_to "Create new Profile", new_profile_path, class: "item" %>
             <% end %>
 
-            <%= link_to "Account settings", edit_user_registration_path, class: "item" %>
+            <%= link_to "Account Settings", edit_user_registration_path, class: "item" %>
           </div>
         </div>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "item" %>

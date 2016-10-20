@@ -4,7 +4,6 @@
 	<div class="ui vertical stripe segment">
 		<div class="ui two column grid">
 			<div class="four wide column">
-
 				<% if (@profile.image) %>
 				<%= image_tag @profile.image, class:"ui bordered rounded image" %>
 				<% else%>
@@ -61,24 +60,30 @@
 				<% end %>
 
 				<div class="ui segment">
-					<h4>User Review: <a class="hidden" name="UserReviews"></a></h4>
-					<div class="ui comments">
-						<div class="comment">
-							<a class="avatar" style="height:2.5em;"> <img src="..\app\assets\images\Portraits\pewpew.png"> </a>
-							<div class="content">
-								<a class="author">Donna Lou</a>
-								<div class="ui star rating" data-rating="4"></div>
-								<div class="metadata">
-									<div class="date">
-										2 days ago
+					<h4>Reviews: <a class="hidden" name="UserReviews"></a></h4>
+					<% if @profile.reviews.count == 0 %>
+
+					<% end %>
+
+					<% @profile.reviews.each do |r| %>
+						<div class="ui comments">
+							<div class="comment">
+								<a class="avatar" style="height:2.5em;"> <img src="..\app\assets\images\Portraits\pewpew.png"> </a>
+								<div class="content">
+									<%= link_to r.user.profile.full_name, profile_path(r.user.profile), html_options={class:"author"} %>
+									<div class="ui star rating" data-rating=<%= r.rating.to_s%>></div>
+									<div class="metadata">
+										<div class="date">
+											<%= r.created_at.strftime("%m-%d-%Y") %>
+										</div>
 									</div>
-								</div>
-								<div class="text">
-									TODO: fill in content
+									<div class="text">
+										<%= r.details%>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					<% end %>
 				</div>
 			</div>
 		</div>
