@@ -16,6 +16,9 @@
 				<h3><%= @pet.name %></h3>
 
 				<p>
+					<i class="user icon"></i><%= link_to "#{@pet.profile.full_name}", profile_path(@pet.profile.id) %>
+				</p>
+				<p>
 					<i class="marker icon"></i><%= @pet.profile.city%>, <%= @pet.profile.state %>
 				</p>
 				<p>
@@ -26,15 +29,20 @@
 						<i class="mail icon"></i><a href="#" onclick="composeMsg();">Send a Message</a>
 					<p>
 				<% end %>	
-				<p>
-					<button class="positive ui button" id="writeReviewBtn">
-						<i class="pencil icon"></i> Write a Review
-					</button>
-				</p>
+				<% if(!@pet.owned_by_user(current_user)) %>
+					<p>
+						<button class="positive ui button" id="writeReviewBtn">
+							<i class="pencil icon"></i> Write a Review
+						</button>
+					</p>
+				<% else %>
+					<p>
+						<%= link_to "Edit Pet Profile", edit_pet_path(@pet), class:"ui yellow button" %>
+					</p>
+				<% end %>	
 			</div>
 
 			<div class="twelve wide column">
-
 				<% if (@pet.helpWanted)%>
 				<div class="ui horizontal segments">
 					<div class="ui segment">

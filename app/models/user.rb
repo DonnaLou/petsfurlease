@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_one :profile
   has_many :reviews
+  has_many :pets, through: :profile
   
   def sitter?()
     self.is_sitter

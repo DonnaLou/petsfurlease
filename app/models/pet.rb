@@ -26,4 +26,9 @@ class Pet < ActiveRecord::Base
   def zip
     self.profile.zip
   end
+
+  def owned_by_user(user)
+    return profile.user == user
+  end
+
 end

@@ -27,11 +27,15 @@
 				<p>
 					<i class="mail icon"></i><a href="#" onclick="composeMsg();">Send a Message</a>
 				</p>
-				<p>
-					<button class="positive ui button" id="writeReviewBtn">
-						<i class="pencil icon"></i> Write a Review
-					</button>
-				</p>
+				<% if(current_user != @profile.user) %>
+					<p>
+						<button class="positive ui button" id="writeReviewBtn">
+							<i class="pencil icon"></i> Write a Review
+						</button>
+					</p>
+				<% else %>		
+          <%= link_to "Edit Profile", edit_profile_path(current_user.profile.id), class: "ui yellow button" %>
+				<% end %>
 			</div>
 			<div class="twelve wide column">
 				<div class="ui segment">
