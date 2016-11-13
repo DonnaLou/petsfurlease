@@ -3,7 +3,17 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready =->
-	$('.iconPopUp').popup()
+	$('#composeMsg').on 'click', (event) => composeMsg();
+	$('#writeReviewBtn').on 'click', (event) => writeReview();
+	$('.iconPopUp').popup();
+	
+
+composeMsg =->
+	$(".ui.modal#message").modal('show');
+
+writeReview =->
+	$(".ui.modal#review").modal('show');
+	$('.ui.rating').rating();
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

@@ -3,34 +3,33 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready =->
-	$('.ui.checkbox').checkbox()
-	$('.menu .item').tab()
+	$('.ui.checkbox').checkbox();
+	$('.menu .item').tab();
 	$("#helpWantedToggle").on 'click', (event) => 
-		helpWantedClick()
+		helpWantedClick();
 	$("#deleteProfilePic").on 'click', (event) => 
-		deleteProfilePicClick()
+		deleteProfilePicClick();
+	$("#petSearchForm")		
+		.on("ajax:success", (e, data, status, xhr) ->
+    	$("#petSearchResults").html(xhr.responseText))
+		.on("ajax:error", (e, xhr, status, error) ->
+    	alert("Error: " + xhr.responseText))
+	$('#writeReviewBtn').on 'click', (event) => writeReview();
+    	
 
 
 helpWantedClick =->
 	if $("#helpWantedToggle").hasClass("checked")
-		$("#helpWantedDates").show()
+		$("#helpWantedDates").show();
 	else
-		$("#helpWantedDates").hide()
+		$("#helpWantedDates").hide();
 
 deleteProfilePicClick =->
-	$("#petProfilePicUpload").show()
-	$("#petProfilePic").hide()
-
-$(document).ready ->
-  $("#petSearchForm")
-	.on("ajax:success", (e, data, status, xhr) ->
-    	$("#petSearchResults").html(xhr.responseText))
-	.on("ajax:error", (e, xhr, status, error) ->
-    	alert("Error: " + xhr.responseText))
+	$("#petProfilePicUpload").show();
+	$("#petProfilePic").hide();
 
 
-$(document).ready(ready)
-$(document).on('page:load', ready)
+$(document).on('page:load', ready);
 
 
 

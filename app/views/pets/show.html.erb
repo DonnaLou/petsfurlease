@@ -81,6 +81,10 @@
 
 				<div class="ui segment">
 					<h4>Reviews: <a class="hidden" name="UserReviews"></a></h4>
+					<% if @pet.reviews.count == 0 %>
+						<h4 class="ui grey header">No Reviews Available</h4>
+					<% end %>
+
 					<% @pet.reviews.each do |r| %>
 						<div class="ui comments">
 							<div class="comment">
@@ -104,4 +108,6 @@
 			</div>
 		</div>
 	</div>
+
+	<%= render partial:"shared/writeReview", locals:{name: @pet.name} %>
 </div>

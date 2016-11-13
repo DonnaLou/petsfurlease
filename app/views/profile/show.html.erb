@@ -5,9 +5,9 @@
 		<div class="ui two column grid">
 			<div class="four wide column">
 				<% if (@profile.image) %>
-				<%= image_tag @profile.image, class:"ui bordered rounded image" %>
+					<%= image_tag @profile.image, class:"ui bordered rounded image" %>
 				<% else%>
-				<%= image_tag "wireframeImage.png", class:"ui bordered rounded image" %>
+					<%= image_tag "wireframeImage.png", class:"ui bordered rounded image" %>
 				<% end %>
 				<h3><%= @profile.firstName %> <%= @profile.lastName %></h3>
 				<p>
@@ -25,7 +25,7 @@
 					<i class="thumbs outline up icon"></i><a href="#UserReviews">Read Reviews</a>
 				</p>
 				<p>
-					<i class="mail icon"></i><a href="#" onclick="composeMsg();">Send a Message</a>
+					<i class="mail icon"></i><a href="#" id="composeMsg">Send a Message</a>
 				</p>
 				<% if(current_user != @profile.user) %>
 					<p>
@@ -48,7 +48,6 @@
 				<div class="ui segment">
 					<h4>Pet Profiles:</h4>
 					<div class="ui items">
-
 						<% @profile.pets.each do |pet| %>
 						<div class="item">
 							<div class="ui small image">
@@ -97,4 +96,7 @@
 			</div>
 		</div>
 	</div>
+
+	<%= render partial: "shared/composeMessage", locals:{name: @profile.firstName + " " + @profile.lastName} %>
+	<%= render partial: "shared/writeReview", locals: {name: @profile.firstName + " " + @profile.lastName}%>
 </div>
