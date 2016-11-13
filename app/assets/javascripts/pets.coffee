@@ -2,21 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-ready =->
-	$('.ui.checkbox').checkbox();
-	$('.menu .item').tab();
-	$("#helpWantedToggle").on 'click', (event) => 
-		helpWantedClick();
-	$("#deleteProfilePic").on 'click', (event) => 
-		deleteProfilePicClick();
-	$("#petSearchForm")		
-		.on("ajax:success", (e, data, status, xhr) ->
-    	$("#petSearchResults").html(xhr.responseText))
-		.on("ajax:error", (e, xhr, status, error) ->
-    	alert("Error: " + xhr.responseText))
-	$('#writeReviewBtn').on 'click', (event) => writeReview();
-    	
-
+initialize =->
+	$('.ui.checkbox').checkbox()
+	$('.menu .item').tab()
+	$("#helpWantedToggle").on 'click', (event) => helpWantedClick()
+	$("#deleteProfilePic").on 'click', (event) => deleteProfilePicClick()
+	$('#writeReviewBtn').on 'click', (event) => writeReview()
 
 helpWantedClick =->
 	if $("#helpWantedToggle").hasClass("checked")
@@ -28,8 +19,24 @@ deleteProfilePicClick =->
 	$("#petProfilePicUpload").show();
 	$("#petProfilePic").hide();
 
+	
+composeMsg =->
+	$(".ui.modal#message").modal('show');
 
-$(document).on('page:load', ready);
+writeReview =->
+	$(".ui.modal#review").modal('show');
+	$('.ui.rating').rating();
+
+
+$(document).ready ->
+  $("#petSearchForm")
+	.on("ajax:success", (e, data, status, xhr) ->
+    	$("#petSearchResults").html(xhr.responseText))
+	.on("ajax:error", (e, xhr, status, error) ->
+   	alert("Error: " + xhr.responseText))
+
+$(document).ready(initialize);
+$(document).on('page:load', initialize);
 
 
 
