@@ -230,7 +230,6 @@
       </div>
     </div>
 
-    <button class="ui grey button right floated" type="submit">Back</button>
-
+    <%= link_to "Back", registered_pets_path(current_user.profile.id), class: "ui grey button right floated" %>
     <button class="ui teal button right floated" type="submit">Save</button>
   <% end %>
