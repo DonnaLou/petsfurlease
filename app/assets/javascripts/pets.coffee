@@ -29,11 +29,14 @@ writeReview =->
 
 
 $(document).ready ->
-  $("#petSearchForm")
-	.on("ajax:success", (e, data, status, xhr) ->
-    	$("#petSearchResults").html(xhr.responseText))
-	.on("ajax:error", (e, xhr, status, error) ->
-   	alert("Error: " + xhr.responseText))
+    $("#petSearchForm")
+		.on("ajax:success", (e, data, status, xhr) ->
+			if(e.target.id == "petSearchForm")
+	    	$("#petSearchResults").html(xhr.responseText)
+    	else if(e.target.id == "userSearchForm")
+    		$("#profileSearchResults").html(xhr.responseText))
+		.on("ajax:error", (e, xhr, status, error) ->
+	   		alert("Error: " + xhr.responseText))
 
 $(document).ready(initialize);
 $(document).on('page:load', initialize);

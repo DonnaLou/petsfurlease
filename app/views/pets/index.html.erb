@@ -10,7 +10,7 @@
     <div class="ui bottom attached tab segment active" data-tab="first">
       <%= form_tag("/pets/search", remote: true, method: "get", id:"petSearchForm") do %>
         <div class="ui action input">
-          <%= text_field_tag(:zip, nil, placeholder: "Zip code...") %>
+          <%= text_field_tag(:zip, nil, placeholder: "Zip Code...") %>
           <%= select_tag(
             :species, 
             '<option value="Dog">Dog</option>
@@ -22,19 +22,26 @@
           <button type="submit" class="ui icon button" id="petSearchFormBtn"><i class="search icon"></i></button>
         </div>
       <% end %>
+      <div class="ui divider"></div>
+      <div class="ui divided items" id="petSearchResults">
+        <%= render "petSearchList" %>
+      </div>
+
     </div>
 
     <div class="ui bottom attached tab segment" data-tab="second">
-      <%= form_tag("/profile/search", remote: true, method: "get") do %>
+      <%= form_tag("/profile/search", remote: true, method: "get", id:"userSearchForm") do %>
         <div class="ui action input">
-          <%= text_field_tag(:zip, nil, placeholder: "Zip code...") %>
+          <%= text_field_tag(:zip, nil, placeholder: "Zip Code...") %>
           <button type="submit" class="ui icon button"><i class="search icon"></i></button>
         </div>
       <% end %>
-    </div>
-    <div class="ui divided items" id="petSearchResults">
-      <%= render "petSearchList" %>
-    </div>
 
+      <div class="ui divider"></div>
+      <div class="ui divided items" id="profileSearchResults">
+        <%= render "profile/profileSearchList" %>
+      </div>
+    </div>
+   
   </div>
 </div>

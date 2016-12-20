@@ -2,6 +2,7 @@ class PetsController < ApplicationController
 
 	def index
 		@pets = Pet.all
+		@profiles = Profile.all
 	end
 
 	def show
