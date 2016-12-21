@@ -80,12 +80,12 @@
           </p>
           <div class="row">
             <div class="ui action input">
-              <input type="text" placeholder="Zip code...">
-              <div type="submit" class="ui icon button"><i class="search icon"></i></div>
+              <input type="text" placeholder="Zip code..." id="userZip">
+              <div type="submit" class="ui icon button" onClick="userZipSearch()"><i class="search icon"></i></div>
             </div>
           </div>
         </div>
-         <div class="ui vertical divider">
+          <div class="ui vertical divider">
             Or
           </div>
         <div class="column">
@@ -97,15 +97,15 @@
             Spending time with some animals
           </p>
           <div class="ui action input">
-            <input type="text" placeholder="Zip code...">
-            <select class="ui compact selection dropdown" style="height:auto !important;">
+            <input type="text" placeholder="Zip code..." id="petZip">
+            <select class="ui compact selection dropdown" style="height:auto !important;" id="petSpecies">
               <option value="guineapig">Guinea Pig</option>
-              <option value="rabbit">Rabbits</option>
-              <option value="dogs">Dogs</option>
-              <option value="cats">Cats</option>
-              <option value="other">Other</option>
+              <option value="Rabbit">Rabbits</option>
+              <option value="Dog">Dogs</option>
+              <option value="Cat">Cats</option>
+              <option value="Other">Other</option>
             </select>
-            <div type="submit" class="ui icon button"><i class="search icon"></i></div>
+            <div type="submit" class="ui icon button" onClick="petZipSearch()"><i class="search icon"></i></div>
           </div>
         </div>
       </div>

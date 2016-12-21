@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
 
   get 'faq' => 'faq#index'
-
   get 'home' => 'home#index'
-
-
+  get 'search' => "searches#index"
   get 'profile/:id/pets' => 'profile#pets', as: :registered_pets
 
-  get 'pets/search' => 'pets#search'
-  get 'profile/search' => 'profile#search'
+  post 'pets/search' => 'pets#search'
+  post 'profile/search' => 'profile#search'
+
+  get 'search/user/:zip' => 'searches#user'
+  get 'search/pet/:zip/:species' => 'searches#pet'
+
 
   devise_for :users
   resources :pets

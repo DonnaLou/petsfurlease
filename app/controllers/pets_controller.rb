@@ -1,10 +1,5 @@
 class PetsController < ApplicationController
 
-	def index
-		@pets = Pet.all
-		@profiles = Profile.all
-	end
-
 	def show
 		@pet = Pet.find(params[:id])
 	end
@@ -57,7 +52,6 @@ class PetsController < ApplicationController
 		@pets = Pet.search(zip: params[:zip], species: params[:species])
 		render partial:"petSearchList"
 	end
-
 
 	private
 		def pet_params

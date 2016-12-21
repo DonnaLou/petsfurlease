@@ -5,4 +5,13 @@
 ready =->
 	$('.ui.rating').rating('disable')
 
+@userZipSearch = (x) ->
+	url = "/search/user/" + $("#userZip").val();
+	window.location = url;
+
+@petZipSearch = (x) ->
+	url = "/search/pet/" + $("#petZip").val() + "/" + $("#petSpecies").val();
+	window.location = url;
+
+
 $(document).ready(ready)
