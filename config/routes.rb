@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post 'profile/search' => 'profile#search'
 
   get 'search/user/:zip' => 'searches#user'
-  get 'search/pet/:zip/:species' => 'searches#pet'
+  get 'search/pet/:petZip/:petSpecies' => 'searches#pet'
 
 
   devise_for :users

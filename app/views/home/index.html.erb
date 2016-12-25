@@ -80,7 +80,7 @@
           </p>
           <div class="row">
             <div class="ui action input">
-              <input type="text" placeholder="Zip code..." id="userZip">
+              <%= render "shared/ownerSearch" %>
               <div type="submit" class="ui icon button" onClick="userZipSearch()"><i class="search icon"></i></div>
             </div>
           </div>
@@ -97,14 +97,15 @@
             Spending time with some animals
           </p>
           <div class="ui action input">
-            <input type="text" placeholder="Zip code..." id="petZip">
+            <!-- <input type="text" placeholder="Zip code..." id="petZip">
             <select class="ui compact selection dropdown" style="height:auto !important;" id="petSpecies">
               <option value="guineapig">Guinea Pig</option>
               <option value="Rabbit">Rabbits</option>
               <option value="Dog">Dogs</option>
               <option value="Cat">Cats</option>
               <option value="Other">Other</option>
-            </select>
+            </select> -->
+            <%= render "shared/petSearch" %>
             <div type="submit" class="ui icon button" onClick="petZipSearch()"><i class="search icon"></i></div>
           </div>
         </div>

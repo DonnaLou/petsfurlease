@@ -16,7 +16,8 @@ class SearchesController < ApplicationController
 
 	def pet
     @profiles = Profile.all
-		@pets = Pet.search(zip: params[:zip], species: params[:species])
+    puts "(((((((((((((((((((((( #{params[:petZip]} #{params[:petSpecies]}"
+		@pets = Pet.search(zip: params[:petZip], species: params[:petSpecies])
     render 'index'
 	end
 

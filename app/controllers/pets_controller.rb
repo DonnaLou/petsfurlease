@@ -49,7 +49,7 @@ class PetsController < ApplicationController
 	end
 
 	def search
-		@pets = Pet.search(zip: params[:zip], species: params[:species])
+		@pets = Pet.search(zip: params[:petZip], species: params[:petSpecies])
 		render partial:"petSearchList"
 	end
 

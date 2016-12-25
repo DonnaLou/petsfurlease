@@ -6,7 +6,7 @@ ready =->
 	$('.ui.rating').rating('disable')
 
 @userZipSearch = (x) ->
-	url = "/search/user/" + $("#userZip").val();
+	url = "/search/user/" + $("#zip").val();
 	window.location = url;
 
 @petZipSearch = (x) ->
