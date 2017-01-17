@@ -40,6 +40,11 @@ class ProfileController < ApplicationController
   def update
     @profile = current_user.profile
 
+    if params[:image].nil?
+      @profile.image = nil
+      @profile.save!
+    end 
+
     if @profile.update(profile_params)
       redirect_to @profile
     else
@@ -55,6 +60,6 @@ class ProfileController < ApplicationController
   private
     def profile_params
       params.require(:profile).permit(:user_id, :firstName, :lastName, 
-        :description, :city, :state, :zip, :is_volunteer)
+        :description, :city, :state, :zip, :is_volunteer, :image)
     end
 end

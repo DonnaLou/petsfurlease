@@ -14,8 +14,7 @@
            Welcome <%= current_user.email %> <i class="dropdown icon"></i>
           <div class="menu">
             <% if not current_user.profile.nil? %>
-              <%= link_to "View Profile", profile_path(current_user.profile.id), class: "item" %>
-              <%= link_to "Edit Profile", edit_profile_path(current_user.profile.id), class: "item" %>
+              <%= link_to "My Profile", profile_path(current_user.profile.id), class: "item" %>
               <%= link_to "My Pets", registered_pets_path(current_user.profile.id), class: "item" %>
             <% else %>
               <%= link_to "Create new Profile", new_profile_path, class: "item" %>

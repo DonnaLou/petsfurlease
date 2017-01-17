@@ -31,7 +31,7 @@ class PetsController < ApplicationController
 
 	  if pet_params[:image].nil?
 	  	@pet.image = nil
-	  	@pet.save
+	  	@pet.save!
 	  end
 
 	  if @pet.update(pet_params)

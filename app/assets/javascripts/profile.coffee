@@ -6,7 +6,8 @@ ready =->
 	$('#composeMsg').on 'click', (event) => composeMsg();
 	$('#writeReviewBtn').on 'click', (event) => writeReview();
 	$('.iconPopUp').popup();
-	
+	$("#deleteProfilePic").on 'click', (event) => deleteProfilePicClick()
+
 
 composeMsg =->
 	$(".ui.modal#message").modal('show');
@@ -14,6 +15,10 @@ composeMsg =->
 writeReview =->
 	$(".ui.modal#review").modal('show');
 	$('.ui.rating').rating();
+
+deleteProfilePicClick =->
+	$("#userProfilePic").hide();
+	$("#profilePicUpload").show();
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
