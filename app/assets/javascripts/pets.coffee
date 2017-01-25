@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-initialize =->
+ready =->
 	$('.ui.checkbox').checkbox()
 	$("#helpWantedToggle").on 'click', (event) => helpWantedClick()
 	$("#deleteProfilePic").on 'click', (event) => deleteProfilePicClick()
@@ -27,8 +27,8 @@ writeReview =->
 	$('.ui.rating').rating();
 
 
-$(document).ready(initialize);
-$(document).on('page:load', initialize);
+$(document).ready(ready);
+$(document).on('turbolinks:load', ready)
 
 
 

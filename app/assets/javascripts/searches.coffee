@@ -23,7 +23,4 @@ $(document).ready ->
 		.on("ajax:error", (e, xhr, status, error) ->
 		  alert("Error: " + xhr.responseText))
 
-$(document).on('page:load', initialize)
-
-		
-	
+$(document).on('turbolinks:load', initialize)

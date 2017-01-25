@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :review do
     rating ""
-details "MyText"
+	details "MyText"
   end
-
 end
