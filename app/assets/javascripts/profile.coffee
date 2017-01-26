@@ -3,16 +3,11 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready =->
-	$('#composeMsg').on 'click', (event) => composeMsg()
+	$('#composeMsg').on 'click', (event) => $(".ui.modal#message").modal('show')
 	$('#writeReviewBtn').on 'click', (event) => writeReview()
 	$('.iconPopUp').popup();
 	$("#deleteProfilePic").on 'click', (event) => deleteProfilePicClick()
 	$('#sendProfileReview').on 'click', (event) => postReview()
-
-
-
-composeMsg =->
-	$(".ui.modal#message").modal('show')
 
 writeReview =->
 	$(".ui.modal#review").modal('show')
