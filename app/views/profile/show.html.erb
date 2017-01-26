@@ -98,5 +98,6 @@
 	</div>
 
 	<%= render partial: "shared/composeMessage", locals:{name: @profile.firstName + " " + @profile.lastName} %>
-	<%= render partial: "shared/writeReview", locals: {name: @profile.firstName + " " + @profile.lastName}%>
+	
+	<%= render partial: "shared/writeReview", locals: {name: @profile.firstName + " " + @profile.lastName, sendBtnId:'sendProfileReview'}%>
 </div>

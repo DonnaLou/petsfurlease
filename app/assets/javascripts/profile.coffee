@@ -3,24 +3,28 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready =->
-	$('#composeMsg').on 'click', (event) => composeMsg();
-	$('#writeReviewBtn').on 'click', (event) => writeReview();
+	$('#composeMsg').on 'click', (event) => composeMsg()
+	$('#writeReviewBtn').on 'click', (event) => writeReview()
 	$('.iconPopUp').popup();
 	$("#deleteProfilePic").on 'click', (event) => deleteProfilePicClick()
+	$('#sendProfileReview').on 'click', (event) => postReview()
+
 
 
 composeMsg =->
-	$(".ui.modal#message").modal('show');
+	$(".ui.modal#message").modal('show')
 
 writeReview =->
-	$(".ui.modal#review").modal('show');
-	$('.ui.rating').rating();
+	$(".ui.modal#review").modal('show')
+	$('.ui.rating').rating()
+
+postReview =->
+	alert("test post profile review")
 
 deleteProfilePicClick =->
-	$("#userProfilePic").hide();
-	$("#profilePicUpload").show();
+	$("#userProfilePic").hide()
+	$("#profilePicUpload").show()
 
-$(document).ready(ready)
 $(document).on('turbolinks:load', ready)
 
 

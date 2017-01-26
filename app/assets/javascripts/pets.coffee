@@ -7,27 +7,25 @@ ready =->
 	$("#helpWantedToggle").on 'click', (event) => helpWantedClick()
 	$("#deleteProfilePic").on 'click', (event) => deleteProfilePicClick()
 	$('#writeReviewBtn').on 'click', (event) => writeReview()
+	$('#sendPetReview').on 'click', (event) => postReview() 
 
 helpWantedClick =->
 	if $("#helpWantedToggle").hasClass("checked")
-		$("#helpWantedDates").show();
+		$("#helpWantedDates").show()
 	else
-		$("#helpWantedDates").hide();
+		$("#helpWantedDates").hide()
 
 deleteProfilePicClick =->
-	$("#petProfilePicUpload").show();
-	$("#petProfilePic").hide();
-
-	
-composeMsg =->
-	$(".ui.modal#message").modal('show');
+	$("#petProfilePicUpload").show()
+	$("#petProfilePic").hide()
 
 writeReview =->
-	$(".ui.modal#review").modal('show');
-	$('.ui.rating').rating();
+	$(".ui.modal#review").modal('show')
+	$('.ui.rating').rating()
 
+postReview =->
+	alert("test post pet review")
 
-$(document).ready(ready);
 $(document).on('turbolinks:load', ready)
 
 

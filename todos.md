@@ -11,6 +11,8 @@
 - Write Review is valid for logged in users only
 - Posting Reviews
 - Implement 'Send a Message' links, the one on pet page will only show if help is wanted
+- Implement reading incoming messages
+- Implement replying messages
 - Create signup for limited test users with alpha code
 - Fix css for error messages, login error message, sign up error message
 - Fix menu on collapsed view, currently menu disappears
@@ -30,3 +32,4 @@
 ## Future Features
 - Add ability to upload multiple pictures and gallery feature
 - Add image preview via js on profile pictures
+- Create live chat option 
