@@ -5,6 +5,5 @@
 ready = ->
 	$('.ui.accordion').accordion()
 
-$(document).ready(ready)
 $(document).on('turbolinks:load', ready)
 

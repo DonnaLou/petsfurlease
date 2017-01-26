@@ -1,6 +1,6 @@
 class Pet < ActiveRecord::Base
   belongs_to :profile
-  has_many :reviews
+  belongs_to :review_subject, polymorphic: true
 
   validates :profile_id, 
     :name, 
@@ -30,6 +30,10 @@ class Pet < ActiveRecord::Base
 
   def owned_by_user(user)
     return profile.user == user
+  end
+
+  def reviews
+    Review.where(review_subject: self)
   end
 
 end

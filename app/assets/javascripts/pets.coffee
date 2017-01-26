@@ -24,6 +24,8 @@ writeReview =->
 	$('.ui.rating').rating()
 
 postReview =->
+	starCount = $(".ui.star.rating").rating('get rating')
+	comment = $("#comments").val();
 	alert("test post pet review")
 
 $(document).on('turbolinks:load', ready)
