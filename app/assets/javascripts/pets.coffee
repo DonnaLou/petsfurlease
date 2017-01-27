@@ -4,6 +4,7 @@
 
 ready =->
 	$('.ui.checkbox').checkbox()
+	$('.ui.rating.readOnlyRating').rating('disable')
 	$("#helpWantedToggle").on 'click', (event) => helpWantedClick()
 	$("#deleteProfilePic").on 'click', (event) => deleteProfilePicClick()
 	$('#writeReviewBtn').on 'click', (event) => writeReview()
@@ -21,12 +22,29 @@ deleteProfilePicClick =->
 
 writeReview =->
 	$(".ui.modal#review").modal('show')
-	$('.ui.rating').rating()
+	$('.ui.rating#writeRating').rating('enable')
+	$('.ui.rating.readOnlyRating').rating('disable')
 
 postReview =->
-	starCount = $(".ui.star.rating").rating('get rating')
-	comment = $("#comments").val();
-	alert("test post pet review")
+	postReviewUrl = "/review"
+	data = {}
+	data.rating = $(".ui.rating#writeRating").rating('get rating')
+	data.comments = $("#comments").val()
+	data.review_subject_id = review_subject.id
+	data.review_subject_type = review_subject.type
+	$.ajax({
+		type: "POST",
+		url: postReviewUrl,
+		data: data,
+		success: postReviewSuccess,
+		error: postReviewError
+	})
+
+postReviewSuccess =->
+	alert("yay")
+
+postReviewError =->
+	alert("boo")
 
 $(document).on('turbolinks:load', ready)
 

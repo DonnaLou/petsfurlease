@@ -7,7 +7,7 @@
     <div class="ui form">
       <div class="field">
         <label>Rating</label>
-        <div class="ui star rating" data-max-rating="5"></div>
+        <div class="ui star rating" id="writeRating" data-max-rating="5"></div>
       </div>
       <div class="field">
         <label>Comments</label>
@@ -25,3 +25,11 @@
     </div>
   </div>
 </div>
+
+<%= javascript_tag do %>
+  var review_subject = {
+    id: <%= @pet.nil? ? @profile.id : @pet.id %>,
+    type: "<%= @pet.nil? ? @profile.class.to_s : @pet.class.to_s %>"
+  };
+
+<% end %>
