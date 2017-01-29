@@ -4,17 +4,36 @@
 
 ready =->
 	$('#composeMsg').on 'click', (event) => $(".ui.modal#message").modal('show')
-	$('#writeReviewBtn').on 'click', (event) => writeReview()
+	$('#writeProfileReviewBtn').on 'click', (event) => writeProfileReview()
 	$('.iconPopUp').popup();
 	$("#deleteProfilePic").on 'click', (event) => deleteProfilePicClick()
-	$('#sendProfileReview').on 'click', (event) => postReview()
+	$('#sendProfileReview').on 'click', (event) => postProfileReview()
+	$('.ui.star.rating.readOnlyRating').rating('disable')
 
-writeReview =->
+writeProfileReview =->
 	$(".ui.modal#review").modal('show')
-	$('.ui.rating').rating()
+	$('.ui.star.rating#writeRating').rating()
 
-postReview =->
-	alert("test post profile review")
+postProfileReview =->
+	postReviewUrl = "/review"
+	data = {}
+	data.rating = $(".ui.star.rating#writeRating").rating('get rating')
+	data.comments = $("#comments").val()
+	data.review_subject_id = review_subject.id
+	data.review_subject_type = review_subject.type
+	$.ajax({
+		type: "POST",
+		url: postReviewUrl,
+		data: data,
+		success: postProfileReviewSuccess,
+		error: postProfileReviewError
+	})
+
+postProfileReviewSuccess =->
+	alert("yay profile")
+
+postProfileReviewError =->
+	alert("boo profile")
 
 deleteProfilePicClick =->
 	$("#userProfilePic").hide()

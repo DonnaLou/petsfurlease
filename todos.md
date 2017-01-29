@@ -9,7 +9,7 @@
 
 ## Frontend
 - Write Review is valid for logged in users only
-- Posting Reviews
+- Implement "My Reviews" page
 - Implement 'Send a Message' links, the one on pet page will only show if help is wanted
 - Implement reading incoming messages
 - Implement replying messages

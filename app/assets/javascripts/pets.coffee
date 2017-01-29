@@ -4,11 +4,11 @@
 
 ready =->
 	$('.ui.checkbox').checkbox()
-	$('.ui.rating.readOnlyRating').rating('disable')
+	$('.ui.star.rating.readOnlyRating').rating('disable')
 	$("#helpWantedToggle").on 'click', (event) => helpWantedClick()
 	$("#deleteProfilePic").on 'click', (event) => deleteProfilePicClick()
-	$('#writeReviewBtn').on 'click', (event) => writeReview()
-	$('#sendPetReview').on 'click', (event) => postReview() 
+	$('#writePetReviewBtn').on 'click', (event) => writePetReview()
+	$('#sendPetReview').on 'click', (event) => postPetReview() 
 
 helpWantedClick =->
 	if $("#helpWantedToggle").hasClass("checked")
@@ -20,15 +20,14 @@ deleteProfilePicClick =->
 	$("#petProfilePicUpload").show()
 	$("#petProfilePic").hide()
 
-writeReview =->
+writePetReview =->
 	$(".ui.modal#review").modal('show')
-	$('.ui.rating#writeRating').rating('enable')
-	$('.ui.rating.readOnlyRating').rating('disable')
+	$(".ui.star.rating#writeRating").rating('enable')
 
-postReview =->
+postPetReview =->
 	postReviewUrl = "/review"
 	data = {}
-	data.rating = $(".ui.rating#writeRating").rating('get rating')
+	data.rating = $(".ui.star.rating#writeRating").rating('get rating')
 	data.comments = $("#comments").val()
 	data.review_subject_id = review_subject.id
 	data.review_subject_type = review_subject.type
@@ -36,14 +35,14 @@ postReview =->
 		type: "POST",
 		url: postReviewUrl,
 		data: data,
-		success: postReviewSuccess,
-		error: postReviewError
+		success: postPetReviewSuccess,
+		error: postPetReviewError
 	})
 
-postReviewSuccess =->
+postPetReviewSuccess =->
 	alert("yay")
 
-postReviewError =->
+postPetReviewError =->
 	alert("boo")
 
 $(document).on('turbolinks:load', ready)

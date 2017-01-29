@@ -20,6 +20,7 @@
               <%= link_to "Create new Profile", new_profile_path, class: "item" %>
             <% end %>
 
+            <div class="item">My Written Reviews (<%= current_user.reviews.count%>)</div>
             <%= link_to "Account Settings", edit_user_registration_path, class: "item" %>
           </div>
         </div>

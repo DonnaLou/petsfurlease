@@ -18,4 +18,5 @@
 
 /db/schema.rb
 
-db/schema.rb
+# Ignore all publif files
+/public/*
