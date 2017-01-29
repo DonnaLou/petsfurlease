@@ -1,23 +1,24 @@
+module FactoryHelpers
+  extend self
+  def random_name
+    ('a'..'z').to_a.shuffle.join[0,7]
+  end  
+
+  def random_zip
+    zips = %w(92126 92122 92127 92130 92128 92064)
+    zips[rand zips.count]
+  end
+end
+
 FactoryGirl.define do
-  sequence(:firstName) {|n| "user #{n}"}
-  sequence(:lastName){|n| "name #{n}"}   
-  
   factory :profile do
-    firstName {generate(:firstName)}
-    lastName {generate(:lastName)}
+    firstName "User "
+    lastName {FactoryHelpers.random_name}
     city "San Diego"
     state "CA"
     description "Sample Text"
-
-    trait :profile_92130 do
-      zip '92130'
-      is_volunteer true
-    end
-
-    trait :profile_92128 do
-      zip '92128'
-      is_volunteer false
-    end
+    zip {FactoryHelpers.random_zip}
+    is_volunteer true
   end
 end
  
