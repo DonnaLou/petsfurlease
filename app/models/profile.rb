@@ -24,4 +24,13 @@ class Profile < ActiveRecord::Base
 		Review.where(review_subject: self)
 	end
 
+	def pet_reviews_count
+		count = 0
+		self.pets.each do |p|
+			count += p.reviews.count
+		end
+		return count
+	end
+
+
 end

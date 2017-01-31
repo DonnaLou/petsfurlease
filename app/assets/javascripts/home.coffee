@@ -14,5 +14,4 @@ ready =->
 	window.location = url;
 
 
-$(document).ready(ready)
 $(document).on('turbolinks:load', ready)

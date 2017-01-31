@@ -9,9 +9,6 @@ initialize =->
 	$(".tabular.menu .item").tab()
 	changeTab()
 	
-  
-
-$(document).ready(initialize)
 
 $(document).ready ->
     $("#petSearchForm")
