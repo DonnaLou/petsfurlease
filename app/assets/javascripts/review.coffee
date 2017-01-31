@@ -3,11 +3,12 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 	
-initialize =->
-	$(".ui.vertical.tabular .item").tab 'onVisible': -> 
-		alert('change')
-		return
-	return
-	
+changeTab = (event) ->
+	$("#reviewsGrid .teal.label").removeClass("teal")
+	$(event.target).find(".label").addClass("teal")
 
-$(document).on('turbolinks:load', initialize)
+ready =->
+	$("#reviewsGrid .ui.vertical.tabular .item").tab
+	$("#reviewsGrid .ui.vertical.tabular .item").on 'click', (event) => changeTab(event)
+
+$(document).on('turbolinks:load', ready)

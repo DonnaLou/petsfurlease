@@ -4,20 +4,20 @@
   <div class="ui vertical stripe segment">
     <div class="ui container">
       <h3 class="ui header">My Reviews</h3>
-			<div class="ui grid">
+			<div class="ui grid" id="reviewsGrid">
 		  	<div class="four wide column">
 			    <div class="ui vertical fluid tabular menu">
 			      <a class="active teal item" data-tab="first">
 			        Reviews I Authored 
-			    		<div class="ui teal left pointing label"><%= current_user.reviews.count%></div>
+			    		<div class="ui horizontal label teal"><%= current_user.reviews.count%></div>
 			      </a>
 			      <a class="teal item" data-tab="second">
 			        Reviews About Me
-			    		<div class="ui label"><%= current_user.profile.reviews.count%></div>
+			    		<div class="ui horizontal label "><%= current_user.profile.reviews.count%></div>
 			      </a>
 			      <a class="teal item" data-tab="third">
 			        Reviews on my Pets
-			    		<div class="ui label"><%= current_user.profile.pet_reviews_count%></div>
+			    		<div class="ui horizontal label"><%= current_user.profile.pet_reviews_count%></div>
 			      </a>
 			    </div>
 		  	</div>
