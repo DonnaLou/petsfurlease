@@ -20,3 +20,4 @@
 
 # Ignore all publif files
 /public/*
+/.byebug_history
