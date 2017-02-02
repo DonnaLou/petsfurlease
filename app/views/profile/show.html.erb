@@ -32,7 +32,7 @@
 					</p>
 				
 					<p>
-						<button class="positive ui button" id="writeProfileReviewBtn">
+						<button class="positive ui button writeReviewBtn">
 							<i class="pencil icon"></i> Write a Review
 						</button>
 					</p>
@@ -103,5 +103,5 @@
 
 	<%= render partial: "shared/composeMessage", locals:{name: @profile.firstName + " " + @profile.lastName} %>
 	
-	<%= render partial: "shared/writeReview", locals: {name: @profile.firstName + " " + @profile.lastName, sendBtnId:'sendProfileReview'}%>
+	<%= render partial: "shared/writeReview", locals: {name: @profile.firstName + " " + @profile.lastName}%>
 </div>

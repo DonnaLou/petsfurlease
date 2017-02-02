@@ -31,7 +31,7 @@
 				<% end %>	
 				<% if(!@pet.owned_by_user(current_user)) %>
 					<p>
-						<button class="positive ui button" id="writePetReviewBtn">
+						<button class="positive ui button writeReviewBtn">
 							<i class="pencil icon"></i> Write a Review
 						</button>
 					</p>
@@ -108,5 +108,5 @@
 		</div>
 	</div>
 
-	<%= render partial:"shared/writeReview", locals:{name: @pet.name, sendBtnId: "sendPetReview"} %>
+	<%= render partial:"shared/writeReview", locals:{name: @pet.name} %>
 </div>

@@ -2,9 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-ready =->
-	$('.ui.rating').rating('disable')
-
 @userZipSearch = (x) ->
 	url = "/search/user/" + $("#zip").val();
 	window.location = url;
@@ -12,6 +9,3 @@ ready =->
 @petZipSearch = (x) ->
 	url = "/search/pet/" + $("#petZip").val() + "/" + $("#petSpecies").val();
 	window.location = url;
-
-
-$(document).on('turbolinks:load', ready)
