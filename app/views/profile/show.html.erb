@@ -24,12 +24,15 @@
 				<p>
 					<i class="thumbs outline up icon"></i><a href="#UserReviews">Read Reviews</a>
 				</p>
-				<p>
-					<i class="mail icon"></i><a href="#" id="composeMsg">Send a Message</a>
-				</p>
 				<% if(current_user != @profile.user) %>
 					<p>
-						<button class="positive ui button" id="writeReviewBtn">
+						<button class="yellow ui button" id="composeMsg">
+							<i class="mail icon"></i> Send a Message
+						</button>
+					</p>
+				
+					<p>
+						<button class="positive ui button writeReviewBtn">
 							<i class="pencil icon"></i> Write a Review
 						</button>
 					</p>
@@ -76,10 +79,11 @@
 					<% @profile.reviews.each do |r| %>
 						<div class="ui comments">
 							<div class="comment">
-								<a class="avatar" style="height:2.5em;"> <img src="..\app\assets\images\Portraits\pewpew.png"> </a>
+								<a href="#" class="avatar" style="height:2.5em;"> 
+									<%= image_tag r.user.profile.image, class:"ui circular tiny middle aligned image" %></a>
 								<div class="content">
 									<%= link_to r.user.profile.full_name, profile_path(r.user.profile), html_options={class:"author"} %>
-									<div class="ui star rating" data-rating=<%= r.rating.to_s%>></div>
+									<div class="ui star rating readOnlyRating" data-rating=<%= r.rating.to_s%> data-max-rating="5"></div>
 									<div class="metadata">
 										<div class="date">
 											<%= r.created_at.strftime("%m-%d-%Y") %>
@@ -98,5 +102,6 @@
 	</div>
 
 	<%= render partial: "shared/composeMessage", locals:{name: @profile.firstName + " " + @profile.lastName} %>
+	
 	<%= render partial: "shared/writeReview", locals: {name: @profile.firstName + " " + @profile.lastName}%>
 </div>

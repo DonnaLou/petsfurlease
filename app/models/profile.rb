@@ -1,7 +1,7 @@
 class Profile < ActiveRecord::Base
 	belongs_to :user
 	has_many :pets
-	has_many :reviews
+	belongs_to :review_subject, polymorphic: true
 	
 	validates :firstName, :lastName, presence: true
 	validates :zip, length: {is: 5}
@@ -19,5 +19,18 @@ class Profile < ActiveRecord::Base
 	def full_name
 		return firstName + " " + lastName
 	end
+
+	def reviews
+		Review.where(review_subject: self)
+	end
+
+	def pet_reviews_count
+		count = 0
+		self.pets.each do |p|
+			count += p.reviews.count
+		end
+		return count
+	end
+
 
 end

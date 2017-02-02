@@ -26,12 +26,12 @@
 				<p>
 				<% if (@pet.helpWanted) %>	
 					<p>
-						<i class="mail icon"></i><a href="#" onclick="composeMsg();">Send a Message</a>
+						<i class="mail icon"></i><a href="#">Send a Message</a>
 					<p>
 				<% end %>	
 				<% if(!@pet.owned_by_user(current_user)) %>
 					<p>
-						<button class="positive ui button" id="writeReviewBtn">
+						<button class="positive ui button writeReviewBtn">
 							<i class="pencil icon"></i> Write a Review
 						</button>
 					</p>
@@ -50,11 +50,9 @@
 						<p style="color:red;"><%= @pet.helpStartDate.to_formatted_s(:long) %> - <%= @pet.helpEndDate.to_formatted_s(:long)  %></p>
 					</div>
 					<div class="ui segment">
-						<a href="userProfile.html" class="ui image"> <% if (@pet.profile.image) %>
+						<a href="userProfile.html" class="ui image"> 
 						<%= image_tag @pet.profile.image, class:"ui circular tiny middle aligned image" %>
-						<% else %>
-						<%= image_tag "wireframeImage.png", class:"ui circular tiny middle aligned image" %>
-						<% end %> <span> Contact <strong><%= @pet.profile.full_name %></strong> to help.</span> </a>
+						<span> Contact <strong><%= @pet.profile.full_name %></strong> to help.</span> </a>
 					</div>
 				</div>
 				<% end %>
@@ -88,10 +86,11 @@
 					<% @pet.reviews.each do |r| %>
 						<div class="ui comments">
 							<div class="comment">
-								<a class="avatar" style="height:2.5em;"> <img src="..\app\assets\images\Portraits\pewpew.png"> </a>
+								<a href="#" class="avatar" style="height:2.5em;"> 
+									<%= image_tag r.user.profile.image, class:"ui circular tiny middle aligned image" %></a>
 								<div class="content">
 									<%= link_to r.user.profile.full_name, profile_path(r.user.profile), html_options={class:"author"} %>
-									<div class="ui star rating" data-rating=<%= r.rating.to_s%>></div>
+									<div class="ui star rating readOnlyRating" data-rating=<%= r.rating.to_s%> data-max-rating="5"></div>
 									<div class="metadata">
 										<div class="date">
 											<%= r.created_at.strftime("%m-%d-%Y") %>

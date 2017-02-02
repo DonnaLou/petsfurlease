@@ -1,0 +1,41 @@
+ <% provide(:title, "My Reviews") %>
+
+<div class="pusher">
+  <div class="ui vertical stripe segment">
+    <div class="ui container">
+      <h3 class="ui header">My Reviews</h3>
+			<div class="ui grid" id="reviewsGrid">
+		  	<div class="four wide column">
+			    <div class="ui vertical fluid tabular menu">
+			      <a class="active teal item" data-tab="first">
+			        Reviews I Authored 
+			    		<div class="ui horizontal label teal"><%= current_user.reviews.count%></div>
+			      </a>
+			      <a class="teal item" data-tab="second">
+			        Reviews About Me
+			    		<div class="ui horizontal label "><%= current_user.profile.reviews.count%></div>
+			      </a>
+			      <a class="teal item" data-tab="third">
+			        Reviews on my Pets
+			    		<div class="ui horizontal label"><%= current_user.profile.pet_reviews_count%></div>
+			      </a>
+			    </div>
+		  	</div>
+				<div class="twelve wide stretched column">
+			    <div class="ui tab active" data-tab="first" >
+			      This is an stretched grid column. This segment will always match the tab height
+			    </div>
+
+			  	<div class="ui tab " data-tab="second">
+				      second
+				  </div>
+
+			  	<div class="ui tab " data-tab="third">
+				      third
+				  </div>
+		    </div>
+			</div>
+
+    </div>
+  </div>
+</div>

@@ -2,26 +2,17 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-ready =->
-	$('#composeMsg').on 'click', (event) => composeMsg();
-	$('#writeReviewBtn').on 'click', (event) => writeReview();
-	$('.iconPopUp').popup();
-	$("#deleteProfilePic").on 'click', (event) => deleteProfilePicClick()
+App.Profiles =
+	deleteProfilePic: ->
+		$("#userProfilePic").hide()
+		$("#profilePicUpload").show()
+
+	showMessageModal: ->
+		$(".ui.modal#message").modal('show')
 
 
-composeMsg =->
-	$(".ui.modal#message").modal('show');
+$(document).on "click", "#deleteProfilePic", =>
+	App.Profiles.deleteProfilePic()
 
-writeReview =->
-	$(".ui.modal#review").modal('show');
-	$('.ui.rating').rating();
-
-deleteProfilePicClick =->
-	$("#userProfilePic").hide();
-	$("#profilePicUpload").show();
-
-$(document).ready(ready)
-$(document).on('page:load', ready)
-
-
-
+$(document).on "click", "#composeMsg", =>
+	App.Profiles.showMessageModal()		

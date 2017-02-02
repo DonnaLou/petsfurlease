@@ -1,29 +1,23 @@
-changeTab =->
-	if window.location.pathname.indexOf("user") > -1
-		$.tab('change tab', 'findSitter')
-		$("#findSitterTab").addClass('active')
-		$("#findPetTab").removeClass('active')
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
 
-	
-initialize =->
-	$(".tabular.menu .item").tab()
-	changeTab()
-	
-  
+App.Searches =->
+	initSearchTabs: ->
+		if window.location.pathname.indexOf("user") > -1
+			$.tab('change tab', 'findSitter')
+			$("#findSitterTab").addClass('active')
+			$("#findPetTab").removeClass('active')
 
-$(document).ready(initialize)
-
-$(document).ready ->
-    $("#petSearchForm")
+	initSearchForms: ->
+		$("#petSearchForm")
 		.on("ajax:success", (e, data, status, xhr) ->
-				if(e.target.id == "petSearchForm")
-					$("#petSearchResults").html(xhr.responseText)
-				else if(e.target.id == "userSearchForm")
-					$("#profileSearchResults").html(xhr.responseText))
+			$("#petSearchResults").html(xhr.responseText))
 		.on("ajax:error", (e, xhr, status, error) ->
 		  alert("Error: " + xhr.responseText))
 
-$(document).on('page:load', initialize)
-
-		
-	
+		$("#userSearchForm")
+		.on("ajax:success", (e, data, status, xhr) ->
+			$("#profileSearchResults").html(xhr.responseText))
+		.on("ajax:error", (e, xhr, status, error) ->
+		  alert("Error: " + xhr.responseText))

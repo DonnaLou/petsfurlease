@@ -5,16 +5,13 @@
       <%= getFullTitle(yield :title) %>
     </title>
 
-    <%= stylesheet_link_tag    'application',
+    <%= stylesheet_link_tag 'application',
     	"http://fonts.googleapis.com/css?family=Original+Surfer",
       "semantic-ui",
     	media: 'all', 
     	'data-turbolinks-track' => true %>
 
     <%= javascript_include_tag 'application', 
-    	"http://code.jquery.com/jquery-1.11.1.min.js", 
-    	"https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.1/masonry.pkgd.js", 
-      "semantic-ui",
     	'data-turbolinks-track' => true %>
 
     <%= csrf_meta_tags %>

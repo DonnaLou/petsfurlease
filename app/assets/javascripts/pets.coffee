@@ -2,33 +2,20 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-initialize =->
-	$('.ui.checkbox').checkbox()
-	$("#helpWantedToggle").on 'click', (event) => helpWantedClick()
-	$("#deleteProfilePic").on 'click', (event) => deleteProfilePicClick()
-	$('#writeReviewBtn').on 'click', (event) => writeReview()
+App.Pets =
+	helpWantedClick: ->
+		if $("#helpWantedToggle").hasClass("checked")
+			$("#helpWantedDates").show()
+		else
+			$("#helpWantedDates").hide()
 
-helpWantedClick =->
-	if $("#helpWantedToggle").hasClass("checked")
-		$("#helpWantedDates").show();
-	else
-		$("#helpWantedDates").hide();
-
-deleteProfilePicClick =->
-	$("#petProfilePicUpload").show();
-	$("#petProfilePic").hide();
-
-	
-composeMsg =->
-	$(".ui.modal#message").modal('show');
-
-writeReview =->
-	$(".ui.modal#review").modal('show');
-	$('.ui.rating').rating();
+	deleteProfilePic: ->
+		$("#petProfilePicUpload").show()
+		$("#petProfilePic").hide()
 
 
-$(document).ready(initialize);
-$(document).on('page:load', initialize);
+$(document).on "click", "#deleteProfilePic", =>
+	App.Pets.deleteProfilePic()
 
-
-
+$(document).on "click", "#helpWantedToggle", =>
+	App.Pets.helpWantedClick()
