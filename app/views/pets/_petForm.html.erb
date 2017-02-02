@@ -192,7 +192,7 @@
         <% if @pet.image.exists? %>
           <div class="ui medium image" id="petProfilePic">
             <%= image_tag @pet.image.url(:medium), class:"ui bordered rounded image" %>
-            <a class="ui red right corner label" id="deleteProfilePic" onclick="deleteProfilePicClick()">
+            <a class="ui red left corner label" id="deleteProfilePic" onclick="deleteProfilePicClick()">
               <i class="remove icon"></i>
             </a>
           </div>
