@@ -1,18 +1,18 @@
-<% if @profile.errors.any? %>
-  <div id="error_explanation" class="ui error message">
-    <div class="header">
-      <i class="flag icon"></i><%= pluralize(@profile.errors.count, "validation error") %> :
+<%= form_for @profile, url: profile_path(@profile), html: {class:"ui form"} do |f|%>  
+  <% if @profile.errors.any? %>
+    <div id="error_explanation" class="ui error message">
+      <div class="header">
+        <i class="flag icon"></i><%= pluralize(@profile.errors.count, "validation error") %> :
+      </div>
+   
+      <ul class="list">
+        <% @profile.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
     </div>
- 
-    <ul class="list">
-      <% @profile.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+  <% end %>
 
-<%= form_for @profile, html: {class:"ui form", multipart: true} do |f|%>
   <div class="ui two column grid">
     <div class="four wide column">
       <div class="field">
@@ -20,7 +20,7 @@
         <% if @profile.image.exists? %>
           <div class="ui medium image" id="userProfilePic">
             <%= image_tag @profile.image.url(:medium), class:"ui bordered rounded image" %>
-            <a class="ui red left corner label" id="deleteProfilePic" onclick="deleteProfilePicClick()">
+            <a class="ui red left corner label" id="deleteProfilePic">
               <i class="remove icon"></i>
             </a>
           </div>
@@ -40,6 +40,8 @@
             <%= f.text_field :lastName, placeholder:"Last" %>
           </div>
           <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= hidden_field_tag :delete_image, 0%>
+
         </div>
       </div>
 
@@ -67,8 +69,6 @@
               placeholder:"Please write a short description about yourself and your experience with taking care of animals." %>
       </div>
 
-     
-
       <div class="field">
         <div class="ui checkbox">
           <h4>Volunteer Pet Sitter</h4>
@@ -78,6 +78,6 @@
       </div>
     </div>
   </div>
-
+  <button class="ui grey button right floated" type="submit">Back</button>
   <button class="ui teal button right floated" type="submit">Save</button>
 <% end %>

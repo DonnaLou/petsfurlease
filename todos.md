@@ -19,7 +19,6 @@
 
 
 ## Bugs
-- Updating pet/userprofile without changing picture will clear picture
 
 
 ## Description Text Related

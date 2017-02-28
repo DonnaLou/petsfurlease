@@ -12,6 +12,7 @@ App.Pets =
 	deleteProfilePic: ->
 		$("#petProfilePicUpload").show()
 		$("#petProfilePic").hide()
+		$("#petDeleteImage").val(1)
 
 
 $(document).on "click", "#deleteProfilePic", =>

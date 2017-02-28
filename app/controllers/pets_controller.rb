@@ -28,7 +28,7 @@ class PetsController < ApplicationController
 	def update
 	  @pet = Pet.find(params[:id])
 
-	  if pet_params[:image].nil?
+	  if @pet.image? && params[:petDeleteImage].present? && params[:petDeleteImage] == "1"
 	  	@pet.image = nil
 	  	@pet.save!
 	  end

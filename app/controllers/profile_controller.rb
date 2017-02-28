@@ -34,16 +34,14 @@ class ProfileController < ApplicationController
 
   def edit
     @profile = current_user.profile
-  
   end
 
   def update
     @profile = current_user.profile
-
-    if params[:image].nil?
+    if @profile.image? && params[:delete_image].present? && params[:delete_image] == "1"
       @profile.image = nil
       @profile.save!
-    end 
+    end
 
     if @profile.update(profile_params)
       redirect_to @profile
