@@ -1,83 +1,9 @@
- <% provide(:title, "Create User Profile") %>
+<% provide(:title, "Create User Profile") %>
 
- <div class="ui container">
+<div class="ui container">
   <div class="ui vertical stripe segment">
-    <h2 class="ui teal header">
-	    <div class="content">
-	      Create a User Profile
-	    </div>
-	  </h2>
+    <h2 class="ui teal header">Create a User Profile</h2>
 
-		<% if @profile.errors.any? %>
-  <div id="error_explanation" class="ui error message">
-    <div class="header">
-      <i class="flag icon"></i><%= pluralize(@profile.errors.count, "validation error") %> :
-    </div>
- 
-    <ul class="list">
-      <% @profile.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<%= form_for @profile, url: profile_index_path(@profile), html: {class:"ui form"} do |f|%>
-
-  <div class="ui two column grid">
-    <div class="four wide column">
-        <%= image_tag "wireframeImage.png", class:"ui bordered rounded image" %>
-        <div class="field">
-          <h4>Name</h4>
-          <div class="two fields">
-            <div class="field">
-              <%= f.text_field :firstName, placeholder:"First" %>
-            </div>
-            <div class="field">
-              <%= f.text_field :lastName, placeholder:"Last" %>
-            </div>
-            <%= f.hidden_field :user_id, value: current_user.id %>
-          </div>
-        </div>
-
-        <div class="field">
-          <h4>Location <i class="info circle icon iconPopUp" data-content="We ask for your City, State and Zipcode to help find other users in your area."></i></h4>
-          <div class="field">
-            <%= f.text_field :city, placeholder:"City" %>
-          </div>
-        </div>
-
-        <div class="two fields">
-          <div class="field">
-            <%= f.select :state, us_states %>
-          </div>
-          <div class="field">
-            <%= f.text_field :zip, placeholder:"Zipcode" %>
-          </div>
-        </div>
-    </div>
-
-    <div class="twelve wide column">
-      <div class="field">
-        <h4>Experience with animals:</h4>
-        <%= f.text_area :description, 
-              placeholder:"Please write a short description about yourself and your experience with taking care of animals." %>
-      </div>
-
-      <div class="field">
-        <div class="ui checkbox">
-          <h4>Volunteer Pet Sitter</h4>
-          <%= f.check_box :is_volunteer%>
-          <label>Yes, sign me up to as a volunteer petsitter!</label>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <button class="ui grey button right floated" type="submit">Back</button>
-  <button class="ui teal button right floated" type="submit">Save</button>
-<% end %>
-
-
+    <%= render :partial => "profileForm"%>
   </div>
 </div>

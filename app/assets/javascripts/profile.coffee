@@ -6,6 +6,7 @@ App.Profiles =
 	deleteProfilePic: ->
 		$("#userProfilePic").hide()
 		$("#profilePicUpload").show()
+		$("#delete_image").val(1)
 
 	showMessageModal: ->
 		$(".ui.modal#message").modal('show')
