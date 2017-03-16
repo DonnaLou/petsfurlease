@@ -3,7 +3,7 @@
   <div class="ui vertical masthead center aligned segment" id="homeBanner">
     <div class="ui vertical stripe segment" style="padding-bottom:25px; border-bottom:none" >
       <div class="ui right aligned stackable grid container">
-        <div class="six wide column">
+        <div class="six wide column right floated">
           <h1 class="ui header" style="font-size:4em;">Pets Fur Lease</h1>
           <div class="ui segment" style="background-color: rgba(256, 256, 256, 0.3)">
             <p style="color:#A07956">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -41,7 +41,7 @@
         </div>
         <div class="column">
           <div class="ui raised segment">
-            <i class="huge mail icon"></i>
+            <i class="huge talk icon"></i>
             <div class="content">
               <h3>Connect with others</h3>
               <div class="description">Find fellow animal lovers in your area.</div>
@@ -72,6 +72,22 @@
     <div class="ui two column middle aligned very relaxed stackable grid">
       <div class="center aligned row">
         <div class="column">
+          <h3>I'm seeking a furry friend</h3>
+          <p>
+            Write something here to describe<br/>
+            what a pet seeker would get out of this<br/>
+            Ex. helping neighbors, experience having diff pets,
+            Spending time with some animals
+          </p>
+          <div class="ui action input">
+            <%= render "shared/petSearch" %>
+            <div type="submit" class="ui icon button" onClick="petZipSearch()"><i class="search icon"></i></div>
+          </div>
+        </div>
+        <div class="ui vertical divider">
+          Or
+        </div>
+        <div class="column">
           <h3>I'm a pet owner looking for help</h3>
           <p>  
             Put something here to describe<br/>
@@ -85,22 +101,6 @@
             </div>
           </div>
         </div>
-          <div class="ui vertical divider">
-            Or
-          </div>
-        <div class="column">
-          <h3>I'm seeking a furry friend</h3>
-          <p>
-            Write something here to describe<br/>
-            what a pet seeker would get out of this<br/>
-            Ex. helping neighbors, experience having diff pets,
-            Spending time with some animals
-          </p>
-          <div class="ui action input">
-            <%= render "shared/petSearch" %>
-            <div type="submit" class="ui icon button" onClick="petZipSearch()"><i class="search icon"></i></div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -109,61 +109,90 @@
     <div class="ui container">
       <h3 class="ui header center aligned">Success Stories</h3>
       <div class="ui middle aligned equal width stackable grid container">
-        <div class="center aligned row">
-          <div class="column">
-            <h3 class="ui center aligned header">
-              <%= image_tag "Dogs/sidinstagramcute.jpg", class:"ui circular small image" %>
-            </h3>
-            <div>Review:
-              <span class="ui star rating readOnlyRating" data-rating="5" data-max-rating="5"></span>
+        <div class="ui four cards">
+          <div class="card">
+            <div class="ui slide masked reveal image">
+              <%= image_tag "Dogs/annie.jpg" %>
             </div>
-            <p>
-              I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.
-            </p>
-            <div class="right floated author">
-              <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
+            <div class="content">
+               <div class="meta">
+                <span>2 days ago</span>
+              </div>
+              <div class="description">
+                I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.
+
+              </div>
+              <div class="right floated description">
+                <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
+              </div>
             </div>
-          </div>
-          <div class="column">
-            <h3 class="ui center aligned header">
-              <%= image_tag "Dogs/annie.jpg", class:"ui circular small image" %>
-            </h3>
-            <div>Review:
-              <span class="ui star rating readOnlyRating" data-rating="5" data-max-rating="5"></span>
-            </div>
-            <p>
-              Annie is extremely playful. She is not shy at all. It was a blast spending the weekend with her. She's always has a smile for you and she got along with my cats really well. 
-            </p>
-            <div class="right floated author">
-              <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
+            <div class="extra content">
+              <div>Review:
+                <span class="ui star rating readOnlyRating" data-rating="5" data-max-rating="5"></span>
+              </div>
             </div>
           </div>
-          <div class="column">
-            <h3 class="ui center aligned header">
-              <%= image_tag "Dogs/sidinstagramcute.jpg", class:"ui circular small image" %>
-            </h3>
-            <div>Review:
-              <span class="ui star rating readOnlyRating" data-rating="5" data-max-rating="5"></span>
+          <div class="card">
+            <div class="ui slide masked reveal image">
+              <%= image_tag "bunbungrey.jpg" %>
             </div>
-            <p>
-              Kevin helped me watch my bunny Bunbun for 2 weeks. He took really great care of her. He would send me pictures every few days and she looked like she had a great time with him.
-            </p>
-            <div class="right floated author">
-              <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
+            <div class="content">
+               <div class="meta">
+                <span>2 days ago</span>
+              </div>
+              <div class="description">
+                I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.I loved sitting Sid for a week. He is adorable and very well behaved.
+              </div>
+              <div class="right floated description">
+                <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
+              </div>
+            </div>
+            <div class="extra content">
+              <div>Review:
+                <span class="ui star rating readOnlyRating" data-rating="5" data-max-rating="5"></span>
+              </div>
             </div>
           </div>
-          <div class="column">
-            <h3 class="ui center aligned header">
-              <%= image_tag "Dogs/sidinstagramcute.jpg", class:"ui circular small image" %>
-            </h3>
-            <div>Review:
-              <span class="ui star rating readOnlyRating" data-rating="5" data-max-rating="5"></span>
+          <div class="card">
+            <div class="ui slide masked reveal image">
+              <%= image_tag "bunbun.jpg" %>
             </div>
-            <p>
-              I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.
-            </p>
-            <div class="right floated author">
-              <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
+            <div class="content">
+               <div class="meta">
+                <span>2 days ago</span>
+              </div>
+              <div class="description">
+                I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.
+              </div>
+              <div class="right floated description">
+                <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
+              </div>
+            </div>
+            <div class="extra content">
+              <div>Review:
+                <span class="ui star rating readOnlyRating" data-rating="5" data-max-rating="5"></span>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="ui slide masked reveal image">
+              <%= image_tag "michiTrimmed.jpg" %>
+            </div>
+            <div class="content">
+               <div class="meta">
+                <span>2 days ago</span>
+              </div>
+              <div class="description">
+                I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.I loved sitting Sid for a week. He is adorable and very well behaved.I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.I loved sitting Sid for a week. He is adorable and very well behaved.
+              </div>
+              <div class="right floated description">
+                <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
+              </div>
+            </div>
+            <div class="extra content">
+              <div>Review:
+                <span class="ui star rating readOnlyRating" data-rating="5" data-max-rating="5"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -175,10 +204,7 @@
           <div class="row center aligned">
             <div class="eight wide column">
               <h3 class="ui header">Contact Us</h3>
-              <p>
-                PO Box TBD San Diego, California TBD </br>
-                email us: petsfurlease@gmail.com </br>
-              </p>
+              <a href="#"><i class="huge mail card icon"></i></a>
             </div>
             <div class="eight wide column">
               <h3 class="ui header">Donate &amp; help keep us going</h3>
