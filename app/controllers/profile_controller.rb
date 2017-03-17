@@ -16,9 +16,10 @@ class ProfileController < ApplicationController
     if current_user.profile
       @profile = current_user.profile
       render 'edit'
+    else
+      @profile = Profile.new
+      render 'new'
     end
-
-    @profile = Profile.new
   end
 
   def create

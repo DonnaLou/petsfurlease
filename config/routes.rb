@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   post 'pets/search' => 'pets#search'
   post 'profile/search' => 'profile#search'
+  post 'profile/new' => 'profile#create'
+  post 'profile/:id/edit' => 'profile#update'
 
   get 'search/user/:zip' => 'searches#user'
   get 'search/pet/:petZip/:petSpecies' => 'searches#pet'

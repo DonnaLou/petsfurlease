@@ -1,5 +1,5 @@
-<%= form_for @profile, url: profile_path(@profile), html: {class:"ui form"} do |f|%>  
-  <% if @profile.errors.any? %>
+<%= form_for :profile,  html: {class:"ui form"} do |f|%>  
+  <% if @profile && @profile.errors.any? %>
     <div id="error_explanation" class="ui error message">
       <div class="header">
         <i class="flag icon"></i><%= pluralize(@profile.errors.count, "validation error") %> :
@@ -17,18 +17,18 @@
     <div class="four wide column">
       <div class="field">
         <h4>Add Profile Picture</h4>
-        <% if @profile.image.exists? %>
+        <% if @profile && @profile.image.exists? %>
           <div class="ui medium image" id="userProfilePic">
             <%= image_tag @profile.image.url(:medium), class:"ui bordered rounded image" %>
             <a class="ui red left corner label" id="deleteProfilePic">
               <i class="remove icon"></i>
             </a>
           </div>
+        <% else %>
+          <div class="ui input" id="profilePicUpload">
+            <%= f.file_field :image %>
+          </div>
         <% end %>
-
-        <div class="ui input" id="profilePicUpload" style="<%='display: none' unless !@profile.image.exists?%>">
-          <%= f.file_field :image %>
-        </div>
       </div>
       <div class="field">
         <h4>Name</h4>
