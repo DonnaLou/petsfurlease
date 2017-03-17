@@ -21,19 +21,19 @@
         <div class="column">
           <div class="ui raised segment">
             <% if !user_signed_in? %>
-              <%= link_to new_user_session_path, style:"text-decorator:none; color:black" do %>
-                  <i class="huge user icon"></i>
+              <%= link_to new_user_session_path do %>
+                  <i class="huge user icon" style="color: black"></i>
                   <div class="content">
                     <h3>Create a profile </h3>
-                    <div>Tell us about yourself and your pets.</div>
+                    <div class="description" style="color: black">Tell us about yourself and your pets.</div>
                   </div>
               <% end %>
             <% else %>
               <%= link_to new_profile_path do %>
-                <i class="huge user icon"></i>
+                <i class="huge user icon" style="color: black"></i>
                 <div class="content">
                   <h3>Create a profile </h3>
-                  <div class="description">Tell us about yourself and your pets.</div>
+                  <div class="description" style="color: black">Tell us about yourself and your pets.</div>
                 </div>
               <% end %>
             <% end %>

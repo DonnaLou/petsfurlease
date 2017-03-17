@@ -1,13 +1,17 @@
 <div class="ui vertical stripe segment">
 	<div class="ui container">
+      <h3 class="ui header">My Pets</h3>
+
 		<% if @pets.count() < 1 %>
-			<div class="ui info message">
-			  <div class="header">
-			    You don't have any registered pets right now.
+			<div class="ui icon info message">
+				<i class="paw icon"></i>
+			  <div class="content">
+
+				  <div class="header">
+				    You don't have any registered pets right now. 
+				    Click <%=  link_to("Add a Pet", new_pet_path) %> to register them.
+				  </div>
 			  </div>
-			  <ul class="list">
-			    <li>Click "Add a Pet" to register them.</li>
-			  </ul>
 		  </div>
 		<% end %>
 
