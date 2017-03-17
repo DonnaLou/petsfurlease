@@ -1,7 +1,11 @@
 ﻿
-h1, h2, h3, h4{
+h1, h2, h3{
   font-family: Original Surfer !important;
   color: #4E667B !important;
+}
+
+h4{
+  font-family: Original Surfer !important;
 }
 
 .masthead.segment {
@@ -17,6 +21,9 @@ h1, h2, h3, h4{
 .masthead h2 {
   font-size: 1.7em;
   font-weight: normal;
+}
+.ui.message .content p{
+  font-size: 1em;
 }
 
 .ui.vertical.stripe {
@@ -45,6 +52,15 @@ h1, h2, h3, h4{
 .quote.stripe.segment .grid .column {
   padding-top: 5em;
   padding-bottom: 5em;
+}
+
+.ui.vertical.inverted.footer.segment, 
+.ui.inverted.fixed.menu{
+  background-color: rgba(27, 28, 29, 0.75);
+}
+
+.ui.inverted.footer h4{
+  font-color: white;
 }
 
 .footer.segment {
