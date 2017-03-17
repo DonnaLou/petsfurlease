@@ -9,3 +9,7 @@
 @petZipSearch = (x) ->
 	url = "/search/pet/" + $("#petZip").val() + "/" + $("#petSpecies").val();
 	window.location = url;
+
+$(document).on "keydown", ".ui.action.input", (event) =>
+	if(event.keyCode == 13)
+		$(event.target).siblings(".ui.icon.button").click()

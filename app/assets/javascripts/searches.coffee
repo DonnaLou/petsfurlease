@@ -8,6 +8,16 @@ App.Searches =->
 			$.tab('change tab', 'findSitter')
 			$("#findSitterTab").addClass('active')
 			$("#findPetTab").removeClass('active')
+			params = window.location.pathname.split("/")
+			zip = params[params.length - 1]
+			$("#zip").val(zip)
+		else if window.location.pathname.indexOf("pet") > -1
+			params = window.location.pathname.split("/")
+			zip = params[params.length - 2]
+			animal = params[params.length - 1]
+			$("#petZip").val(zip)
+			$("#petSpecies").val(decodeURIComponent(animal))
+
 
 	initSearchForms: ->
 		$("#petSearchForm")
