@@ -3,20 +3,19 @@
 ## Backend
 - Add permission filtering on pet controller
 - Add validation on pet form and user profile form
+- Add authorization checks 
 - Create open for adoption flag on pets
 - Backend support for sending/receiving messages
 
 
 ## Frontend
 - Write Review is valid for logged in users only
-- Implement "My Reviews" page
 - Implement 'Send a Message' links, the one on pet page will only show if help is wanted
 - Implement reading incoming messages
 - Implement replying messages
 - Create signup for limited test users with alpha code
 - Fix css for error messages, login error message, sign up error message
 - Fix menu on collapsed view, currently menu disappears
-
 
 ## Bugs
 

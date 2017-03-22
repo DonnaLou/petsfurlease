@@ -14,6 +14,10 @@ App.init =->
 		searches.initSearchTabs()
 		searches.initSearchForms()
 
+	#initialize datepicker
+	if $("#pet_helpStartDate").length > 0
+		$("#pet_helpStartDate").datepicker({dateFormat: 'yy-mm-dd'})
+		$("#pet_helpEndDate").datepicker({dateFormat: 'yy-mm-dd'})
 
 $(document).on "turbolinks:load", ->
 	App.init()

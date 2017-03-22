@@ -214,11 +214,11 @@
       <div class="two fields" id="helpWantedDates" style="<%='display: none' unless @pet.helpWanted%>" >
         <div class="field">
           <label>Start Date: </label>
-          <%= f.date_field :helpStartDate %>
+          <%= f.text_field :helpStartDate %>
         </div>
          <div class="field">
           <label>End Date: </label>
-          <%= f.date_field :helpEndDate %>
+          <%= f.text_field :helpEndDate %>
         </div>
       </div>
     </div>
