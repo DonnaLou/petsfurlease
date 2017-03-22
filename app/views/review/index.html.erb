@@ -19,36 +19,96 @@
 				<% else %>
 			  	<div class="four wide column">
 				    <div class="ui vertical fluid tabular menu">
-				      <a class="active teal item" data-tab="first">
-				        Reviews I Authored 
-				    		<div class="ui horizontal label teal"><%= current_user.reviews.count%></div>
-				      </a>
-				      <a class="teal item" data-tab="second">
+				      <a class="active teal item" data-tab="second">
 				        Reviews About Me
-				    		<div class="ui horizontal label "><%= current_user.profile.reviews.count%></div>
+				    		<div class="ui horizontal label teal"><%= current_user.profile.reviews.count%></div>
 				      </a>
 				      <a class="teal item" data-tab="third">
 				        Reviews on my Pets
 				    		<div class="ui horizontal label"><%= current_user.profile.pet_reviews_count%></div>
 				      </a>
+				      <a class="teal item" data-tab="first">
+				        Reviews I Authored 
+				    		<div class="ui horizontal label "><%= current_user.reviews.count%></div>
+				      </a>
 				    </div>
 			  	</div>
 					<div class="twelve wide stretched column">
-				    <div class="ui tab active" data-tab="first" >
-				      This is an stretched grid column. This segment will always match the tab height
+				  	<div class="ui tab active" data-tab="second">
+			      	<% current_user.profile.reviews.each do |r| %>
+								<div class="ui comments">
+									<div class="comment">
+										<%= link_to r.user.profile, html_options={class:"avatar"} do %>
+												<%= image_tag r.user.profile.image %>
+										<% end %>
+										<div class="content">
+											<%= link_to r.user.profile.full_name, profile_path(r.user.profile), html_options={class:"author"} %>
+											<div class="ui star rating readOnlyRating" data-rating=<%= r.rating.to_s%> data-max-rating="5"></div>
+											<div class="metadata">
+												<div class="date">
+													<%= r.created_at.strftime("%m-%d-%Y") %>
+												</div>
+											</div>
+											<div class="text">
+												<%= r.details%>
+											</div>
+										</div>
+									</div>
+								</div>
+							<% end %>
+					  </div>
+				  	<div class="ui tab" data-tab="third">
+			      	<% current_user.profile.pets.each do |p| %>
+			      		<% p.reviews.each do |r| %>
+			      			<div class="ui comments">
+										<div class="comment">
+											<%= link_to r.user.profile, html_options={class:"avatar"} do %>
+												<%= image_tag r.user.profile.image %>
+											<% end %>
+										
+											<div class="content">
+												<%= link_to r.user.profile.full_name, profile_path(r.user.profile), html_options={class:"author"} %>
+												<div class="ui star rating readOnlyRating" data-rating=<%= r.rating.to_s%> data-max-rating="5"></div>
+												<div class="metadata">
+													<div class="date">
+														<%= r.created_at.strftime("%m-%d-%Y") %>
+													</div>
+												</div>
+												<div class="text">
+													<%= r.details %>
+												</div>
+											</div>
+										</div>
+									</div>
+			      		<% end %>
+					    <% end %>  
+					  </div>
+					  <div class="ui tab" data-tab="first" >
+			      	<% current_user.profile.reviews_authored.each do |r| %>
+								<div class="ui comments">
+									<div class="comment">
+										<%= link_to r.review_subject, html_options={class:"avatar"} do %>
+												<%= image_tag r.review_subject.image %>
+											<% end %>
+										<div class="content">
+											<%= link_to r.review_subject.full_name, r.review_subject, html_options={class:"author"} %>
+											<div class="ui star rating readOnlyRating" data-rating=<%= r.rating.to_s%> data-max-rating="5"></div>
+											<div class="metadata">
+												<div class="date">
+													<%= r.created_at.strftime("%m-%d-%Y") %>
+												</div>
+											</div>
+											<div class="text">
+												<%= r.details %>
+											</div>
+										</div>
+									</div>
+								</div>
+					    <% end %>  
 				    </div>
-
-				  	<div class="ui tab " data-tab="second">
-					      second
-					  </div>
-
-				  	<div class="ui tab " data-tab="third">
-					      third
-					  </div>
 			    </div>
 				</div>
 			<% end %>
-
     </div>
   </div>
 </div>

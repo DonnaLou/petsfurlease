@@ -3,7 +3,7 @@
   <div class="ui vertical masthead center aligned segment" id="homeBanner">
     <div class="ui vertical stripe segment" style="padding-bottom:25px; border-bottom:none" >
       <div class="ui right aligned stackable grid container">
-        <div class="six wide column right floated">
+        <div class="seven wide column right floated">
           <h1 class="ui header" style="font-size:4em;">Pets Fur Lease</h1>
           <div class="ui segment" style="background-color: rgba(256, 256, 256, 0.3)">
             <p style="color:#A07956">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -58,13 +58,15 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="center aligned column">
-          <%= link_to new_user_session_path do%>
-            <div class="ui huge blue button">Join us for Free</div>
-          <% end %>
+      <% if !user_signed_in? %>
+        <div class="row">
+          <div class="center aligned column">
+            <%= link_to new_user_session_path do%>
+              <div class="ui huge blue button">Join us for Free</div>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 
@@ -106,11 +108,11 @@
   </div>
 
   <div class="ui vertical stripe segment">
-    <div class="ui container">
-      <h3 class="ui header center aligned">Success Stories</h3>
-      <div class="ui middle aligned equal width stackable grid container">
+    <h3 class="ui header center aligned">Success Stories</h3>
+    <br/>
+    <div class="ui middle aligned equal width stackable grid container">
         <div class="ui four cards">
-          <div class="card">
+          <div class="ui raised card">
             <div class="ui slide masked reveal image">
               <%= image_tag "Dogs/annie.jpg" %>
             </div>
@@ -132,7 +134,7 @@
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="ui raised card">
             <div class="ui slide masked reveal image">
               <%= image_tag "bunbungrey.jpg" %>
             </div>
@@ -153,7 +155,7 @@
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="ui raised card">
             <div class="ui slide masked reveal image">
               <%= image_tag "bunbun.jpg" %>
             </div>
@@ -174,7 +176,7 @@
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="ui raised card">
             <div class="ui slide masked reveal image">
               <%= image_tag "michiTrimmed.jpg" %>
             </div>
@@ -196,8 +198,10 @@
             </div>
           </div>
         </div>
+
+
         <h4 class="ui horizontal header divider">
-          <a href="/faq">Learn more</a>
+          <a href="/faq"><i class="tag icon"></i>Learn more</a>
         </h4>
 
         <div class="ui stackable grid container">
@@ -207,12 +211,11 @@
               <a href="#"><i class="huge mail card icon"></i></a>
             </div>
             <div class="eight wide column">
-              <h3 class="ui header">Donate &amp; help keep us going</h3>
+              <h3 class="ui header">Donate &amp; Help Keep us Going</h3>
               <a href="#"><i class="huge paypal card icon"></i></a>
             </div>
           </div>
         </div>
        </div>
-    </div>
   </div>
 </div>

@@ -86,8 +86,9 @@
 					<% @pet.reviews.each do |r| %>
 						<div class="ui comments">
 							<div class="comment">
-								<a href="#" class="avatar" style="height:2.5em;"> 
-									<%= image_tag r.user.profile.image, class:"ui circular tiny middle aligned image" %></a>
+								<%= link_to r.user.profile, html_options={class:"avatar"} do %>
+									<%= image_tag r.user.profile.image %>
+								<% end %>
 								<div class="content">
 									<%= link_to r.user.profile.full_name, profile_path(r.user.profile), html_options={class:"author"} %>
 									<div class="ui star rating readOnlyRating" data-rating=<%= r.rating.to_s%> data-max-rating="5"></div>
@@ -97,7 +98,7 @@
 										</div>
 									</div>
 									<div class="text">
-										<%= r.details%>
+										<%= r.details %>
 									</div>
 								</div>
 							</div>

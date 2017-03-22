@@ -36,4 +36,8 @@ class Pet < ActiveRecord::Base
     Review.where(review_subject: self)
   end
 
+  def full_name
+    self.name
+  end
+
 end
