@@ -22,16 +22,16 @@ App.Review =
 			error: App.Review.postReviewError
 		})
 
-	postReviewSuccess: ->
-		alert("post review success")
+	postReviewSuccess: (response) ->
+		$("#reviewSegment").append(response)
+		$('.ui.rating.readOnlyRating').rating('disable')
 
-	postReviewError: ->
+	postReviewError: (response) ->
 		alert("post review error")
 
 	writeReview: ->
 		$(".ui.modal#review").modal('show')
 		$(".ui.star.rating#writeRating").rating('enable')
-
 
 $(document).on "click", "#reviewsGrid .tabular .item", (event) =>
 	App.Review.changeTab(event)

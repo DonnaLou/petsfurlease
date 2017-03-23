@@ -17,7 +17,7 @@ class ReviewController < ApplicationController
 
     if review.valid?
       review.save!
-      render status: 200, json:{status: true}
+      render partial:'shared/reviewDisplay', locals:{:r => review}
     else
       render status: 500, json: review.errors.full_messages
     end
