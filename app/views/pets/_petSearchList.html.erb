@@ -7,18 +7,30 @@
 <% else %>
   <% @pets.each do |pet| %>
     <div class="item">
-      <div class="ui small image">
-        <%= image_tag pet.image.url(:medium), class:"ui bordered rounded image" %>
-      </div>
+      <%= link_to pet, html_options={class:"ui small bordered rounded image"} do %>
+        <% if pet.helpWanted %>
+          <span class="ui mini left corner red label">
+            <i class="paw icon"></i>
+          </span>
+        <% end %>
+        <%= image_tag pet.image.url(:medium) %>
+      <% end %>
+
       <div class="top aligned content">
-        <div class="header"><%= pet.name %></div>
+        <div class="header"><%= pet.name %></div> 
+         
         <div class="meta">
-          <span><i class="home icon"></i><%= pet.profile.city %>, <%= pet.profile.state %> <%= pet.profile.zip%></span>
+          <span>
+            <i class="home icon"></i> <%= pet.profile.city %>, <%= pet.profile.state %> <%= pet.profile.zip%>
+          </span>
         </div>
         <div class="description">
-          <span>Gender: <%= pet.gender %></span><br/>
-          <span>Breed: <%= pet.breed %></span><br/>
+          <span>Gender: <%= pet.gender %></span>
+          <br/>
+          <span>Breed: <%= pet.breed %></span>
+          <br/>
           <span>Details: <%= pet.details %></span>
+
         </div>
         <div class="extra">
           <%= link_to "View Profile", pet_path(pet), class:"ui right floated teal button" %>

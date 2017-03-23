@@ -50,9 +50,8 @@
 						<p style="color:red;"><%= @pet.helpStartDate.to_formatted_s(:long) %> - <%= @pet.helpEndDate.to_formatted_s(:long)  %></p>
 					</div>
 					<div class="ui segment">
-						<a href="userProfile.html" class="ui image"> 
-						<%= image_tag @pet.profile.image, class:"ui circular tiny middle aligned image" %>
-						<span> Contact <strong><%= @pet.profile.full_name %></strong> to help.</span> </a>
+						<%= image_tag @pet.profile.image, class:"ui tiny middle aligned spaced image"%>
+						<span> Contact <strong><%= @pet.profile.full_name %></strong> to help.</span> 
 					</div>
 				</div>
 				<% end %>

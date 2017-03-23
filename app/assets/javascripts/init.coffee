@@ -1,7 +1,7 @@
 window.App ||= {}
 
 App.init =->
-	$('.ui.accordion').accordion()
+	$('.ui.accordion').accordion({exclusive: false})
 	$('.iconPopUp').popup()
 	$('.ui.checkbox').checkbox()
 	$('.ui.tabular .item').tab()

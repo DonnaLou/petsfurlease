@@ -7,9 +7,9 @@
 <% else %>
   <% @profiles.each do |profile| %>
     <div class="item">
-      <div class="ui small image">
-        <%= image_tag profile.image.url(:medium), class:"ui bordered rounded image" %>
-      </div>
+      <%= link_to profile, html_options={class:"ui small bordered rounded image"} do %>
+        <%= image_tag profile.image.url(:medium) %>
+      <% end %>
       <div class="top aligned content">
         <div class="header"><%= profile.firstName %> <%= profile.lastName %></div>
         <div class="meta">
