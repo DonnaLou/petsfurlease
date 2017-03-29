@@ -20,7 +20,7 @@
     <%= render "layouts/header" %>
     <% if(alert)%>
 	    <div class="ui center aligned grid">
-	      <div class="ui vertical stripe middle ">
+	      <div class="ui vertical segment">
 	        <div id="error_explanation" class="ui secondary inverted red segment">
             <i class="flag icon"></i>
 	          <%= alert %>
@@ -29,14 +29,14 @@
 	    </div>
 	<% elsif(notice)%>
 		<div class="ui center aligned grid">
-	      <div class="ui vertical stripe middle ">
+	      <div class="ui vertical segment">
 	        <div class="ui teal inverted segment">
 	          <%= notice %>
 	        </div>
 	      </div>
 	    </div>
     <% end %>
-    
+  
   	<%= yield %>
     <%= render "layouts/footer" %>
   </body>
