@@ -1,0 +1,75 @@
+ <% provide(:title, "My Inbox") %>
+
+<div class="pusher">
+  <div class="ui vertical stripe segment">
+    <div class="ui container">
+      <h3 class="ui header">My Inbox</h3>
+			<div class="ui grid" id="inboxGrid">
+				<% if current_user.profile.nil? %>
+					<div class="sixteen wide column">
+						<div class="ui icon info message">
+						  <i class="user icon"></i>
+						  <div class="content">
+						    <div class="header">
+							    You must create a profile first!
+							  	Visit <%= link_to("Profile", new_profile_path) %> to get started.</div>
+						  </div>
+						</div>
+					</div>
+				<% else %>
+			  	<div class="four wide column">
+				    <div class="ui vertical fluid tabular menu">
+				      <a class="active teal item" data-tab="messages">
+				        Messages
+				    		<div class="ui horizontal label teal">0</div>
+				      </a>
+				      <a class="teal item" data-tab="sent">
+				        Sent
+				    		<div class="ui horizontal label">0</div>
+				      </a>
+				      <a class="teal item" data-tab="trash">
+				        Trash 
+				    		<div class="ui horizontal label ">0</div>
+				      </a>
+				    </div>
+		    	</div>
+		    	<div class="twelve wide stretched column">
+				  	<div class="ui tab active" data-tab="messages">
+							<table class="ui very basic collapsing celled table">
+							  <thead>
+							    <tr>
+								    <th>From</th>
+								    <th>Message</th>
+								    <th>Date</th>
+							  	</tr>
+						  	</thead>
+							  <tbody>
+							    <tr>
+							      <td>
+							        <h4 class="ui image header">
+							          <img src="/images/avatar2/small/lena.png" class="ui mini rounded image">
+							          <div class="content">
+							            Lena
+								          <div class="sub header">Jan 30, 2017</div>
+								        </div>
+							      	</h4>
+							      </td>
+							      <td>
+							        Human Resource sHuman Resource Human Resources Human Resources Human ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman Resources
+							      </td>
+							    </tr>
+							  </tbody>
+							</table>
+					  </div>
+				  	<div class="ui tab" data-tab="sent">
+				  		Sent
+					  </div>
+					  <div class="ui tab" data-tab="trash" >
+					  	Trash
+				    </div>
+			    </div>
+				<% end %>
+			</div>
+    </div>
+  </div>
+</div>

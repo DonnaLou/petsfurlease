@@ -19,22 +19,22 @@
 				<% else %>
 			  	<div class="four wide column">
 				    <div class="ui vertical fluid tabular menu">
-				      <a class="active teal item" data-tab="second">
+				      <a class="active teal item" data-tab="me">
 				        Reviews About Me
 				    		<div class="ui horizontal label teal"><%= current_user.profile.reviews.count%></div>
 				      </a>
-				      <a class="teal item" data-tab="third">
+				      <a class="teal item" data-tab="pets">
 				        Reviews on my Pets
 				    		<div class="ui horizontal label"><%= current_user.profile.pet_reviews_count%></div>
 				      </a>
-				      <a class="teal item" data-tab="first">
+				      <a class="teal item" data-tab="authored">
 				        Reviews I Authored 
 				    		<div class="ui horizontal label "><%= current_user.reviews.count%></div>
 				      </a>
 				    </div>
 			  	</div>
 					<div class="twelve wide stretched column">
-				  	<div class="ui tab active" data-tab="second">
+				  	<div class="ui tab active" data-tab="me">
 			      	<% current_user.profile.reviews.each do |r| %>
 								<div class="ui comments">
 									<div class="comment">
@@ -55,9 +55,11 @@
 										</div>
 									</div>
 								</div>
+								<div class="ui divider"></div>
+
 							<% end %>
 					  </div>
-				  	<div class="ui tab" data-tab="third">
+				  	<div class="ui tab" data-tab="pets">
 			      	<% current_user.profile.pets.each do |p| %>
 			      		<% p.reviews.each do |r| %>
 			      			<div class="ui comments">
@@ -80,10 +82,11 @@
 											</div>
 										</div>
 									</div>
+									<div class="ui divider"></div>
 			      		<% end %>
 					    <% end %>  
 					  </div>
-					  <div class="ui tab" data-tab="first" >
+					  <div class="ui tab" data-tab="authored" >
 			      	<% current_user.profile.reviews_authored.each do |r| %>
 								<div class="ui comments">
 									<div class="comment">
@@ -104,11 +107,12 @@
 										</div>
 									</div>
 								</div>
+								<div class="ui divider"></div>
 					    <% end %>  
 				    </div>
 			    </div>
-				</div>
-			<% end %>
+				<% end %>
+			</div>
     </div>
   </div>
 </div>

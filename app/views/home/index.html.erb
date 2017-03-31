@@ -22,19 +22,29 @@
           <div class="ui raised segment">
             <% if !user_signed_in? %>
               <%= link_to new_user_session_path do %>
-                  <i class="huge user icon" style="color: black"></i>
-                  <div class="content">
-                    <h3>Create a profile </h3>
-                    <div class="description" style="color: black">Tell us about yourself and your pets.</div>
-                  </div>
-              <% end %>
-            <% else %>
-              <%= link_to new_profile_path do %>
                 <i class="huge user icon" style="color: black"></i>
                 <div class="content">
                   <h3>Create a profile </h3>
                   <div class="description" style="color: black">Tell us about yourself and your pets.</div>
                 </div>
+              <% end %>
+            <% else %>
+              <% if current_user.profile.nil? %>
+                <%= link_to new_profile_path do %>
+                  <i class="huge user icon" style="color: black"></i>
+                  <div class="content">
+                    <h3>Create a profile </h3>
+                    <div class="description" style="color: black">Tell us about yourself and your pets.</div>
+                  </div>
+                <% end %>
+              <% else %>
+                <%= link_to edit_profile_path(current_user.profile) do %>
+                  <i class="huge user icon" style="color: black"></i>
+                  <div class="content">
+                    <h3>Create a profile </h3>
+                    <div class="description" style="color: black">Tell us about yourself and your pets.</div>
+                  </div>
+                <% end %>
               <% end %>
             <% end %>
           </div>
@@ -113,111 +123,110 @@
     <h3 class="ui header center aligned">Success Stories</h3>
     <br/>
     <div class="ui middle aligned container">
-        <div class="ui four stackable cards">
-          <div class="ui raised card">
-            <div class="ui slide masked reveal image">
-              <%= image_tag "Dogs/annie.jpg" %>
+      <div class="ui four stackable cards">
+        <div class="ui raised card">
+          <div class="ui slide masked reveal image">
+            <%= image_tag "Dogs/annie.jpg" %>
+          </div>
+          <div class="content">
+             <div class="meta">
+              <span>2 days ago</span>
             </div>
-            <div class="content">
-               <div class="meta">
-                <span>2 days ago</span>
-              </div>
-              <div class="description">
-                I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.
+            <div class="description">
+              I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.
 
-              </div>
-              <div class="right floated description">
-                <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
-              </div>
             </div>
-            <div class="extra content">
-              <div>Review:
-                <span class="ui star rating readOnlyRating" data-rating="5" data-max-rating="5"></span>
-              </div>
+            <div class="right floated description">
+              <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
             </div>
           </div>
-          <div class="ui raised card">
-            <div class="ui slide masked reveal image">
-              <%= image_tag "bunbungrey.jpg" %>
-            </div>
-            <div class="content">
-               <div class="meta">
-                <span>2 days ago</span>
-              </div>
-              <div class="description">
-                I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.I loved sitting Sid for a week. He is adorable and very well behaved.
-              </div>
-              <div class="right floated description">
-                <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
-              </div>
-            </div>
-            <div class="extra content">
-              <div>Review:
-                <span class="ui star rating readOnlyRating" data-rating="5" data-max-rating="5"></span>
-              </div>
-            </div>
-          </div>
-          <div class="ui raised card">
-            <div class="ui slide masked reveal image">
-              <%= image_tag "bunbun.jpg" %>
-            </div>
-            <div class="content">
-               <div class="meta">
-                <span>2 days ago</span>
-              </div>
-              <div class="description">
-                I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.
-              </div>
-              <div class="right floated description">
-                <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
-              </div>
-            </div>
-            <div class="extra content">
-              <div>Review:
-                <span class="ui star rating readOnlyRating" data-rating="5" data-max-rating="5"></span>
-              </div>
-            </div>
-          </div>
-          <div class="ui raised card">
-            <div class="ui slide masked reveal image">
-              <%= image_tag "michiTrimmed.jpg" %>
-            </div>
-            <div class="content">
-               <div class="meta">
-                <span>2 days ago</span>
-              </div>
-              <div class="description">
-                I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.I loved sitting Sid for a week. He is adorable and very well behaved.I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.I loved sitting Sid for a week. He is adorable and very well behaved.
-              </div>
-              <div class="right floated description">
-                <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
-              </div>
-            </div>
-            <div class="extra content">
-              <div>Review:
-                <span class="ui star rating readOnlyRating" data-rating="5" data-max-rating="5"></span>
-              </div>
+          <div class="extra content">
+            <div>Review:
+              <span class="ui star rating readOnlyRating" data-rating="5" data-max-rating="5"></span>
             </div>
           </div>
         </div>
-
-
-        <h4 class="ui horizontal header divider">
-          <a href="/faq"><i class="tag icon"></i>Learn more</a>
-        </h4>
-
-        <div class="ui stackable grid container">
-          <div class="row center aligned">
-            <div class="eight wide column">
-              <h3 class="ui header">Contact Us</h3>
-              <a href="#"><i class="huge mail card icon"></i></a>
+        <div class="ui raised card">
+          <div class="ui slide masked reveal image">
+            <%= image_tag "bunbungrey.jpg" %>
+          </div>
+          <div class="content">
+             <div class="meta">
+              <span>2 days ago</span>
             </div>
-            <div class="eight wide column">
-              <h3 class="ui header">Donate &amp; Help Keep us Going</h3>
-              <a href="#"><i class="huge paypal card icon"></i></a>
+            <div class="description">
+              I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.I loved sitting Sid for a week. He is adorable and very well behaved.
+            </div>
+            <div class="right floated description">
+              <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
+            </div>
+          </div>
+          <div class="extra content">
+            <div>Review:
+              <span class="ui star rating readOnlyRating" data-rating="5" data-max-rating="5"></span>
             </div>
           </div>
         </div>
-       </div>
+        <div class="ui raised card">
+          <div class="ui slide masked reveal image">
+            <%= image_tag "bunbun.jpg" %>
+          </div>
+          <div class="content">
+             <div class="meta">
+              <span>2 days ago</span>
+            </div>
+            <div class="description">
+              I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.
+            </div>
+            <div class="right floated description">
+              <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
+            </div>
+          </div>
+          <div class="extra content">
+            <div>Review:
+              <span class="ui star rating readOnlyRating" data-rating="5" data-max-rating="5"></span>
+            </div>
+          </div>
+        </div>
+        <div class="ui raised card">
+          <div class="ui slide masked reveal image">
+            <%= image_tag "michiTrimmed.jpg" %>
+          </div>
+          <div class="content">
+             <div class="meta">
+              <span>2 days ago</span>
+            </div>
+            <div class="description">
+              I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.I loved sitting Sid for a week. He is adorable and very well behaved.I loved sitting Sid for a week. He is adorable and very well behaved. It was a pleasure.I loved sitting Sid for a week. He is adorable and very well behaved.
+            </div>
+            <div class="right floated description">
+              <%= image_tag "Portraits/kevinDuensing.jpg", class:"ui avatar image" %> Kevin D.
+            </div>
+          </div>
+          <div class="extra content">
+            <div>Review:
+              <span class="ui star rating readOnlyRating" data-rating="5" data-max-rating="5"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="ui horizontal header divider">
+        <a href="/faq"><i class="tag icon"></i>Learn more</a>
+      </h4>
+
+      <div class="ui stackable grid container">
+        <div class="row center aligned">
+          <div class="eight wide column">
+            <h3 class="ui header">Contact Us</h3>
+            <a href="#"><i class="huge mail card icon"></i></a>
+          </div>
+          <div class="eight wide column">
+            <h3 class="ui header">Donate &amp; Help Keep us Going</h3>
+            <a href="#"><i class="huge paypal card icon"></i></a>
+          </div>
+        </div>
+      </div>
+     </div>
   </div>
 </div>
