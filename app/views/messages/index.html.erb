@@ -25,47 +25,139 @@
 				      </a>
 				      <a class="teal item" data-tab="sent">
 				        Sent
-				    		<div class="ui horizontal label">0</div>
 				      </a>
 				      <a class="teal item" data-tab="trash">
 				        Trash 
-				    		<div class="ui horizontal label ">0</div>
 				      </a>
 				    </div>
 		    	</div>
 		    	<div class="twelve wide stretched column">
 				  	<div class="ui tab active" data-tab="messages">
-							<table class="ui very basic collapsing celled table">
-							  <thead>
-							    <tr>
-								    <th>From</th>
-								    <th>Message</th>
-								    <th>Date</th>
-							  	</tr>
-						  	</thead>
-							  <tbody>
-							    <tr>
-							      <td>
-							        <h4 class="ui image header">
-							          <img src="/images/avatar2/small/lena.png" class="ui mini rounded image">
-							          <div class="content">
-							            Lena
-								          <div class="sub header">Jan 30, 2017</div>
-								        </div>
-							      	</h4>
-							      </td>
-							      <td>
-							        Human Resource sHuman Resource Human Resources Human Resources Human ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman ResourcesHuman Resources
-							      </td>
-							    </tr>
-							  </tbody>
-							</table>
+				  		<% if current_user.conversations.count > 0 %>
+								<table class="ui very basic collapsing celled table">
+								  <thead>
+								    <tr>
+									    <th class="five wide">From</th>
+									    <th class="ten wide">Message</th>
+									    <th class="one wide">Delete</th>
+								  	</tr>
+							  	</thead>
+								  <tbody>
+								  	<% current_user.conversations.order('updated_at DESC').each do |con| %>
+									  	<tr>
+									      <td>
+									        <h4 class="ui image header">
+									        	<% if con.recipient == current_user %>
+								          		<%= image_tag con.sender.profile.image, html_options={class:"ui mini rounded image"}  %>
+								          	<% else %>
+															<%= image_tag con.recipient.profile.image, html_options={class:"ui mini rounded image"}  %>
+								          	<% end %>
+									          <div class="content">
+									          	<% if con.recipient == current_user %>
+									          		<%= con.sender.profile.full_name %>
+									          	<% else %>
+									            	<%= con.recipient.profile.full_name %>
+									          	<% end %>
+										          <div class="sub header">
+										          	<%= con.updated_at.strftime("%b %d, %Y") %>
+										          </div>
+										        </div>
+									      	</h4>
+									      </td>
+									      <td>
+									      	<%= link_to message_path(con.id) do%>
+									        	<%= con.messages.order('updated_at DESC').first.body %>
+								        	<% end %>
+									      </td>
+									      <td class="center aligned">
+									        <%= link_to messages_path do %>
+									          <i class="trash outline link icon"></i>
+									        <% end %>
+									      </td>
+									    </tr>
+								  	<% end %>
+								  </tbody>
+								</table>
+							<% else %>
+								<div class="ui icon message">
+								  <i class="inbox icon"></i>
+								  <div class="content">
+								    <div class="header">
+								      No Messages
+								    </div>
+								    <p>You don't have any messages.</p>
+								  </div>
+								</div>
+							<% end %>
 					  </div>
 				  	<div class="ui tab" data-tab="sent">
-				  		Sent
+				  		<% if current_user.sent_conversations.count > 0 %>
+					  		<table class="ui very basic collapsing celled table">
+								  <thead>
+								    <tr>
+									    <th class="five wide">To</th>
+									    <th class="ten wide">Message</th>
+									    <th class="one wide">Delete</th>
+								  	</tr>
+							  	</thead>
+								  <tbody>
+								  	<% current_user.sent_conversations.each do |con| %>
+									  	<tr>
+									      <td>
+									        <h4 class="ui image header">
+													 	<% if	con.recipient == current_user %>
+								          		<%= image_tag con.sender.profile.image, html_options={class:"ui mini rounded image"}  %>
+								          	<% else %>
+															<%= image_tag con.recipient.profile.image, html_options={class:"ui mini rounded image"}  %>
+								          	<% end %>
+									          <div class="content">
+									          	<% if con.recipient == current_user %>
+									          		<%= con.sender.profile.full_name %>
+									          	<% else %>
+									            	<%= con.recipient.profile.full_name %>
+									          	<% end %>
+										          <div class="sub header">
+										          	<%= con.updated_at.strftime("%b %d, %Y") %>
+										          </div>
+										        </div>
+									      	</h4>
+									      </td>
+									      <td>
+									       	<%= link_to message_path(con.id) do%>
+									        	<%= con.messages.order('updated_at DESC').first.body %>
+								        	<% end %>
+									      </td>
+									      <td class="center aligned">
+									        <%= link_to messages_path do %>
+									          <i class="trash outline link icon"></i>
+									        <% end %>
+									      </td>
+									    </tr>
+								  	<% end %>
+								  </tbody>
+								</table>
+							<% else %>
+								<div class="ui icon message">
+								  <i class="inbox icon"></i>
+								  <div class="content">
+								    <div class="header">
+								      No Sent Messages
+								    </div>
+								    <p>You have not sent any messages.</p>
+								  </div>
+								</div>
+							<% end %>
 					  </div>
 					  <div class="ui tab" data-tab="trash" >
-					  	Trash
+					  	<div class="ui icon message">
+							  <i class="inbox icon"></i>
+							  <div class="content">
+							    <div class="header">
+							      No Messages
+							    </div>
+							    <p>Deleted message are not archived at the moment. Feature coming soon.</p>
+							  </div>
+							</div>
 				    </div>
 			    </div>
 				<% end %>

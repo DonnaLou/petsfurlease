@@ -1,0 +1,67 @@
+ <% provide(:title, "Conversation") %>
+
+<div class="pusher">
+  <div class="ui vertical stripe segment">
+    <div class="ui container">
+    	<div class="ui two column stackable grid">
+	    	<div class="ten wide column">
+	    		<h3 class="ui header">
+		      	Conversation
+		      	<% if @conversation %>
+							<div class="ui sub header">
+								between 
+								<b><%= @conversation.sender.full_name %></b> 
+								and 
+								<b><%= @conversation.recipient.full_name %></b>
+							</div>
+			      <% end %>
+		    	</h3>
+		    	<% if current_user.profile.nil? %>
+						<div class="ui icon info message">
+						  <i class="user icon"></i>
+						  <div class="content">
+						    <div class="header">
+							    You must create a profile first!
+							  	Visit <%= link_to("Profile", new_profile_path) %> to get started.</div>
+						  </div>
+						</div>
+					<% else %>
+						<div class="ui large feed">
+							<% @messages.each do |msg| %>
+    						<div class="event">
+							    <div class="ui image">
+							      <%= image_tag msg.user.profile.image, html_options={class:"ui avatar image"} %>
+							    </div>
+							    <div class="content">
+							    	<div class="summary">
+							    	</div>
+							    	<div class="extra text">
+							        <%= msg.body %>
+							      </div>
+							      <div class="meta">
+							    		<div class="date">
+							          <%= msg.created_at.strftime("%b %d, %Y") %>
+							        </div>
+						      	</div>
+							    </div>
+							  </div>
+  						<% end %>
+	    			</div>
+					<% end %>
+  			</div>
+
+			  <div class="six wide right aligned column">
+			    <h3 class="ui header">
+		      	Reply
+		    	</h3>
+		    	<div class="ui form">
+					  <div class="field">
+					    <textarea></textarea>
+					  </div>
+				    <button class="ui positive button" type="submit">Send</button>
+					</div>
+			  </div>
+    	</div>
+    </div>
+  </div>
+</div>

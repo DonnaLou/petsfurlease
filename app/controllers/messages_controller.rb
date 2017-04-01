@@ -6,4 +6,10 @@ class MessagesController < ApplicationController
   def create
 
   end
+
+  def show
+  	@conversation = Conversation.find(params[:id])
+  	@messages = @conversation.messages
+  end
+
 end

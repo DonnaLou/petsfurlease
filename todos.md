@@ -1,4 +1,4 @@
-# To Do:
+## To Do:
 
 ## Backend
 - Add permission filtering on pet controller
@@ -9,7 +9,6 @@
 
 
 ## Frontend
-- Write Review is valid for logged in users only
 - Allow users to delete their reviews
 - Implement 'Send a Message' links, the one on pet page will only show if help is wanted
 - Implement reading incoming messages
@@ -19,6 +18,7 @@
 
 ## Bugs
 - Fix menu on collapsed view, currently menu disappears
+- Message displaying has errors when user has no profile
 
 
 ## Description Text Related
