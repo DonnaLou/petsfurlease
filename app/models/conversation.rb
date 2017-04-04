@@ -10,8 +10,33 @@ class Conversation < ActiveRecord::Base
     where("(conversations.sender_id = ? AND conversations.recipient_id =?) OR (conversations.sender_id = ? AND conversations.recipient_id =?)", sender_id,recipient_id, recipient_id, sender_id)
   end
 
-  def is_unread?
-  	return self.messages.unread.count > 0
+  def mark_delete user
+    if self.sender == user
+      self.sender_delete = true
+    elsif self.recipient == user
+      self.recipient_delete = true
+    end
+
+    self.save! if self.changed?
   end
+
+  def mark_read user
+    self.messages.each do |m|
+      if m.user != user
+        m.read = true
+        m.save!
+      end
+    end
+  end
+
+  def unread user
+    self.messages.each do |m|
+      if m.user != user && !m.read
+        return true
+      end
+    end
+    return false
+  end
+
 
 end

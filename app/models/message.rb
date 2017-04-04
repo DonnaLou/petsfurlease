@@ -6,7 +6,6 @@ class Message < ActiveRecord::Base
 
   scope :unread, -> { where read: false}
 
-
   def message_time
     created_at.strftime("%m/%d/%y at %l:%M %p")
   end

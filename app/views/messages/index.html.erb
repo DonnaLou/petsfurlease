@@ -17,11 +17,13 @@
 						</div>
 					</div>
 				<% else %>
-			  	<div class="four wide column">
+			  	<div class="three wide column">
 				    <div class="ui vertical fluid tabular menu">
 				      <a class="active teal item" data-tab="messages">
 				        Messages
-				    		<div class="ui horizontal label teal">0</div>
+				    		<div class="ui horizontal label teal">
+				    			<%= current_user.conversation_unread_count %>
+				    		</div>
 				      </a>
 				      <a class="teal item" data-tab="sent">
 				        Sent
@@ -31,10 +33,10 @@
 				      </a>
 				    </div>
 		    	</div>
-		    	<div class="twelve wide stretched column">
+		    	<div class="thirteen wide stretched column">
 				  	<div class="ui tab active" data-tab="messages">
 				  		<% if current_user.conversations.count > 0 %>
-								<table class="ui very basic collapsing celled table">
+								<table class="ui very basic collapsing celled table" id="messageTable">
 								  <thead>
 								    <tr>
 									    <th class="five wide">From</th>
@@ -46,7 +48,7 @@
 								  	<% current_user.conversations.order('updated_at DESC').each do |con| %>
 									  	<tr>
 									      <td>
-									        <h4 class="ui image header">
+									        <h5 class="ui image header">
 									        	<% if con.recipient == current_user %>
 								          		<%= image_tag con.sender.profile.image, html_options={class:"ui mini rounded image"}  %>
 								          	<% else %>
@@ -65,9 +67,15 @@
 									      	</h4>
 									      </td>
 									      <td>
+									      	<% if con.unread(current_user) %>
+									      		<strong>
+								      		<% end %>
 									      	<%= link_to message_path(con.id) do%>
 									        	<%= con.messages.order('updated_at DESC').first.body %>
 								        	<% end %>
+								        	<% if con.unread(current_user) %>
+									      		</strong>
+								      		<% end %>
 									      </td>
 									      <td class="center aligned">
 									        <%= link_to messages_path do %>
@@ -83,7 +91,7 @@
 								  <i class="inbox icon"></i>
 								  <div class="content">
 								    <div class="header">
-								      No Messages
+								    	No Messages
 								    </div>
 								    <p>You don't have any messages.</p>
 								  </div>

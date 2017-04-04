@@ -27,7 +27,7 @@ App.Review =
 		$('.ui.rating.readOnlyRating').rating('disable')
 
 	postReviewError: (response) ->
-		alert("post review error")
+		alert("Writing review failed. Please try again later")
 
 	writeReview: ->
 		$(".ui.modal#review").modal('show')

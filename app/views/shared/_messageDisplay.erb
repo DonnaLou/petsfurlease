@@ -1,0 +1,15 @@
+	<div class="event">
+	  <div class="ui image">
+	    <%= image_tag msg.user.profile.image, html_options={class:"ui avatar image"} %>
+	  </div>
+	  <div class="content">
+	  	<div class="extra text">
+	      <%= msg.body %>
+	    </div>
+	    <div class="meta">
+	  		<div class="date">
+	        <%= msg.created_at.strftime("%b %d, %Y %l:%m %P") %>
+	      </div>
+	  	</div>
+	  </div>
+	</div>

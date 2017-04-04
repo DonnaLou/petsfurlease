@@ -13,20 +13,31 @@ class User < ActiveRecord::Base
   end
 
   def full_name
-    return profile.full_name  unless self.profile.nil?
+    return profile.full_name unless self.profile.nil?
     return self.email
   end
 
   def conversations
-    Conversation.where("sender_id = ? OR recipient_id = ?", self.id, self.id)
+    Conversation.where("(sender_id = ? AND sender_delete = ?) OR (recipient_id = ? AND recipient_delete = ?)", self.id,false, self.id,false)
   end
 
   def conversation_unread_count
-    conversations.select{|c| c.is_unread?}.count
+    count = 0
+    self.conversations.each do |c|
+      if c.unread self
+        count += 1
+      end
+    end
+    return count
   end
 
   def sent_conversations
-    Message.where(user: self).map{|msg| msg.conversation}.uniq.sort{|a,b| b.updated_at <=> a.updated_at}
+    Message.where(user: self)
+    .map{|msg| msg.conversation}
+    .uniq
+    .sort{|a,b| b.updated_at <=> a.updated_at}
   end
+
+
 
 end
