@@ -23,6 +23,7 @@ App.Review =
 		})
 
 	postReviewSuccess: (response) ->
+		$("#noReviewMsg").hide()
 		$("#reviewSegment").append(response)
 		$('.ui.rating.readOnlyRating').rating('disable')
 
@@ -36,8 +37,8 @@ App.Review =
 $(document).on "click", "#reviewsGrid .tabular .item", (event) =>
 	App.Review.changeTab(event)
 
-$(document).on "click", ".postReviewBtn", =>
+$(document).on "click", "#postReviewBtn", =>
 	App.Review.postReview()
 
-$(document).on "click", ".writeReviewBtn", =>
+$(document).on "click", "#writeReviewBtn", =>
 	App.Review.writeReview()
