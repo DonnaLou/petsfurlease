@@ -31,7 +31,7 @@
 				<% end %>	
 				<% if(!@pet.owned_by_user(current_user)) %>
 					<p>
-						<button class="positive ui button writeReviewBtn">
+						<button class="positive ui button" id="writeReviewBtn">
 							<i class="pencil icon"></i> Write a Review
 						</button>
 					</p>
@@ -79,7 +79,7 @@
 				<div class="ui segment" id="reviewSegment">
 					<h4>Reviews: <a class="hidden" name="UserReviews"></a></h4>
 					<% if @pet.reviews.count == 0 %>
-						<h4 class="ui grey header">No Reviews Available</h4>
+						<h4 class="ui grey header" id="noReviewMsg">No Reviews Available</h4>
 					<% end %>
 
 					<% @pet.reviews.each do |r| %>

@@ -1,17 +1,13 @@
 <div class="ui modal" id="message">
   <i class="close icon"></i>
   <div class="header">
-    Message <%= name%>
+    Message to <%= profile.full_name %>
   </div>
   <div class="text content">
     <div class="ui form">
+      <%= hidden_field_tag "profile_id", profile.id %>
       <div class="field">
-        <label>Subject</label>
-        <input type="text">
-      </div>
-      <div class="field">
-        <label>Text</label>
-        <textarea rows="3"></textarea>
+        <textarea id="messageText" rows="6" placeholder="Send a message..."></textarea>
       </div>
     </div>
   </div>
@@ -19,7 +15,7 @@
     <div class="ui black deny button">
       Cancel
     </div>
-    <div class="ui positive right labeled icon button">
+    <div class="ui positive right labeled icon button" id="sendMsgDialogBtn">
       Send
       <i class="checkmark icon"></i>
     </div>

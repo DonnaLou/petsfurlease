@@ -16,9 +16,9 @@
 				</p>
 
 				<% if @profile.is_volunteer %>
-				<p>
-					<i class="paw icon"></i>Volunteer Pet Sitter
-				</p>
+					<p>
+						<i class="paw icon"></i>Volunteer Pet Sitter
+					</p>
 				<% end %>
 
 				<p>
@@ -32,7 +32,7 @@
 					</p>
 				
 					<p>
-						<button class="positive ui button writeReviewBtn">
+						<button class="positive ui button" id="writeReviewBtn">
 							<i class="pencil icon"></i> Write a Review
 						</button>
 					</p>
@@ -73,7 +73,7 @@
 				<div class="ui segment" id="reviewSegment">
 					<h4>Reviews: <a class="hidden" name="UserReviews"></a></h4>
 					<% if @profile.reviews.count == 0 %>
-						<h4 class="ui grey header">No Reviews Available</h4>
+						<h4 class="ui grey header" id="noReviewMsg">No Reviews Available</h4>
 					<% end %>
 
 					<% @profile.reviews.each do |r| %>
@@ -84,7 +84,7 @@
 		</div>
 	</div>
 
-	<%= render partial: "shared/composeMessage", locals:{name: @profile.firstName + " " + @profile.lastName} %>
+	<%= render partial: "shared/composeMessage", locals:{profile: @profile} %>
 	
 	<%= render partial: "shared/writeReview", locals: {name: @profile.firstName + " " + @profile.lastName}%>
 </div>
