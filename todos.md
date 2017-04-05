@@ -16,6 +16,7 @@
 ## Bugs
 - Fix menu on collapsed view, currently menu disappears
 - Message displaying has errors when user has no profile
+- Writing review without profile fails 
 
 ## Testing
 - Add automation tests

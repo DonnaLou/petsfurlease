@@ -9,7 +9,8 @@ class ReviewController < ApplicationController
     review.details = params[:comments]
 
     if params[:review_subject_type].present?
-      review.review_subject = (params[:review_subject_type].constantize).find(params[:review_subject_id])
+      review_subject = (params[:review_subject_type].constantize).find(params[:review_subject_id])
+      review.review_subject = review_subject
     end
 
     review.user = current_user
