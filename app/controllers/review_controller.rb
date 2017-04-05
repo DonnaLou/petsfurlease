@@ -10,7 +10,6 @@ class ReviewController < ApplicationController
 
     if params[:review_subject_type].present?
       review_subject = (params[:review_subject_type].constantize).find(params[:review_subject_id])
-      puts "LALA@@@@@ #{review_subject}"
       review.review_subject = review_subject
     end
 
