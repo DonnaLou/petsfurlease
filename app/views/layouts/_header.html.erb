@@ -26,7 +26,7 @@
         <%= link_to messages_path, class: "ui icon item" do %>
           <i class="mail outline icon"></i>
           <% if current_user.conversation_unread_count > 0 %>
-            <div class="ui teal left pointing label">
+            <div class="ui teal left pointing label" id="unreadMsgCount">
               <%= current_user.conversation_unread_count %>
             </div>
           <% end %>

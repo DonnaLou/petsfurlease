@@ -19,5 +19,15 @@ App.init =->
 		$("#pet_helpStartDate").datepicker({dateFormat: 'yy-mm-dd'})
 		$("#pet_helpEndDate").datepicker({dateFormat: 'yy-mm-dd'})
 
+	#mark message read
+	if $("#messageBody").length > 0
+		conversationId = $("#conversation_id").val()
+		markReadUrl = '/conversations/read/' + conversationId
+		$.ajax({
+			type: "POST",
+			url: markReadUrl,
+			success: App.Messages.decreaseUnreadCount
+		})
+
 $(document).on "turbolinks:load", ->
 	App.init()

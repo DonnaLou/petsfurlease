@@ -43,6 +43,15 @@ App.Messages =
 	postMessageDialogSuccess: (response) ->
 		alert("Message sent")
 
+	decreaseUnreadCount: (response) ->
+		msgCount = $("#unreadMsgCount").html()
+		msgCount = parseInt(msgCount) - 1
+
+		if(msgCount <= 0)
+			$("#unreadMsgCount").hide()
+		else
+			$("#unreadMsgCount").html(msgCount)
+
 
 $(document).on "click", "#inboxGrid .tabular .item", (event) =>
 	App.Messages.changeTab(event)

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'search/user/:zip' => 'searches#user'
   get 'search/pet/:petZip/:petSpecies' => 'searches#pet'
 
+  post 'conversations/read/:id' => 'conversations#mark_read'
+
 
   devise_for :users
   resources :pets
