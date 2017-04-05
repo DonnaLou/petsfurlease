@@ -51,7 +51,13 @@
 					</div>
 					<div class="ui segment">
 						<%= image_tag @pet.profile.image, class:"ui tiny middle aligned spaced image"%>
-						<span> Contact <strong><%= @pet.profile.full_name %></strong> to help.</span> 
+						<span> Contact 
+							<strong>
+							<%= link_to @pet.profile do %>
+								<%= @pet.profile.full_name %>
+							<% end %>
+							</strong> to help.
+						</span> 
 					</div>
 				</div>
 				<% end %>

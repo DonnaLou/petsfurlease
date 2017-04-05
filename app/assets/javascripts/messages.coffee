@@ -22,6 +22,7 @@ App.Messages =
 
 	postMessageSuccess: (response) ->
 		$("#messageSegment").append(response)
+		$("#messageBody").val("")
 
 	postMessageError: (response) ->
 		alert("Sending message failed. Please try again later.")
