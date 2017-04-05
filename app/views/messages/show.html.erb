@@ -10,9 +10,17 @@
 		      	<% if @conversation %>
 							<div class="ui sub header">
 								between 
-								<b><%= @conversation.sender.full_name %></b> 
+								<b>
+									<%= link_to @conversation.sender.profile do %>
+										<%= @conversation.sender.full_name %>
+									<% end %>	
+								</b> 
 								and 
-								<b><%= @conversation.recipient.full_name %></b>
+								<b>
+									<%= link_to @conversation.recipient.profile do %>
+										<%= @conversation.recipient.full_name %>
+									<% end %>	
+								</b>
 							</div>
 			      <% end %>
 		    	</h3>
@@ -41,9 +49,13 @@
 		      		message to 
 							<b>
 								<% if current_user.full_name == @conversation.sender.full_name %>
-									<%= @conversation.recipient.full_name %>
+									<%= link_to @conversation.recipient.profile do %>
+										<%= @conversation.recipient.full_name %>
+									<% end %>
 								<% else %>
-									<%= @conversation.sender.full_name %> 
+									<%= link_to @conversation.sender.profile do %>
+										<%= @conversation.sender.full_name %> 
+									<% end %>
 								<% end %>
 							</b>
 						</div>

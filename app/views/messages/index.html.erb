@@ -56,9 +56,13 @@
 								          	<% end %>
 									          <div class="content">
 									          	<% if con.recipient == current_user %>
-									          		<%= con.sender.profile.full_name %>
+									          		<%= link_to con.sender.profile do %>
+									          			<%= con.sender.profile.full_name %>
+								          			<% end %>
 									          	<% else %>
-									            	<%= con.recipient.profile.full_name %>
+								          			<%= link_to con.recipient.profile do %>
+									            		<%= con.recipient.profile.full_name %>
+								          			<% end %>
 									          	<% end %>
 										          <div class="sub header">
 										          	<%= con.updated_at.strftime("%b %d, %Y") %>
@@ -112,7 +116,7 @@
 								  	<% current_user.sent_conversations.each do |con| %>
 									  	<tr>
 									      <td>
-									        <h4 class="ui image header">
+									        <h5 class="ui image header">
 													 	<% if	con.recipient == current_user %>
 								          		<%= image_tag con.sender.profile.image, html_options={class:"ui mini rounded image"}  %>
 								          	<% else %>
@@ -120,9 +124,13 @@
 								          	<% end %>
 									          <div class="content">
 									          	<% if con.recipient == current_user %>
-									          		<%= con.sender.profile.full_name %>
+									          		<%= link_to con.sender.profile do %>
+									          			<%= con.sender.profile.full_name %>
+									          		<% end %>
 									          	<% else %>
-									            	<%= con.recipient.profile.full_name %>
+									          		<%= link_to con.recipient.profile do %>
+									            		<%= con.recipient.profile.full_name %>
+									          		<% end %>
 									          	<% end %>
 										          <div class="sub header">
 										          	<%= con.updated_at.strftime("%b %d, %Y") %>
