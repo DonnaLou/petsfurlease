@@ -29,5 +29,9 @@ App.init =->
 			success: App.Messages.decreaseUnreadCount
 		})
 
+	#hide no review message if reviews exist
+	if $(".reviewDisplay").length > 0
+		$("#noReviewMsg").hide()
+
 $(document).on "turbolinks:load", ->
 	App.init()

@@ -84,14 +84,13 @@
 
 				<div class="ui segment" id="reviewSegment">
 					<h4>Reviews: <a class="hidden" name="UserReviews"></a></h4>
-					<% if @pet.reviews.count == 0 %>
-						<h4 class="ui grey header" id="noReviewMsg">No Reviews Available</h4>
-					<% end %>
+					<h4 class="ui grey header" id="noReviewMsg">No Reviews Available</h4>
 
 					<% @pet.reviews.each do |r| %>
-						<%= render partial: "shared/reviewDisplay", locals:{r: r} %>
+						<% if r.user.profile %>
+							<%= render partial: "shared/reviewDisplay", locals:{r: r} %>
+						<% end %>
 					<% end %>
-
 				</div>
 			</div>
 		</div>

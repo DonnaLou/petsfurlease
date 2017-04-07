@@ -30,6 +30,9 @@ gem 'devise'
 # Image uploading
 gem 'paperclip', '~> 4.3'
 
+# File storage to aws
+gem 'aws-sdk', '~> 2.3'
+
 # Tzinfo-data needed to start server on windows
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
