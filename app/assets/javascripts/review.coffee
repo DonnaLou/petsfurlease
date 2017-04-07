@@ -28,7 +28,10 @@ App.Review =
 		$('.ui.rating.readOnlyRating').rating('disable')
 
 	postReviewError: (response) ->
-		alert("Writing review failed. Please try again later")
+		if(response.status == 422)
+			alert("User Profile is required to leave a review. Please create a profile before continuing.")
+		else
+			alert("Writing review failed. Please try again later")
 
 	writeReview: ->
 		$(".ui.modal#review").modal('show')

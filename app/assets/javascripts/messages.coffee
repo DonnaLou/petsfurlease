@@ -25,7 +25,10 @@ App.Messages =
 		$("#messageBody").val("")
 
 	postMessageError: (response) ->
-		alert("Sending message failed. Please try again later.")
+		if(response.status == 422)
+			alert("User Profile is required to send a message. Please create a profile before continuing.")
+		else
+			alert("Sending message failed. Please try again later")
 
 	sendMessageFromDialog: (event) =>
 		postMsgUrl = "/messages"

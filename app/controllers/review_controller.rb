@@ -1,5 +1,7 @@
 class ReviewController < ApplicationController
   before_filter :authenticate_user!
+  before_action :profile_exist?
+
   def index
   end
 
