@@ -21,3 +21,6 @@
 # Ignore all publif files
 /public/*
 /.byebug_history
+
+# Ignore application configuration
+/config/application.yml
