@@ -1,6 +1,6 @@
 class ReviewController < ApplicationController
   before_filter :authenticate_user!
-  before_action :profile_exist?
+  before_action :profile_exist?, only: [:create, :delete]
 
   def index
   end
@@ -23,6 +23,8 @@ class ReviewController < ApplicationController
     else
       render status: 500, json: review.errors.full_messages
     end
+  end
 
+  def delete
   end
 end

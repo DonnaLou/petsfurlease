@@ -31,7 +31,10 @@ gem 'devise'
 gem 'paperclip', '~> 4.3'
 
 # File storage to aws
-gem 'aws-sdk', '~> 2.3'
+gem 'aws-sdk', '< 2.0'
+
+# Env configuration key management
+gem "figaro"
 
 # Tzinfo-data needed to start server on windows
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]

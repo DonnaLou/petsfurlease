@@ -1,11 +1,11 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :profile_exist?
+  before_action :profile_exist?, only:[:create, :delete]
+
   def index
   end
 
   def create
-
   	ActiveRecord::Base.transaction do
 	  	if (params[:conversation_id].present?)
 	  		conversation = Conversation.find(params[:conversation_id])

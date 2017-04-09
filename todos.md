@@ -17,6 +17,7 @@
 - Fix menu on collapsed view, currently menu disappears
 - Message displaying has errors when user has no profile
 - Writing review without profile fails 
+- Creating pet with help wanted checked but date not filled out errors out, and pet profile gets half created. Add transaction & validation
 
 ## Testing
 - Add automation tests
