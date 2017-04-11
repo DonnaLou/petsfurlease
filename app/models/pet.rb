@@ -2,13 +2,14 @@ class Pet < ActiveRecord::Base
   belongs_to :profile
   belongs_to :review_subject, polymorphic: true
 
-  validates :profile_id, 
-    :name, 
-    :species, 
-    :age, 
-    :details,
-    :gender,
-    presence: true
+  validates :profile_id, presence: true
+  validates :name, presence: {message: "Pet Name is required."}
+  validates :species, presence: {message: "Animal Type is required."}
+  validates :gender, presence: {message: "Gender is required."}
+  validates :weight, presence: {message: "Weight is required."}
+  validates :age, presence: {message: "Age is required."}
+  validates :details, presence: {message: "Description is required."}
+  validate :validate_helper_dates
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "wireframeImage.png"
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
@@ -39,5 +40,16 @@ class Pet < ActiveRecord::Base
   def full_name
     self.name
   end
+
+  def validate_helper_dates
+    if !helpWanted
+      return true
+    elsif helpWanted && helpStartDate && helpEndDate
+      return true
+    else
+      errors[:helpWanted] << "Help Dates are required."
+    end
+  end
+
 
 end

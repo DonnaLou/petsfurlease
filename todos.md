@@ -2,22 +2,19 @@
 
 ## Backend
 - Add permission filtering on pet controller
-- Add validation on pet form and user profile form
-
 
 ## Frontend
 - Allow users to delete their reviews
 - Implement conversation message deleting
 - Add bulk messages read function
 - Implement 'Send a Message' links, the one on pet page will only show if help is wanted
-- Create signup for limited test users with alpha code
 - Fix css for error messages, login error message, sign up error message
 
 ## Bugs
 - Fix menu on collapsed view, currently menu disappears
 - Message displaying has errors when user has no profile
 - Writing review without profile fails 
-- Creating pet with help wanted checked but date not filled out errors out, and pet profile gets half created. Add transaction & validation
+- Add transaction to creating profiles and pets to prevent half created models.
 
 ## Testing
 - Add automation tests
@@ -32,6 +29,7 @@
 
 
 ## Future Features
+- Create signup for limited test users with alpha code
 - Add ability to upload multiple pictures and gallery feature
 - Add image preview via js on profile pictures
 - Add searching by city name & zipcode

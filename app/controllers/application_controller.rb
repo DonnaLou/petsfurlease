@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   def profile_exist?
     if current_user.profile
-      super
+      return true
     else
       render status: 422, json: "User Profile required."
     end

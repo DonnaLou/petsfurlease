@@ -1,18 +1,18 @@
-<%= form_for :profile,  html: {class:"ui form"} do |f|%>  
-  <% if @profile && @profile.errors.any? %>
-    <div id="error_explanation" class="ui error message">
-      <div class="header">
-        <i class="flag icon"></i><%= pluralize(@profile.errors.count, "validation error") %> :
-      </div>
-   
-      <ul class="list">
-        <% @profile.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+<% if @profile && @profile.errors.any? %>
+  <div id="error_explanation" class="ui error message">
+    <div class="header">
+      <i class="flag icon"></i><%= pluralize(@profile.errors.count, "validation error") %> :
     </div>
-  <% end %>
+ 
+    <ul class="list">
+      <% @profile.errors.each do |attr, msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
+<%= form_for :profile,  html: {class:"ui form"} do |f|%>  
   <div class="ui two column grid">
     <div class="four wide column">
       <div class="field">
@@ -64,7 +64,7 @@
 
     <div class="twelve wide column">
       <div class="field">
-        <h4>Experience with Animals</h4>
+        <h4>Bio</h4>
         <%= f.text_area :description, 
               placeholder:"Please write a short description about yourself and your experience with taking care of animals." %>
       </div>

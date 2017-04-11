@@ -26,8 +26,10 @@ class ProfileController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
     
-    if @profile.save!
-      redirect_to @profile
+    if @profile.valid?
+      if @profile.save!
+        redirect_to @profile
+      end
     else
       render :new
     end
@@ -39,6 +41,7 @@ class ProfileController < ApplicationController
 
   def update
     @profile = current_user.profile
+
     if @profile.image? && params[:delete_image].present? && params[:delete_image] == "1"
       @profile.image = nil
       @profile.save!
