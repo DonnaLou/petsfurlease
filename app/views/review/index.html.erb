@@ -29,7 +29,7 @@
 				      </a>
 				      <a class="teal item" data-tab="authored">
 				        Reviews I Authored 
-				    		<div class="ui horizontal label "><%= current_user.reviews.count%></div>
+				    		<div class="ui horizontal label" id="authored_review_count"><%= current_user.reviews.count%></div>
 				      </a>
 				    </div>
 			  	</div>
@@ -88,7 +88,7 @@
 					  </div>
 					  <div class="ui tab" data-tab="authored" >
 			      	<% current_user.profile.reviews_authored.each do |r| %>
-								<div class="ui comments">
+								<div class="ui comments" id="review_<%= r.id %>">
 									<div class="comment">
 										<%= link_to r.review_subject, html_options={class:"avatar"} do %>
 												<%= image_tag r.review_subject.image %>
@@ -104,10 +104,13 @@
 											<div class="text">
 												<%= r.details %>
 											</div>
+											<div class="actions">
+												<%=link_to "Delete",review_path(r), :method => :delete, :class => "delete_review", :remote => true%>  
+								      </div>
 										</div>
 									</div>
 								</div>
-								<div class="ui divider"></div>
+								<div class="ui divider" id="divider_<%= r.id %>"></div>
 					    <% end %>  
 				    </div>
 			    </div>

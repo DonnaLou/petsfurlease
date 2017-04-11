@@ -35,3 +35,4 @@ App.init =->
 
 $(document).on "turbolinks:load", ->
 	App.init()
+	App.Review.init()

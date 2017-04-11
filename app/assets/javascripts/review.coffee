@@ -3,6 +3,15 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 	
 App.Review = 
+	init: ->
+		$("a.delete_review[data-remote]").on "ajax:success", (e, data, status, xhr) ->
+			review_id = "#review_" + data
+			divider_id = "#divider_" + data
+			$(review_id).remove()
+			$(divider_id).remove()
+			review_count = parseInt($("#authored_review_count").html())
+			$("#authored_review_count").html(--review_count)
+
 	changeTab: (event) ->
 		$("#reviewsGrid .teal.label").removeClass("teal")
 		$(event.target).find(".label").addClass("teal")

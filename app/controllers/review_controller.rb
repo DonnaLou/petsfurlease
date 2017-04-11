@@ -25,6 +25,13 @@ class ReviewController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    review = Review.find(params[:id])
+    if review
+      review.delete
+      render status: 200, json: review.id
+    else
+      render status: 500, json: "Review with id #{review.id} doesn't exist."
+    end
   end
 end
