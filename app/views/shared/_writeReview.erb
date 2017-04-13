@@ -4,6 +4,11 @@
     Write a Review on <%= name%>
   </div>
   <div class="text content">
+    <% if user_signed_in? && current_user.profile.nil? %>
+      <div class="ui error message">
+        <div class="header">You must create a user profile before reviewing.</div>
+      </div>
+    <% end %>
     <div class="ui form">
       <div class="field">
         <label>Rating</label>
@@ -19,7 +24,7 @@
     <div class="ui black deny button">
       Cancel
     </div>
-    <div class="ui positive right labeled icon button" id="postReviewBtn" >
+    <div class="ui positive right labeled icon button <%= 'disabled' if user_signed_in? && current_user.profile.nil? %>" id="postReviewBtn" >
       Send
       <i class="checkmark icon"></i>
     </div>

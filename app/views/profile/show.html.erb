@@ -26,13 +26,13 @@
 				</p>
 				<% if(current_user != @profile.user) %>
 					<p>
-						<button class="yellow ui button" id="composeMsg">
+						<button class="yellow ui button <%= 'disabled' unless user_signed_in? %>" id="composeMsg">
 							<i class="mail icon"></i> Send a Message
 						</button>
 					</p>
 				
 					<p>
-						<button class="positive ui button" id="writeReviewBtn">
+						<button class="positive ui button <%= 'disabled' unless user_signed_in? %>" id="writeReviewBtn">
 							<i class="pencil icon"></i> Write a Review
 						</button>
 					</p>

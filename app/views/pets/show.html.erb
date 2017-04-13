@@ -24,14 +24,10 @@
 				<p>
 					<i class="thumbs outline up icon"></i><a href="#UserReviews">Read Reviews</a>
 				<p>
-				<% if (@pet.helpWanted) %>	
-					<p>
-						<i class="mail icon"></i><a href="#">Send a Message</a>
-					<p>
-				<% end %>	
+				
 				<% if(!@pet.owned_by_user(current_user)) %>
 					<p>
-						<button class="positive ui button" id="writeReviewBtn">
+						<button class="positive ui button <%= 'disabled' unless user_signed_in? %>" id="writeReviewBtn">
 							<i class="pencil icon"></i> Write a Review
 						</button>
 					</p>

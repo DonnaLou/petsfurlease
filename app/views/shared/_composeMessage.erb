@@ -4,6 +4,11 @@
     Message to <%= profile.full_name %>
   </div>
   <div class="text content">
+    <% if user_signed_in? && current_user.profile.nil? %>
+      <div class="ui error message">
+        <div class="header">You must create a user profile before sending messages.</div>
+      </div>
+    <% end %>
     <div class="ui form">
       <%= hidden_field_tag "profile_id", profile.id %>
       <div class="field">
@@ -15,7 +20,7 @@
     <div class="ui black deny button">
       Cancel
     </div>
-    <div class="ui positive right labeled icon button" id="sendMsgDialogBtn">
+    <div class="ui positive right labeled icon button <%= 'disabled' if user_signed_in? && current_user.profile.nil? %>" id="sendMsgDialogBtn">
       Send
       <i class="checkmark icon"></i>
     </div>
