@@ -20,6 +20,16 @@ class Conversation < ActiveRecord::Base
     self.save! if self.changed?
   end
 
+  def mark_undelete user
+     if self.sender == user
+      self.sender_delete = false
+    elsif self.recipient == user
+      self.recipient_delete = false
+    end
+
+    self.save! if self.changed?
+  end
+
   def mark_read user
     self.messages.each do |m|
       if m.user != user
@@ -38,5 +48,14 @@ class Conversation < ActiveRecord::Base
     return false
   end
 
+  def is_deleted user
+    return self.sender_delete if self.sender == user
+    return self.recipient_delete if self.recipient == user
+  end
 
+  def revive
+    self.sender_delete = false
+    self.recipient_delete = false
+    save!
+  end
 end

@@ -3,6 +3,11 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 	
 App.Messages = 
+	init: ->
+		$("a.delete_conversation[data-remote]").on "ajax:success", (e, data, status, xhr) ->
+			conversation_id = ".conversation_" + data
+			$(conversation_id).remove()
+
 	changeTab: (event) ->
 		$("#inboxGrid .teal.label").removeClass("teal")
 		$(event.target).find(".label").addClass("teal")

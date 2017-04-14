@@ -4,14 +4,15 @@
 - Add permission filtering on pet controller
 
 ## Frontend
-- Implement conversation message deleting
-- Add bulk messages read function
-- Implement 'Send a Message' links, the one on pet page will only show if help is wanted
-- Fix css for error messages, login error message, sign up error message
+- Messaging: Add bulk messages read function
+- Messaging: Add bulk conversation deletes
+- Messaging: Add delete button on individual conversation page
+- Messaging: enable send button only when there are text in the body
+- Search: Add pagination of search results
 
 ## Bugs
-- Fix menu on collapsed view, currently menu disappears
-- Add transaction to creating profiles and pets to prevent half created models.
+- Navbar Menu: Fix menu on collapsed view, currently menu disappears
+- Review: Add validation on posting reviews with 0 stars.
 
 ## Testing
 - Add automation tests
@@ -28,4 +29,3 @@
 - Add image preview via js on profile pictures
 - Add searching by city name & zipcode
 - Create open for adoption on pets
-

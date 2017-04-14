@@ -32,12 +32,11 @@ class User < ActiveRecord::Base
   end
 
   def sent_conversations
-    Message.where(user: self)
-    .map{|msg| msg.conversation}
+    sent_conversations = Message.where(user: self)
+    .map{|msg| con = msg.conversation}
     .uniq
     .sort{|a,b| b.updated_at <=> a.updated_at}
+
+    sent_conversations.select{|con| !con.is_deleted self}
   end
-
-
-
 end

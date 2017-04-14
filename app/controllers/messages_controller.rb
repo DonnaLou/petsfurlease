@@ -9,6 +9,8 @@ class MessagesController < ApplicationController
   	ActiveRecord::Base.transaction do
 	  	if (params[:conversation_id].present?)
 	  		conversation = Conversation.find(params[:conversation_id])
+				conversation.revive
+
 				message = create_message(params[:body], conversation)
 
 		  	if message.valid?
@@ -22,12 +24,13 @@ class MessagesController < ApplicationController
 
 				if (!profile.nil?)
 					conversation = Conversation.between(current_user.id, profile.user.id)
-					
+
 					if(conversation.length < 1)
 						conversation = create_conversation profile
 					else
 						conversation = conversation.first
 					end
+					conversation.revive
 
 					message = create_message(params[:body], conversation)
 		  		if message.valid?

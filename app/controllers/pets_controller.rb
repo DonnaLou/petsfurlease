@@ -8,14 +8,20 @@ class PetsController < ApplicationController
 	end
 
 	def create
-		@pet = Pet.new(pet_params)
-		@pet.profile_id = current_user.profile.id
-
-		if @pet.valid?		
-			if @pet.save!
-				redirect_to @pet
+		begin
+			ActiveRecord::Base.transaction do
+				@pet = Pet.new(pet_params)
+				@pet.profile_id = current_user.profile.id
+				if @pet.valid?		
+					if @pet.save!
+						redirect_to @pet
+					end
+				else
+					render :new
+				end
 			end
-		else
+		rescue Exception => e
+			Rails.logger.error "Exception: #{e.to_s}, Backtrace: #{e.backtrace.to_s}"
 			render :new
 		end
 	end

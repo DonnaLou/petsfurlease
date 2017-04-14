@@ -28,9 +28,9 @@
 				      <a class="teal item" data-tab="sent">
 				        Sent
 				      </a>
-				      <a class="teal item" data-tab="trash">
+				     <!--  <a class="teal item" data-tab="trash">
 				        Trash 
-				      </a>
+				      </a> -->
 				    </div>
 		    	</div>
 		    	<div class="thirteen wide stretched column">
@@ -46,47 +46,49 @@
 							  	</thead>
 								  <tbody>
 								  	<% current_user.conversations.order('updated_at DESC').each do |con| %>
-									  	<tr>
-									      <td>
-									        <h5 class="ui image header">
-									        	<% if con.recipient == current_user %>
-								          		<%= image_tag con.sender.profile.image, html_options={class:"ui mini rounded image"}  %>
-								          	<% else %>
-															<%= image_tag con.recipient.profile.image, html_options={class:"ui mini rounded image"}  %>
-								          	<% end %>
-									          <div class="content">
-									          	<% if con.recipient == current_user %>
-									          		<%= link_to con.sender.profile do %>
-									          			<%= con.sender.profile.full_name %>
-								          			<% end %>
+								  		<% if !con.is_deleted current_user %>
+										  	<tr class="conversation_<%= con.id %>">
+										      <td>
+										        <h5 class="ui image header">
+										        	<% if con.recipient == current_user %>
+									          		<%= image_tag con.sender.profile.image, html_options={class:"ui mini rounded image"}  %>
 									          	<% else %>
-								          			<%= link_to con.recipient.profile do %>
-									            		<%= con.recipient.profile.full_name %>
-								          			<% end %>
+																<%= image_tag con.recipient.profile.image, html_options={class:"ui mini rounded image"}  %>
 									          	<% end %>
-										          <div class="sub header">
-										          	<%= con.updated_at.strftime("%b %d, %Y") %>
-										          </div>
-										        </div>
-									      	</h4>
-									      </td>
-									      <td>
-									      	<% if con.unread(current_user) %>
-									      		<strong>
-								      		<% end %>
-									      	<%= link_to message_path(con.id) do%>
-									        	<%= con.messages.order('updated_at DESC').first.body %>
-								        	<% end %>
-								        	<% if con.unread(current_user) %>
-									      		</strong>
-								      		<% end %>
-									      </td>
-									      <td class="center aligned">
-									        <%= link_to messages_path do %>
-									          <i class="trash outline link icon"></i>
-									        <% end %>
-									      </td>
-									    </tr>
+										          <div class="content">
+										          	<% if con.recipient == current_user %>
+										          		<%= link_to con.sender.profile do %>
+										          			<%= con.sender.profile.full_name %>
+									          			<% end %>
+										          	<% else %>
+									          			<%= link_to con.recipient.profile do %>
+										            		<%= con.recipient.profile.full_name %>
+									          			<% end %>
+										          	<% end %>
+											          <div class="sub header">
+											          	<%= con.updated_at.strftime("%b %d, %Y") %>
+											          </div>
+											        </div>
+										      	</h4>
+										      </td>
+										      <td>
+										      	<% if con.unread(current_user) %>
+										      		<strong>
+									      		<% end %>
+										      	<%= link_to message_path(con.id) do%>
+										        	<%= con.messages.order('updated_at DESC').first.body %>
+									        	<% end %>
+									        	<% if con.unread(current_user) %>
+										      		</strong>
+									      		<% end %>
+										      </td>
+										      <td class="center aligned">
+										        <%= link_to "/conversations/delete/#{con.id}", :method => :post, :class => "delete_conversation", :remote => true do %>
+										          <i class="trash outline link icon"></i>
+										        <% end %>
+										      </td>
+										    </tr>
+								  		<% end %>
 								  	<% end %>
 								  </tbody>
 								</table>
@@ -114,41 +116,44 @@
 							  	</thead>
 								  <tbody>
 								  	<% current_user.sent_conversations.each do |con| %>
-									  	<tr>
-									      <td>
-									        <h5 class="ui image header">
-													 	<% if	con.recipient == current_user %>
-								          		<%= image_tag con.sender.profile.image, html_options={class:"ui mini rounded image"}  %>
-								          	<% else %>
-															<%= image_tag con.recipient.profile.image, html_options={class:"ui mini rounded image"}  %>
-								          	<% end %>
-									          <div class="content">
-									          	<% if con.recipient == current_user %>
-									          		<%= link_to con.sender.profile do %>
-									          			<%= con.sender.profile.full_name %>
-									          		<% end %>
+								  		<% if !con.is_deleted current_user %>
+										  	<tr class="conversation_<%= con.id %>">
+										      <td>
+										        <h5 class="ui image header">
+														 	<% if	con.recipient == current_user %>
+									          		<%= image_tag con.sender.profile.image, html_options={class:"ui mini rounded image"}  %>
 									          	<% else %>
-									          		<%= link_to con.recipient.profile do %>
-									            		<%= con.recipient.profile.full_name %>
-									          		<% end %>
+																<%= image_tag con.recipient.profile.image, html_options={class:"ui mini rounded image"}  %>
 									          	<% end %>
-										          <div class="sub header">
-										          	<%= con.updated_at.strftime("%b %d, %Y") %>
-										          </div>
-										        </div>
-									      	</h4>
-									      </td>
-									      <td>
-									       	<%= link_to message_path(con.id) do%>
-									        	<%= con.messages.order('updated_at DESC').first.body %>
-								        	<% end %>
-									      </td>
-									      <td class="center aligned">
-									        <%= link_to messages_path do %>
-									          <i class="trash outline link icon"></i>
-									        <% end %>
-									      </td>
-									    </tr>
+										          <div class="content">
+										          	<% if con.recipient == current_user %>
+										          		<%= link_to con.sender.profile do %>
+										          			<%= con.sender.profile.full_name %>
+										          		<% end %>
+										          	<% else %>
+										          		<%= link_to con.recipient.profile do %>
+										            		<%= con.recipient.profile.full_name %>
+										          		<% end %>
+										          	<% end %>
+											          <div class="sub header">
+											          	<%= con.updated_at.strftime("%b %d, %Y") %>
+											          </div>
+											        </div>
+										      	</h4>
+										      </td>
+										      <td>
+
+										       	<%= link_to message_path(con.id) do%>
+										        	<%= con.messages.order('updated_at DESC').first.body %>
+									        	<% end %>
+										      </td>
+										      <td class="center aligned">
+										         <%= link_to "/conversations/delete/#{con.id}", :method => :post, :class => "delete_conversation", :remote => true do %>
+										          <i class="trash outline link icon"></i>
+										        <% end %>
+										      </td>
+										    </tr>
+								  		<% end %>
 								  	<% end %>
 								  </tbody>
 								</table>
@@ -164,7 +169,7 @@
 								</div>
 							<% end %>
 					  </div>
-					  <div class="ui tab" data-tab="trash" >
+					 <!--  <div class="ui tab" data-tab="trash" >
 					  	<div class="ui icon message">
 							  <i class="inbox icon"></i>
 							  <div class="content">
@@ -174,7 +179,7 @@
 							    <p>Deleted message are not archived at the moment. Feature coming soon.</p>
 							  </div>
 							</div>
-				    </div>
+				    </div> -->
 			    </div>
 				<% end %>
 			</div>

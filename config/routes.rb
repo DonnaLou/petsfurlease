@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'search/pet/:petZip/:petSpecies' => 'searches#pet'
 
   post 'conversations/read/:id' => 'conversations#mark_read'
-
+  post 'conversations/delete/:id' => 'conversations#delete'
 
   devise_for :users
   resources :pets
