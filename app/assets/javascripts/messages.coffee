@@ -66,6 +66,3 @@ $(document).on "click", "#inboxGrid .tabular .item", (event) =>
 
 $(document).on "click", "button#sendMessage", (event) =>
 	App.Messages.sendMessage(event)
-
-$(document).on "click", "#sendMsgDialogBtn", (event) =>
-	App.Messages.sendMessageFromDialog(event)

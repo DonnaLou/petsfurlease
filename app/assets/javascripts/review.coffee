@@ -43,14 +43,25 @@ App.Review =
 			alert("Writing review failed. Please try again later")
 
 	writeReview: ->
-		$(".ui.modal#review").modal('show')
+		$(".ui.modal#review").modal({
+			onApprove : () -> 
+				rating = $(".ui.star.rating#writeRating").rating('get rating')
+				comments = $("#comments").val()
+
+				if rating < 1
+					alert "Rating is required."
+					return false
+				else if comments.length < 1
+					alert "Review description is required."
+					return false
+				else
+					App.Review.postReview()
+    }).modal('show')
+
 		$(".ui.star.rating#writeRating").rating('enable')
 
 $(document).on "click", "#reviewsGrid .tabular .item", (event) =>
 	App.Review.changeTab(event)
-
-$(document).on "click", "#postReviewBtn", =>
-	App.Review.postReview()
 
 $(document).on "click", "#writeReviewBtn", =>
 	App.Review.writeReview()
