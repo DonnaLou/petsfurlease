@@ -22,7 +22,7 @@
 					<i class="marker icon"></i><%= @pet.profile.city%>, <%= @pet.profile.state %>
 				</p>
 				<p>
-					<i class="thumbs outline up icon"></i><a href="#UserReviews">Read Reviews</a>
+					<i class="thumbs outline up icon"></i><a href="#reviewSegment">Read Reviews</a>
 				<p>
 				
 				<% if(!@pet.owned_by_user(current_user)) %>
@@ -79,9 +79,8 @@
 				</div>
 
 				<div class="ui segment" id="reviewSegment">
-					<h4>Reviews: <a class="hidden" name="UserReviews"></a></h4>
+					<h4>Reviews:</h4>
 					<h4 class="ui grey header" id="noReviewMsg">No Reviews Available</h4>
-
 					<% @pet.reviews.each do |r| %>
 						<% if r.user.profile %>
 							<%= render partial: "shared/reviewDisplay", locals:{r: r} %>

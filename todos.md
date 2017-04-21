@@ -9,10 +9,11 @@
 - Messaging: Add delete button on individual conversation page
 - Messaging: enable send button only when there are text in the body
 - Search: Add pagination of search results
+- Search: Limit with ... the amount of details allowed to show on pets
+- User Profile: Limit with ... the amount of details allowed to show on pets
 
 ## Bugs
 - Navbar Menu: Fix menu on collapsed view, currently menu disappears
-- Review: Add validation on posting reviews with 0 stars.
 
 ## Testing
 - Add automation tests

@@ -22,7 +22,7 @@
 				<% end %>
 
 				<p>
-					<i class="thumbs outline up icon"></i><a href="#UserReviews">Read Reviews</a>
+					<i class="thumbs outline up icon"></i><a href="#reviewSegment">Read Reviews</a>
 				</p>
 				<% if(current_user != @profile.user) %>
 					<p>
@@ -71,7 +71,7 @@
 				<% end %>
 
 				<div class="ui segment" id="reviewSegment">
-					<h4>Reviews: <a class="hidden" name="UserReviews"></a></h4>
+					<h4>Reviews:</h4>
 					<h4 class="ui grey header" id="noReviewMsg">No Reviews Available</h4>
 
 					<% @profile.reviews.each do |r| %>
