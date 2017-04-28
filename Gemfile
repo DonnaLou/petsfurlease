@@ -39,8 +39,8 @@ gem "figaro"
 # Tzinfo-data needed to start server on windows
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
-# Coffee script gem because js wouldn't work on windows 
-gem 'coffee-script-source', '1.8.0'
+# Search Result Pagination gem
+gem 'kaminari'
 
 # Semantic UI Gem
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
