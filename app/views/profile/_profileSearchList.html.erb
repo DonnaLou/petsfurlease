@@ -21,7 +21,9 @@
           <span><i class="home icon"></i><%= profile.city %>, <%= profile.state %> <%= profile.zip %></span>
         </div>
         <div class="description">
-          <span>Description: <%= profile.description %></span><br/>
+          <p class="block-with-text">
+            <strong>Bio:</strong> <%= profile.description %>
+          </p>
         </div>
         <div class="extra">
           <%= link_to "View Profile", profile_path(profile), class:"ui right floated teal button" %>
