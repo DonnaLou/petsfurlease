@@ -30,6 +30,9 @@
             <strong>Gender:</strong> <%= pet.gender %>
           </p>
           <p>
+            <strong>Species:</strong> <%= pet.species %>
+          </p>
+          <p>
             <strong>Breed:</strong> <%= pet.breed %>
           </p>
           <p class="block-with-text">
@@ -45,5 +48,6 @@
       </div>
     </div>
   <% end %>
+  <%= paginate @pets, window: 2 %>
 <% end %>
 

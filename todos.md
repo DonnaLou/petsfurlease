@@ -11,6 +11,7 @@
 - Search: Add pagination of search results
 
 ## Bugs
+- Search Page: Pagination is broken 
 
 ## Testing
 - Add automation tests

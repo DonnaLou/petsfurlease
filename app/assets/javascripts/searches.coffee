@@ -10,11 +10,11 @@ App.Searches =->
 			$("#findPetTab").removeClass('active')
 			params = window.location.pathname.split("/")
 			zip = params[params.length - 1]
-			$("#zip").val(zip)
+			$("#zip").val(zip) if $.isNumeric(zip)
 		else if window.location.pathname.indexOf("pet") > -1
 			params = window.location.pathname.split("/")
-			zip = params[params.length - 2]
-			animal = params[params.length - 1]
+			zip = params[params.length - 1]
+			animal = params[params.length - 2]
 			$("#petZip").val(zip)
 			$("#petSpecies").val(decodeURIComponent(animal))
 

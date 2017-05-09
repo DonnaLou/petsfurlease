@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   post 'profile/new' => 'profile#create'
   post 'profile/:id/edit' => 'profile#update'
 
-  get 'search/user/:zip' => 'searches#user'
-  get 'search/pet/:petZip/:petSpecies' => 'searches#pet'
+  get 'search/user(/:zip)' => 'searches#user'
+  get 'search/pet(/:petSpecies(/:petZip))' => 'searches#pet'
 
   post 'conversations/read/:id' => 'conversations#mark_read'
   post 'conversations/delete/:id' => 'conversations#delete'

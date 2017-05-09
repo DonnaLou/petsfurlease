@@ -14,14 +14,13 @@ class Pet < ActiveRecord::Base
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "wireframeImage.png"
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
   
-  def self.search(zip: '', species: '') 
-		query = Profile.search(zip: zip)
-    
-    query.inject([]) do |acc, profile|
-      pets = profile.pets
-      pets = profile.pets.where(species: species) unless species.blank?
-      acc.concat(pets)
-      acc
+  def self.search(zip: "", species: "") 
+    if !zip.empty? && !species.empty?
+      Pet.joins(:profile).where(profiles:{zip: zip}, species:species)
+    elsif !species.empty?
+      Pet.where(species:species)
+    else
+      Pet.all
     end
   end
 
@@ -50,6 +49,4 @@ class Pet < ActiveRecord::Base
       errors[:helpWanted] << "Help Dates are required."
     end
   end
-
-
 end

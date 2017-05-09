@@ -7,7 +7,7 @@
 	window.location = url;
 
 @petZipSearch = (x) ->
-	url = "/search/pet/" + $("#petZip").val() + "/" + $("#petSpecies").val();
+	url = "/search/pet/" + $("#petSpecies").val() + "/" + $("#petZip").val();
 	window.location = url;
 
 $(document).on "keydown", ".ui.action.input", (event) =>

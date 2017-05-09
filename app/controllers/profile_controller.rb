@@ -55,7 +55,12 @@ class ProfileController < ApplicationController
   end
 
   def search
-    @profiles = Profile.where(zip:params[:zip])
+    page_param = params[:page].blank? ? 1 : params[:page] 
+    if params[:zip].blank? || params[:zip].empty?
+      @profiles = Profile.page(page_param)
+    else
+      @profiles = Profile.where(zip:params[:zip]).page(page_param)
+    end
     render partial: "profileSearchList"
   end
 
