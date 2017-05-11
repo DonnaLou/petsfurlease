@@ -48,6 +48,6 @@
       </div>
     </div>
   <% end %>
-  <%= paginate @pets, window: 2 %>
+  <%= paginate @pets, params: {controller: 'searches', action: 'pet'}%>
 <% end %>
 

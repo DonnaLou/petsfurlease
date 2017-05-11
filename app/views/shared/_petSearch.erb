@@ -1,4 +1,4 @@
-<%= text_field_tag(:petZip, nil, placeholder: "Zip Code...") %>
+<%= text_field_tag(:petZip, @pet_zip_param, placeholder: "Zip Code...") %>
 <%= select_tag(
 	:petSpecies, 
 	'<option value="Dog">Dog</option>

@@ -8,7 +8,7 @@
     </div>
 
     <div class="ui bottom attached tab segment active" data-tab="findPet">
-      <%= form_tag("/pets/search", remote: true, method: "post", id:"petSearchForm") do %>
+      <%= form_tag("/search/pet", method: "post", id:"petSearchForm") do %>
         <div class="ui action input">
           <%= render "shared/petSearch" %>
           <button type="submit" class="ui icon button" id="petSearchFormBtn"><i class="search icon"></i></button>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="ui bottom attached tab segment" data-tab="findSitter">
-      <%= form_tag("/profile/search", remote: true, method: "post", id:"userSearchForm") do %>
+      <%= form_tag("/search/user",  method: "post", id:"userSearchForm") do %>
         <div class="ui action input">
           <%= render "shared/ownerSearch" %>
           <button type="submit" class="ui icon button"><i class="search icon"></i></button>

@@ -54,16 +54,6 @@ class ProfileController < ApplicationController
     end
   end
 
-  def search
-    page_param = params[:page].blank? ? 1 : params[:page] 
-    if params[:zip].blank? || params[:zip].empty?
-      @profiles = Profile.page(page_param)
-    else
-      @profiles = Profile.where(zip:params[:zip]).page(page_param)
-    end
-    render partial: "profileSearchList"
-  end
-
   private
     def profile_params
       params.require(:profile).permit(:user_id, :firstName, :lastName, 

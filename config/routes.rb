@@ -4,14 +4,12 @@ Rails.application.routes.draw do
   get 'home' => 'home#index'
   get 'search' => "searches#index"
   get 'profile/:id/pets' => 'profile#pets', as: :registered_pets
-
-  post 'pets/search' => 'pets#search'
-  post 'profile/search' => 'profile#search'
+  
   post 'profile/new' => 'profile#create'
   post 'profile/:id/edit' => 'profile#update'
 
-  get 'search/user(/:zip)' => 'searches#user'
-  get 'search/pet(/:petSpecies(/:petZip))' => 'searches#pet'
+  match 'search/user(/:zip)' => 'searches#user', via: [:get, :post]
+  match 'search/pet(/:petSpecies(/:petZip))' => 'searches#pet', via: [:get, :post]
 
   post 'conversations/read/:id' => 'conversations#mark_read'
   post 'conversations/delete/:id' => 'conversations#delete'

@@ -31,6 +31,6 @@
       </div>
     </div>
   <% end %>
-  <%= paginate @profiles, window: 2 %>
+  <%= paginate @profiles, params: {controller: 'searches', action: 'user'} %>
 <% end %>
 

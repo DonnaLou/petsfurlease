@@ -13,21 +13,22 @@ App.Searches =->
 			$("#zip").val(zip) if $.isNumeric(zip)
 		else if window.location.pathname.indexOf("pet") > -1
 			params = window.location.pathname.split("/")
-			zip = params[params.length - 1]
-			animal = params[params.length - 2]
-			$("#petZip").val(zip)
-			$("#petSpecies").val(decodeURIComponent(animal))
+			if params.length > 4
+				zip = params[params.length - 1]
+				animal = params[params.length - 2]
+				$("#petZip").val(zip)
+				$("#petSpecies").val(decodeURIComponent(animal))
 
 
-	initSearchForms: ->
-		$("#petSearchForm")
-		.on("ajax:success", (e, data, status, xhr) ->
-			$("#petSearchResults").html(xhr.responseText))
-		.on("ajax:error", (e, xhr, status, error) ->
-		  alert("Error: " + xhr.responseText))
-
-		$("#userSearchForm")
-		.on("ajax:success", (e, data, status, xhr) ->
-			$("#profileSearchResults").html(xhr.responseText))
-		.on("ajax:error", (e, xhr, status, error) ->
-		  alert("Error: " + xhr.responseText))
+#	initSearchForms: ->
+#		$("#petSearchForm")
+#		.on("ajax:success", (e, data, status, xhr) ->
+#			$("#petSearchResults").html(xhr.responseText))
+#		.on("ajax:error", (e, xhr, status, error) ->
+#		  alert("Error: " + xhr.responseText))
+#
+#		$("#userSearchForm")
+#		.on("ajax:success", (e, data, status, xhr) ->
+#			$("#profileSearchResults").html(xhr.responseText))
+#		.on("ajax:error", (e, xhr, status, error) ->
+#		  alert("Error: " + xhr.responseText))

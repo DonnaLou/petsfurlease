@@ -12,7 +12,6 @@ App.init =->
 	if $(".searches").length > 0
 		searches = new App.Searches
 		searches.initSearchTabs()
-		searches.initSearchForms()
 
 	#initialize datepicker
 	if $("#pet_helpStartDate").length > 0

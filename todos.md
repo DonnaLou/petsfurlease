@@ -11,7 +11,8 @@
 - Search: Add pagination of search results
 
 ## Bugs
-- Search Page: Pagination is broken 
+- Search Page: Pagination on user search defaults to pet tab 
+- Search Page: Search pet doesn't retain species values in search form
 
 ## Testing
 - Add automation tests

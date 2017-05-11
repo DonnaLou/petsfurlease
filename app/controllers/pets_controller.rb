@@ -52,14 +52,6 @@ class PetsController < ApplicationController
 		redirect_to :back
 	end
 
-	def search
-		page_param = params[:page].blank? ? 1 : params[:page] 
-		species_param = params[:petSpecies].blank? ? "" : params[:petSpecies]
-		zip_param = params[:petZip].blank? ? "" : params[:petZip]
-		@pets = Pet.search(zip: zip_param, species: species_param).page(page_param)
-		render partial:"petSearchList"
-	end
-
 	private
 	
 	def pet_params
