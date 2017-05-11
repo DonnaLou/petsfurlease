@@ -8,6 +8,8 @@ App.Searches =->
 			$.tab('change tab', 'findSitter')
 			$("#findSitterTab").addClass('active')
 			$("#findPetTab").removeClass('active')
+			$("#findSitterResult").addClass('active')
+			$("#findPetResult").removeClass('active')
 			params = window.location.pathname.split("/")
 			zip = params[params.length - 1]
 			$("#zip").val(zip) if $.isNumeric(zip)

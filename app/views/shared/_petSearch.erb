@@ -1,11 +1,15 @@
 <%= text_field_tag(:petZip, @pet_zip_param, placeholder: "Zip Code...") %>
+
 <%= select_tag(
 	:petSpecies, 
-	'<option value="Dog">Dog</option>
-	<option value="Cat">Cat</option>
-	<option value="Bird">Bird</option>
-	<option value="Small Rodent">Small Rodent</option>
-	<option value="Reptile">Reptile</option>
-	<option value="Other">Other</option>'.html_safe, 
+	options_for_select([
+		['Dog', 'Dog'], 
+		['Cat', 'Cat'], 
+		['Bird', 'Bird'], 
+		['Small Rodent', 'Small Rodent'], 
+		['Reptile', 'Reptile'],
+		['Other', 'Other']], 
+		selected: @pet_species_param ),
 	class: "ui compact selection dropdown", 
-	style: "padding: 0.5em !important;") %>
+	style: "padding: 0.5em !important;") 
+%>

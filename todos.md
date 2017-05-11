@@ -8,11 +8,8 @@
 - Messaging: Add bulk conversation deletes
 - Messaging: Add delete button on individual conversation page
 - Messaging: enable send button only when there are text in the body
-- Search: Add pagination of search results
 
 ## Bugs
-- Search Page: Pagination on user search defaults to pet tab 
-- Search Page: Search pet doesn't retain species values in search form
 
 ## Testing
 - Add automation tests

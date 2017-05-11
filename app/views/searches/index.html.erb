@@ -7,7 +7,7 @@
       <a class="item" data-tab="findSitter" id="findSitterTab">Find Sitters</a>
     </div>
 
-    <div class="ui bottom attached tab segment active" data-tab="findPet">
+    <div class="ui bottom attached tab segment active" data-tab="findPet" id="findPetResult">
       <%= form_tag("/search/pet", method: "post", id:"petSearchForm") do %>
         <div class="ui action input">
           <%= render "shared/petSearch" %>
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="ui bottom attached tab segment" data-tab="findSitter">
+    <div class="ui bottom attached tab segment" data-tab="findSitter" id="findSitterResult">
       <%= form_tag("/search/user",  method: "post", id:"userSearchForm") do %>
         <div class="ui action input">
           <%= render "shared/ownerSearch" %>
