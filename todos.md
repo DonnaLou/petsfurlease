@@ -10,6 +10,8 @@
 - Messaging: enable send button only when there are text in the body
 
 ## Bugs
+- Search Page: Message owner action on pet searches doesn't work
+- Login: Reset Password doesn't work
 
 ## Testing
 - Add automation tests
