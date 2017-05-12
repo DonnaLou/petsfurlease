@@ -11,16 +11,17 @@
 
         <div class="ui stacked segment">
           <div class="field">
-            <%= f.label :password, "New password" %><br />
-            <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-            <% end %>
-            <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <%= f.password_field :password, autofocus: true, autocomplete: "off", placeholder: "New Password (" + @minimum_password_length.to_s + " characters minimum)" %>
+            </div>
           </div>
 
           <div class="field">
-            <%= f.label :password_confirmation, "Confirm new password" %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation"%>
+            </div>
           </div>
 
           <%= f.submit "Change my password", :class => 'ui fluid large teal submit button' %>
