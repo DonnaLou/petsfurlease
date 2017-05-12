@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get 'faq' => 'faq#index'
   get 'home' => 'home#index'
+  get 'coming_soon' => 'home#coming_soon'
   get 'search' => "searches#index"
   get 'profile/:id/pets' => 'profile#pets', as: :registered_pets
   

@@ -9,12 +9,10 @@
 - Messaging: enable send button only when there are text in the body
 
 ## Bugs
-- Search Page: Message owner action on pet searches doesn't work
-- Login: Reset Password doesn't work
 
 ## Testing
 - Add automation tests
-- Check if users with really long bios description looks ok on the search page
+
 
 ## Description Text Related
 - Fill in relevant content in FAQ
@@ -22,8 +20,8 @@
 - Create content for Helpful Tips link in the footer
 - Popular cities link in footer should lead to search with zip code
 
+
 ## Top Priorties
-- Create coming soon page, link all Future Feature links to that
 - Add exception catching and logging on errors
 - Add user sign up confirmation email
 - Add Google Analytics
