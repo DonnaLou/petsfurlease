@@ -3,7 +3,7 @@
   <div class="ui vertical stripe middle ">
     <div class="column">
       <h2 class="ui teal header">
-        <div class="content">Change your password</div>
+        <div class="content">Pets fur Lease: Reset your password</div>
       </h2>
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "ui large form" }) do |f| %>
         <%= devise_error_messages! %>
@@ -20,11 +20,11 @@
           <div class="field">
             <div class="ui left icon input">
               <i class="lock icon"></i>
-              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation"%>
+              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "New Password Confirmation"%>
             </div>
           </div>
 
-          <%= f.submit "Change my password", :class => 'ui fluid large teal submit button' %>
+          <%= f.submit "Reset my password", :class => 'ui fluid large teal submit button' %>
         </div>
       <% end %>
 
