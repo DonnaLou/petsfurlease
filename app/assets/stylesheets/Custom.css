@@ -8,6 +8,15 @@ h4{
   font-family: Original Surfer !important;
 }
 
+.secondaryhead.segment{
+  height: 400px;
+  padding: 3em 0em;
+}
+.secondaryhead h1.ui.header {
+  margin-top: 5.3em;
+  font-size: 4em;
+}
+
 .masthead.segment {
   height: 600px;
   padding: 3em 0em;
@@ -15,7 +24,7 @@ h4{
 
 .masthead h1.ui.header {
   margin-top: 2em;
-  font-size: 5em;
+  font-size: 4em;
 }
   
 .masthead h2 {

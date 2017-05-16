@@ -10,6 +10,7 @@ namespace :populate_db do
   			pet.save!
   		end
   	end
+    puts "created 10 profiles with 10 pets each"
   end
 
 end
